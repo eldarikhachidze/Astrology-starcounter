@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+container {
+  max-width: 425px;
+  margin: 0;
+  padding: 10px 0;
+}
+h1, h2, h3, h4, h5, h6, p, a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn_radius {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #17384e;
+  border: none;
+}
+
+.divider {
+  width: 170px;
+  height: 2px;
+  background-color: #ff7010;
+  margin-bottom: 15px;
+}
