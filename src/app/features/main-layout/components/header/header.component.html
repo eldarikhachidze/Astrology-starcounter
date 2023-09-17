@@ -1,8 +1,43 @@
+<div class="sidebar " [@openClose]="isSidebarOpen ? 'open' : 'closed'">
+  <div class="d-flex flex-column flex-shrink-0 p-3">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link active" aria-current="page">
+          Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/articles" class="nav-link text-white">
+          Articles
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          Orders
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          Products
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          Customers
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+</div>
 <div class="container">
   <header>
     <a routerLink="/">
       <div class="logo">
-
       </div>
     </a>
     <div class="header">
@@ -17,9 +52,7 @@
           </button>
         </div>
         <div>
-          <button class="menu btn_radius">
-            <img src="" alt="">
-          </button>
+          <button  class="menu btn_radius" (click)="toggleSidebar()"><img src="" alt=""></button>
           <button class="search btn_radius">
             <img src="" alt="">
           </button>

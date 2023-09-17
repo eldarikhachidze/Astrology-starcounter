@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import {MainLayoutComponent} from "./main-layout.component";
 import { HeaderComponent } from './components/header/header.component';
 import {RouterLink, RouterOutlet} from "@angular/router";
-import {NzButtonModule} from "ng-zorro-antd/button";
 import { FooterComponent } from './components/footer/footer.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -17,8 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
     imports: [
         CommonModule,
         RouterOutlet,
-        NzButtonModule,
-        RouterLink
+        RouterLink,
+      BrowserAnimationsModule
     ],
   exports: [
     MainLayoutComponent

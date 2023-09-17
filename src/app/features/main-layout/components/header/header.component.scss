@@ -40,3 +40,28 @@
     }
   }
 }
+.sidebar {
+  background-color: #17384e;
+  width: 250px; /* Set your desired width */
+  height: 100%; /* Set your desired height */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f0f0f0; /* Set your desired background color */
+  z-index: 1000; /* Set an appropriate z-index value */
+  transition: transform 0.3s ease;
+}
+
+.sidebar-open {
+  transform: translateX(0);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+}
+.flex-column {
+  background-color: #17384e;
+  height: 100vh;
+}
+
+.sidebar-closed {
+  transform: translateX(-100%);
+}
