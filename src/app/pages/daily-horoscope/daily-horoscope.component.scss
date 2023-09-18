@@ -1,0 +1,32 @@
+.daily_horoscope {
+  background-color: #031a2a;
+  .title {
+    height: 177px;
+    padding: 36px 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    .go_back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 45px;
+      border-radius: 100px;
+      border: none;
+      background-color: rgb(255 255 255 / 10%);
+    }
+
+  }
+  .content {
+    padding: 80px 10px 30px;
+    background-color: #17384e;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+}
+

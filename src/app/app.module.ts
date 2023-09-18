@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MainLayoutModule} from "./features/main-layout/main-layout.module";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import {MainLayoutModule} from "./features/main-layout/main-layout.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainLayoutModule
+    MainLayoutModule,
+    CommonModule, // Add CommonModule here
+    FormsModule, // Add FormsModule here
   ],
   providers: [],
   bootstrap: [AppComponent]
