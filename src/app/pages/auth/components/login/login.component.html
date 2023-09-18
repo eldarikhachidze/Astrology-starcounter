@@ -1,4 +1,4 @@
-<div class="error-massage" *ngIf="form.get('firstname')?.invalid && form.get('firstname')?.touched">
+<div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
   <div class="error-divider"></div>
   <h4>Error: Username is required</h4>
 </div>
@@ -11,17 +11,28 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <h1 class="h3 mb-3 fw-normal">Login</h1>
     <div class="input-group input-group-lg">
-      <input type="text" placeholder="firstname" formControlName="firstname">
+      <label>PLease Enter Your Email Address</label>
+      <input class="login-input" type="text" formControlName="email">
     </div>
     <div class="input-group input-group-lg">
-      <input type="password" placeholder="firstname" formControlName="password">
+      <label>Password</label>
+      <input class="login-input" type="password" formControlName="password">
     </div>
-    <div>
-      <input type="checkbox" [value]="true" formControlName="active">
-      <label>
-        remember me
-      </label>
+    <div class="radio">
+      <div class="remember-me">
+        <input type="checkbox" [value]="true">
+        <label>
+          remember me
+        </label>
+      </div>
+      <div class="password-recover">
+        <a routerLink="">
+          <label>
+            Lost Your Password ?
+          </label>
+        </a>
+      </div>
     </div>
-    <button class="btn btn-primary w-100 py-2 sing_in" type="submit">Sign in</button>
+    <button class="btn btn-primary w-50 py-2 sing_in" type="submit">Sign in</button>
   </form>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -8,23 +9,20 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class LoginComponent {
   form: FormGroup = new FormGroup({
-    firstname: new FormControl('', Validators.required),
-    lastname: new FormControl('', Validators.required),
+    email:new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
-    userContactInfo: new FormGroup({
-      email:new FormControl('', [Validators.required, Validators.email]),
-      phone:new FormControl('', [
-        Validators.required,
-        Validators.minLength(9),
-        Validators.maxLength(12),
-        Validators.pattern('[0-9]+')
-      ]),
-    }),
   });
 
+  constructor(
+    private router:Router
+  ) {
+  }
 
   submit() {
+    this.form.markAllAsTouched();
+    if(this.form.invalid) return
     console.log(this.form.value)
+    this.router.navigate(['./'])
   }
 
 }

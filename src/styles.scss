@@ -7,7 +7,7 @@ container {
   margin: 0;
   padding: 10px 0;
 }
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p, a, label {
   color: #ffffff;
   text-decoration: none;
 }
@@ -27,7 +27,6 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 .detail_BG {
   background-color: #031a2a;
-
   .title {
     height: 177px;
     padding: 36px 0 50px;
