@@ -32,14 +32,6 @@
     </div>
   </div>
 </div>
-<!--<div class="error-massage" *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">-->
-<!--  <div class="error-divider"></div>-->
-<!--  <h4>Error: Phone is required</h4>-->
-<!--</div>-->
-<!--<div class="error-massage" *ngIf="f?.phone?.errors?.minLength">-->
-<!--  <div class="error-divider"></div>-->
-<!--  <h4>Error: Minlength 6 Symbol</h4>-->
-<!--</div>-->
 <div *ngIf="f?.phone?.touched && f?.phone?.invalid">
   <div class="error-massage" *ngIf="f?.phone?.errors?.required">
     <div class="error-divider"></div>

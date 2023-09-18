@@ -1,0 +1,58 @@
+<div class="detail_BG">
+  <div class="title container">
+    <h1>Contact</h1>
+    <button class="go_back" (click)="goBack()">
+      <svg xmlns="http://www.w3.org/2000/svg" color="white" width="50" height="50" fill="currentColor"
+           class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+<div class="contact">
+  <div class="contact-information">
+    <h1>Contact Information</h1>
+    <div class="divider"></div>
+    <div class="us">
+      <h3>Call Us</h3>
+      <h5>+ 995 599 70 73 92</h5>
+      <h5>+ 995 599 70 73 92</h5>
+    </div>
+    <div class="us">
+      <h3>Mail Us</h3>
+      <h5>xachidze.eldari@gmail.com</h5>
+      <h5>xachidze.eldari@gmail.com</h5>
+    </div>
+  </div>
+  <div class="content">
+    <div class="error-massage" *ngIf="form.get('fullName')?.invalid && form.get('fullName')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Full Name is required</h4>
+    </div>
+    <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Email is required</h4>
+    </div>
+    <div class="error-massage" *ngIf="form.get('textArea')?.invalid && form.get('textArea')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Text Area is required</h4>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <h1 class="h3 mb-3 fw-normal">Have A Question?</h1>
+      <div class="input-group input-group-lg">
+        <label>Full Name</label>
+        <input class="login-input" type="text" formControlName="fullName">
+      </div>
+      <div class="input-group input-group-lg">
+        <label>Email</label>
+        <input class="login-input" type="email" formControlName="email">
+      </div>
+      <div class="input-group input-group-lg">
+        <label>Message</label>
+        <textarea class="login-input textArea" formControlName="textArea"></textarea>
+      </div>
+      <button class="btn btn-primary w-50 py-2 sing_in" type="submit">Sign in</button>
+    </form>
+  </div>
+</div>

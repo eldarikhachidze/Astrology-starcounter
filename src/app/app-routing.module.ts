@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path:'daily-horoscope',
         loadChildren: () => import('./pages/daily-horoscope/daily-horoscope.module').then(m => m.DailyHoroscopeModule)
+      },
+      {
+        path:'contact',
+        loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule)
       }
     ]
   }

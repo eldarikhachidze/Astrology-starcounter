@@ -1,0 +1,26 @@
+.contact {
+  background-color: #07273c;
+  padding: 80px 10px 30px;
+  .contact-information {
+    margin-bottom: 25px;
+    .divider {
+      margin:20px 0 50px;
+    }
+    .us {
+      h3 {
+        font-family: 'Philosopher', sans-serif;
+        color: #ff7010;
+        font-size: 16px;
+        margin: 0 0 7px 0;
+      }
+      h5 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.textArea {
+  min-height: 150px;
+}

@@ -7,10 +7,12 @@ container {
   margin: 0;
   padding: 10px 0;
 }
+
 h1, h2, h3, h4, h5, h6, p, a, label {
   color: #ffffff;
   text-decoration: none;
 }
+
 .btn_radius {
   width: 40px;
   height: 40px;
@@ -25,8 +27,10 @@ h1, h2, h3, h4, h5, h6, p, a, label {
   background-color: #ff7010;
   margin-bottom: 15px;
 }
+
 .detail_BG {
   background-color: #031a2a;
+
   .title {
     height: 177px;
     padding: 36px 0 50px;
@@ -50,9 +54,65 @@ h1, h2, h3, h4, h5, h6, p, a, label {
   }
 }
 
+.content {
+  padding: 21px 30px 30px;
+  margin: 0 0 45px;
+  text-align: left;
+  border-radius: 0;
+  background-color: #17384e;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  .login-input {
+    width: 345px;
+    padding: 10px;
+    border: none;
+    background: #10334a;
+    color: #FFFFFF;
+    outline: none;
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+  }
+
+  .sing_in {
+    min-width: 170px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #ff7010 !important;
+    min-height: 50px;
+    border: none;
+    border-radius: 0 !important;
+    line-height: 50px;
+    padding: 0 20px;
+    text-align: center;
+    overflow: hidden;
+    text-transform: uppercase;
+  }
+}
+
+.error-divider {
+  display: flex;
+  width: 2px;
+  background-color: #ff7010;
+  height: 50px;
+}
+
+.error-massage {
+  height: 50px;
+  gap: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 40px 0;
+}
+
 .input-group {
   margin-bottom: 15px;
-  .form-control{
+
+  .form-control {
     color: #ffffff;
     background-color: #17384e;
     border: none;
