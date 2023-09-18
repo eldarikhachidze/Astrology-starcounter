@@ -25,3 +25,38 @@ h1, h2, h3, h4, h5, h6, p, a {
   background-color: #ff7010;
   margin-bottom: 15px;
 }
+.detail_BG {
+  background-color: #031a2a;
+
+  .title {
+    height: 177px;
+    padding: 36px 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+
+    .go_back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 45px;
+      border-radius: 100px;
+      border: none;
+      background-color: rgb(255 255 255 / 10%);
+    }
+
+  }
+}
+
+.input-group {
+  margin-bottom: 15px;
+  .form-control{
+    color: #ffffff;
+    background-color: #17384e;
+    border: none;
+    border-radius: 0;
+  }
+}

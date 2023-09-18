@@ -1,0 +1,20 @@
+.content {
+  padding: 21px 30px 30px;
+  margin: 0 0 45px;
+  text-align: left;
+  border-radius: 0;
+  background-color: #17384e;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  .form-control {
+    width: 100%;
+    color: #e5f0f5;
+    border: 1px solid rgb(255 255 255 / 8%);
+    background: #10334a;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 0;
+  }
+}
