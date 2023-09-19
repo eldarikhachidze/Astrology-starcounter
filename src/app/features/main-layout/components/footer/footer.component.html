@@ -5,10 +5,15 @@
         <h1>Our Newsletter</h1>
         <div class="divider"></div>
         <h4>Get Your Daily Horoscope, Daily Lovescope and Daily Tarot Directly In Your Inbox</h4>
-        <div class="input-group input-group-lg">
-          <input type="email" class="form-control" aria-label="Sizing example input" placeholder="Enter Your Email Here" aria-describedby="inputGroup-sizing-lg">
-        </div>
-        <button class="btn">
+        <form [formGroup]="form" (ngSubmit)="submit()" class="content login-input">
+          <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+            <div class="error-divider"></div>
+            <h4>Error: Email is required</h4>
+          </div>
+          <label>Enter Your Email Here</label>
+          <input class="login-input" type="email" formControlName="email">
+        </form>
+        <button class="btn" type="submit">
           subscribe now
         </button>
       </div>

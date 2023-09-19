@@ -1,49 +1,49 @@
-<div class="error-massage" *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
-  <div class="error-divider"></div>
-  <h4>Error: First Name is required</h4>
-</div>
-<div class="error-massage" *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
-  <div class="error-divider"></div>
-  <h4>Error: Last Name is required</h4>
-</div>
-<div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-  <div class="error-divider"></div>
-  <h4>Error: Email is required</h4>
-</div>
-<div *ngIf="f?.password?.touched && f?.password?.invalid">
-  <div class="error-massage" *ngIf="f?.password?.errors?.required">
-    <div class="error-divider"></div>
-    <h4>Error: Password Is Required</h4>
-    </div>
-  <div class="error-massage" *ngIf="f?.password?.errors?.minLength">
-    <div class="error-divider"></div>
-    <h4>Error: Minlength 6 Symbol</h4>
-  </div>
-</div>
-<div *ngIf="f?.confirmPassword?.touched && f?.confirmPassword?.invalid">
-  <div class="error-massage" *ngIf="f?.confirmPassword?.errors?.required">
-    <div class="error-divider"></div>
-    <h4>Error: Confirm Password is required</h4>
-  </div>
-  <div *ngIf="f?.password?.errors?.['confirmedValidator']">
-    <div  class="error-massage"  *ngIf="f?.password?.errors?.required">
-      <div class="error-divider"></div>
-      <h4>Error: Password and Confirm Password must be match.</h4>
-    </div>
-  </div>
-</div>
-<div *ngIf="f?.phone?.touched && f?.phone?.invalid">
-  <div class="error-massage" *ngIf="f?.phone?.errors?.required">
-    <div class="error-divider"></div>
-    <h4>Error: Phone is required</h4>
-  </div>
-  <div class="error-massage" *ngIf="f?.phone?.errors?.minLength">
-    <div class="error-divider"></div>
-    <h4>Error: Minlength 6 Symbol</h4>
-  </div>
-</div>
 <div class="content">
   <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="error-massage" *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: First Name is required</h4>
+    </div>
+    <div class="error-massage" *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Last Name is required</h4>
+    </div>
+    <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Email is required</h4>
+    </div>
+    <div *ngIf="f?.password?.touched && f?.password?.invalid">
+      <div class="error-massage" *ngIf="f?.password?.errors?.required">
+        <div class="error-divider"></div>
+        <h4>Error: Password Is Required</h4>
+      </div>
+      <div class="error-massage" *ngIf="f?.password?.errors?.minLength">
+        <div class="error-divider"></div>
+        <h4>Error: Minlength 6 Symbol</h4>
+      </div>
+    </div>
+    <div *ngIf="f?.confirmPassword?.touched && f?.confirmPassword?.invalid">
+      <div class="error-massage" *ngIf="f?.confirmPassword?.errors?.required">
+        <div class="error-divider"></div>
+        <h4>Error: Confirm Password is required</h4>
+      </div>
+      <div *ngIf="f?.password?.errors?.['confirmedValidator']">
+        <div class="error-massage" *ngIf="f?.password?.errors?.required">
+          <div class="error-divider"></div>
+          <h4>Error: Password and Confirm Password must be match.</h4>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="f?.phone?.touched && f?.phone?.invalid">
+      <div class="error-massage" *ngIf="f?.phone?.errors?.required">
+        <div class="error-divider"></div>
+        <h4>Error: Phone is required</h4>
+      </div>
+      <div class="error-massage" *ngIf="f?.phone?.errors?.minLength">
+        <div class="error-divider"></div>
+        <h4>Error: Minlength 6 Symbol</h4>
+      </div>
+    </div>
     <h1 class="h3 mb-3 fw-normal">Register</h1>
     <div class="input-group input-group-lg">
       <label>First Name</label>

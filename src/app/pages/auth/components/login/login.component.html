@@ -1,14 +1,13 @@
-<div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-  <div class="error-divider"></div>
-  <h4>Error: Username is required</h4>
-</div>
-<div class="error-massage" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
-  <div class="error-divider"></div>
-  <h4>Error: Password is required</h4>
-</div>
-
 <div class="content">
   <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Username is required</h4>
+    </div>
+    <div class="error-massage" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+      <div class="error-divider"></div>
+      <h4>Error: Password is required</h4>
+    </div>
     <h1 class="h3 mb-3 fw-normal">Login</h1>
     <div class="input-group input-group-lg">
       <label>PLease Enter Your Email Address</label>
