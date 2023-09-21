@@ -36,12 +36,22 @@
         .search {
           margin-left: 10px;
         }
+        div {
+          span {
+            width: 15px;
+            height: 2px;
+            background: #ffffff;
+            display: block;
+            position: relative;
+            margin-top: 3px;
+            transition: all 0.3s ease-in-out;
+          }
+        }
       }
     }
   }
 }
 .sidebar {
-  background-color: #17384e;
   width: 250px; /* Set your desired width */
   height: 100%; /* Set your desired height */
   position: fixed;
