@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path:'contact',
         loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule)
+      },
+      {
+        path:'events',
+        loadChildren: () => import('./pages/events/events.module').then(m => m.EventsModule)
       }
     ]
   }
