@@ -7,13 +7,16 @@ import {EventModule} from "../../features/event/event.module";
 
 
 @NgModule({
-  declarations: [
-    EventsComponent
-  ],
-  imports: [
-    CommonModule,
-    EventsRoutingModule,
-    EventModule
-  ]
+    declarations: [
+        EventsComponent
+    ],
+    exports: [
+        EventsComponent
+    ],
+    imports: [
+        CommonModule,
+        EventsRoutingModule,
+        EventModule
+    ]
 })
 export class EventsModule { }

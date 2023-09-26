@@ -9,5 +9,7 @@
   </div>
 </div>
 <div class="event-content">
-  <app-event></app-event>
+  <div *ngFor="let event of events | slice: -4">
+    {{ event.name }} - {{ event.date | date: 'shortDate' }}
+  </div>
 </div>
