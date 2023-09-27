@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
+import {Event} from "../interface/event";
 
-@Component({
-  selector: 'app-event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class EventComponent {
-  events = [
+export class EventService {
+  events: Event[] = [
     {
       name: 'კარმული ასტროლოგია',
       price: '$100',
@@ -52,4 +51,9 @@ export class EventComponent {
     // ... other events ...
   ];
 
+  constructor() { }
+
+  getEvents() {
+    return this.events;
+  }
 }

@@ -7,13 +7,16 @@ import {WeeklyModule} from "../../features/weekly/weekly.module";
 
 
 @NgModule({
-  declarations: [
-    DailyHoroscopeComponent
-  ],
-  imports: [
-    CommonModule,
-    DailyHoroscopeRoutingModule,
-    WeeklyModule
-  ]
+    declarations: [
+        DailyHoroscopeComponent
+    ],
+    exports: [
+        DailyHoroscopeComponent
+    ],
+    imports: [
+        CommonModule,
+        DailyHoroscopeRoutingModule,
+        WeeklyModule
+    ]
 })
 export class DailyHoroscopeModule { }

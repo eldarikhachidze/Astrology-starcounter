@@ -8,17 +8,13 @@
       </button>
   </div>
   <div class="daily-content container">
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
-  <app-weekly></app-weekly>
+    <div class="weekly-box" *ngFor="let weekly of weeklies">
+      <div [ngStyle]="{
+  'background-image': 'url(https://tse2.mm.bing.net/th?id=OIP.1pIa5oCDnltbnkoJM2RqNwHaH_&pid=Api&P=0&h=180)'
+  }" class="weekly-img"
+      >
+      </div>
+      <h3>{{weekly.name}}</h3>
+    </div>
   </div>
 </div>
