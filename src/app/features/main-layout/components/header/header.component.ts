@@ -24,6 +24,8 @@ import {NavigationStart, Router} from "@angular/router";
 
 export class HeaderComponent {
   isSidebarOpen = false;
+  isScrolled = false;
+
 
   constructor(
     private router: Router
@@ -46,6 +48,12 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any) {
     this.closeSidebar();
+    let scrollPosition = window.pageYOffset;
+    if (scrollPosition > 0) { // Adjust 50 to the number of pixels at which you want the change to occur
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
   }
 
   toggleSidebar(event: Event) {
