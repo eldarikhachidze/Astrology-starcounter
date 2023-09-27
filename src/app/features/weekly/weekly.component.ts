@@ -6,17 +6,8 @@ import {WeeklyService} from "../../core/services/weekly.service";
   templateUrl: './weekly.component.html',
   styleUrls: ['./weekly.component.scss']
 })
-export class WeeklyComponent implements OnInit {
+export class WeeklyComponent {
 
-  weeklies: { name: string; }[] = [];
 
-  constructor(
-    private weeklyService: WeeklyService
-  ) {
-  }
-
-  ngOnInit() {
-    this.weeklies = this.weeklyService.getWeeklies();
-  }
 
 }

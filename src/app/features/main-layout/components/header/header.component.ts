@@ -1,8 +1,8 @@
 import {Component, HostListener} from '@angular/core';
-import {NzButtonSize} from "ng-zorro-antd/button";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {NavigationStart, Router} from "@angular/router";
 
-@HostListener('document:click', ['$event'])
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -21,21 +21,47 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
+
 export class HeaderComponent {
   isSidebarOpen = false;
 
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
+  constructor(
+    private router: Router
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.closeSidebar();
+      }
+    });
   }
-  closeSidebar() {
-    this.isSidebarOpen = false;
-  }
 
+  @HostListener('document:click', ['$event'])
   onClick(event: Event) {
-    // Check if the click event occurred outside the sidebar
+    // Check if the sidebar is open and the click occurred outside the sidebar
     if (this.isSidebarOpen && !(event.target as HTMLElement).closest('.sidebar')) {
       this.closeSidebar();
     }
   }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event: any) {
+    this.closeSidebar();
+  }
+
+  toggleSidebar(event: Event) {
+    event.stopPropagation();  // This prevents the click event from being propagated to the document
+
+    this.isSidebarOpen = !this.isSidebarOpen;
+    const menuButton = document.querySelector('.sidebar');
+    if (this.isSidebarOpen) {
+      menuButton?.classList.add('isSidebarOpen');
+    } else {
+      menuButton?.classList.remove('isSidebarOpen');
+    }
+  }
+
+  closeSidebar() {
+    this.isSidebarOpen = false;
+  }
+
 }

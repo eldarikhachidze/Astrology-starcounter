@@ -18,11 +18,16 @@ li {
   list-style: none;
 }
 .btn_radius {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: #17384e;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
 }
 
 .divider {

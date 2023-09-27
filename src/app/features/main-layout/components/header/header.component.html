@@ -21,7 +21,7 @@
         </a>
       </li>
       <li>
-        <a href="/events" class="nav-link text-white">
+        <a routerLink="/events" class="nav-link text-white">
           Events
         </a>
       </li>
@@ -46,7 +46,7 @@
         <h4>Support@gmail.com</h4>
       </div>
       <div class="header_bottom">
-        <div>
+        <div class="btn_menu">
           <button routerLink="/auth/login" class="btn_radius">
             <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i>
           </button>
@@ -54,11 +54,11 @@
             <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i>
           </button>
         </div>
-        <div>
-          <button  class="menu btn_radius" (click)="toggleSidebar()">
-              <span></span>
-              <span></span>
-              <span></span>
+        <div class="btn_menu">
+          <button class="menu btn_radius" (click)="toggleSidebar($event)" [ngClass]="{'isSidebarOpen': isSidebarOpen}">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
           </button>
           <button class="search btn_radius">
             <img src="" alt="">
