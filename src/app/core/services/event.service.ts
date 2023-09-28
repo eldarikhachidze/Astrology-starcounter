@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Event} from "../interface/event";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +54,7 @@ export class EventService {
 
   constructor() { }
 
-  getEvents() {
-    return this.events;
+  getEvents(): Observable<Event[]> {
+    return of(this.events);
   }
 }
