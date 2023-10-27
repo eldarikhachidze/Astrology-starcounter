@@ -46,14 +46,21 @@
         <h4>Support@gmail.com</h4>
       </div>
       <div class="header_bottom">
-        <div class="btn_menu">
-          <button routerLink="/auth/login" class="btn_radius">
-            <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i>
+        <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
+          <button (click)="signOut()" class="btn_radius">
+            <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;">L</i>
           </button>
-          <button routerLink="/auth/register" class="btn_radius">
-            <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i>
-          </button>
-        </div>
+        </ng-container>
+        <ng-template #notAuthenticated>
+          <div class="btn_menu">
+            <button routerLink="/auth/login" class="btn_radius">
+              <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;">S</i>
+            </button>
+            <button routerLink="/auth/register" class="btn_radius">
+              <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;">R</i>
+            </button>
+          </div>
+        </ng-template>
         <div class="btn_menu">
           <button
             class="menu btn_radius"

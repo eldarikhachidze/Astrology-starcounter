@@ -1,6 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {NavigationStart, Router} from "@angular/router";
+import {AuthService} from "../../../../core/services/auth.service";
 
 
 @Component({
@@ -23,11 +24,20 @@ import {NavigationStart, Router} from "@angular/router";
 })
 
 export class HeaderComponent {
+
   isSidebarOpen = false;
   isScrolled = false;
 
+  get userIsAuthenticated() {
+    return  this.authService.token
+  }
+
+  get user() {
+    return  this.authService.user
+  }
 
   constructor(
+    private authService: AuthService,
     private router: Router
   ) {
     this.router.events.subscribe(event => {
@@ -72,4 +82,7 @@ export class HeaderComponent {
     this.isSidebarOpen = false;
   }
 
+  signOut() {
+    this.authService.signOut()
+  }
 }

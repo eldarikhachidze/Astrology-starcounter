@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
+import {Component} from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  Validators
+} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthService} from "../../../../core/services/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -8,25 +13,30 @@ import {Router} from "@angular/router";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  form: UntypedFormGroup = new UntypedFormGroup({
-    firstName: new UntypedFormControl('', Validators.required),
-    lastName: new UntypedFormControl('', Validators.required),
-    email: new UntypedFormControl('', [Validators.required, Validators.email]),
-    password: new UntypedFormControl(null, [Validators.required, Validators.minLength(6)]),
-    confirmPassword: new UntypedFormControl(null, Validators.required),
-    phone: new UntypedFormControl(null, [Validators.required, Validators.minLength(9)]),
+  form: FormGroup = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl(null, Validators.required),
+    birthDate: new FormControl('', Validators.required),
+    timeOfBirth: new FormControl('', Validators.required),
+    country: new FormControl('', Validators.required),
+    city: new FormControl('', Validators.required),
+    // phone: new FormControl(null, [Validators.required, Validators.minLength(9)]),
   }, {validators: this.ConfirmedValidator('password', 'confirmPassword')})
   constructor(
-    private router:Router
+    private router:Router,
+    private authService: AuthService
   ) {
   }
   get f():any {
     return this.form.controls;
   }
-  ConfirmedValidator(controlName: string, matchingControlName: string): any {
-    return (formGroup: UntypedFormGroup) => {
-      const control = formGroup.controls[controlName];
-      const matchingControl = formGroup.controls[matchingControlName];
+  ConfirmedValidator(password: string, confirmPassword: string): any {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[password];
+      const matchingControl = formGroup.controls[confirmPassword];
       if (matchingControl.errors && !matchingControl.errors['confirmedValidator']) {
         return;
       }
@@ -41,8 +51,12 @@ export class RegisterComponent {
   submit() {
     this.form.markAllAsTouched();
     if(this.form.invalid) return
+
     console.log(this.form.value)
-    this.router.navigate(['./'])
+
+    this.authService.register(this.form.value).subscribe(res => {
+      this.router.navigate(['/aut/login'])
+    })
   }
 
 }
