@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-recovery',
+  templateUrl: './recovery.component.html',
+  styleUrls: ['./recovery.component.scss']
 })
-export class LoginComponent {
+export class RecoveryComponent {
+
   form: FormGroup = new FormGroup({
     email:new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
   });
 
   constructor(
-    private router:Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
   }
+
 
   submit() {
     this.form.markAllAsTouched();
@@ -26,10 +27,13 @@ export class LoginComponent {
 
     console.log(this.form.value)
 
-    this.authService.login(this.form.value).subscribe(res => {
+    this.authService.recovery(this.form.value).subscribe(res => {
       console.log(res)
     })
+
+    // this.authService.login(this.form.value).subscribe(res => {
+    //   console.log(res)
+    // })
     this.router.navigate(['./'])
   }
-
 }

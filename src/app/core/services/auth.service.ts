@@ -31,6 +31,10 @@ export class AuthService extends BaseService {
     return this.post<User>('auth/register', payload)
   }
 
+  recovery(email: string ): Observable<string> {
+    return this.post<string>('auth/recovery', email)
+  }
+
   setToken(token:string) {
     localStorage.setItem('token', token)
   }
