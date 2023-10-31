@@ -55,7 +55,7 @@ export class RegisterComponent {
     console.log(this.form.value)
 
     this.authService.register(this.form.value).subscribe(res => {
-      this.router.navigate(['/aut/login'])
+      this.router.navigate(['/auth/login'])
     })
   }
 

@@ -31,9 +31,6 @@ export class RecoveryComponent {
       console.log(res)
     })
 
-    // this.authService.login(this.form.value).subscribe(res => {
-    //   console.log(res)
-    // })
     this.router.navigate(['./'])
   }
 }
