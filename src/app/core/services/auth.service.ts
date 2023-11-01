@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
 import {BaseService} from "./base.service";
 import {Login, LoginResponse, Register} from "../interface/auth";
-import {Observable, tap} from "rxjs";
+import {BehaviorSubject, Observable, tap} from "rxjs";
 import {User} from "../interface/user";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends BaseService {
+
+  private viewMode = new BehaviorSubject<string>('add'); // default value is 'add'
+  currentViewMode = this.viewMode.asObservable();
+
+  changeViewMode(mode: string) {
+    this.viewMode.next(mode);
+  }
+  update(id: number, userData: any): Observable<any> {
+    return this.put(`/users/update/${id}`, userData);
+  }
+
+  getUser(userId: number): Observable<any> {
+    return this.get('/users/me');
+  }
 
   get token(): string | null {
     return localStorage.getItem('token')

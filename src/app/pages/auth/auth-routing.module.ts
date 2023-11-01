@@ -4,6 +4,7 @@ import {AuthComponent} from "./auth.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {RecoveryComponent} from "./components/recovery/recovery.component";
+import {MyProfileComponent} from "./components/my-profile/my-profile.component";
 
 const routes: Routes = [
   {
@@ -23,9 +24,18 @@ const routes: Routes = [
         path:'register',
         component: RegisterComponent
       },
+
+      {
+        path:'profile',
+        component: RegisterComponent
+      },
       {
         path:'recovery',
         component: RecoveryComponent
+      },
+      {
+        path:'my-profile',
+        component: MyProfileComponent
       }
     ]
   }

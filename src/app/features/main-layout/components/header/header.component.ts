@@ -77,7 +77,13 @@ export class HeaderComponent {
       menuButton?.classList.remove('isSidebarOpen');
     }
   }
+  loadProfileView() {
+    this.authService.changeViewMode('profile');
+  }
 
+  loadAddView() {
+    this.authService.changeViewMode('add');
+  }
   closeSidebar() {
     this.isSidebarOpen = false;
   }
