@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import {EventModule} from "../../features/event/event.module";
 import {EventsModule} from "../events/events.module";
 import {DailyHoroscopeModule} from "../daily-horoscope/daily-horoscope.module";
+import {BlogsModule} from "../blogs/blogs.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {DailyHoroscopeModule} from "../daily-horoscope/daily-horoscope.module";
         HomeRoutingModule,
         EventModule,
         EventsModule,
-        DailyHoroscopeModule
+        DailyHoroscopeModule,
+        BlogsModule
     ]
 })
 export class HomeModule { }

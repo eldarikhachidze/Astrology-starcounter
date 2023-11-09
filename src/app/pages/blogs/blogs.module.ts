@@ -11,6 +11,9 @@ import { DetailComponent } from './detail/detail.component';
     BlogsComponent,
     DetailComponent
   ],
+  exports: [
+    BlogsComponent
+  ],
   imports: [
     CommonModule,
     BlogsRoutingModule
