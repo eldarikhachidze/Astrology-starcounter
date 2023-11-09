@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
       },
       {
-        path:'articles',
-        loadChildren: () => import('./pages/articles/articles.module').then(m => m.ArticlesModule)
+        path:'blogs',
+        loadChildren: () => import('./pages/blogs/blogs.module').then(m => m.BlogsModule)
       },
       {
         path:'daily-horoscope',
