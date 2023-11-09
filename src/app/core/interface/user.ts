@@ -2,7 +2,7 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   deletedAt?: any;
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   birthDate: string;

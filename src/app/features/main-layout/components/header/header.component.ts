@@ -2,6 +2,7 @@ import {Component, HostListener} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {NavigationStart, Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
+import {User} from "../../../../core/interface/user";
 
 
 @Component({
@@ -45,6 +46,10 @@ export class HeaderComponent {
         this.closeSidebar();
       }
     });
+  }
+
+  get userId(): string | undefined {
+    return this.authService.user?.id;
   }
 
   @HostListener('document:click', ['$event'])

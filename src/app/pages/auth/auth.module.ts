@@ -6,6 +6,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { RecoveryComponent } from './components/recovery/recovery.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RecoveryComponent } from './components/recovery/recovery.component';
     AuthComponent,
     LoginComponent,
     RegisterComponent,
-    RecoveryComponent
+    RecoveryComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

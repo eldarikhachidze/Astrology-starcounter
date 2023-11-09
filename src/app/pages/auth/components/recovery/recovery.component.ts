@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../core/services/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-recovery',
   templateUrl: './recovery.component.html',
   styleUrls: ['./recovery.component.scss']
 })
-export class RecoveryComponent {
+export class RecoveryComponent implements OnInit{
 
   form: FormGroup = new FormGroup({
     email:new FormControl('', [Validators.required, Validators.email]),
@@ -16,9 +16,16 @@ export class RecoveryComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
   }
+
+  ngOnInit(): void {
+    const token = this.route.snapshot.queryParams['token']
+    console.log(token)
+  }
+
 
 
   submit() {
@@ -33,4 +40,6 @@ export class RecoveryComponent {
 
     this.router.navigate(['./'])
   }
+
+
 }
