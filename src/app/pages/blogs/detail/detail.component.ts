@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {of, switchMap} from "rxjs";
 import {BlogService} from "../../../core/services/blog.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Blog} from "../../../core/interface/blog";
 
 @Component({
   selector: 'app-detail',
@@ -18,27 +19,33 @@ export class DetailComponent implements OnInit {
     files: new FormControl('', Validators.required),
   })
 
+  item?: Blog
+
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private router: Router
   ) {
   }
   ngOnInit(): void {
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
-          return this.blogService.getOne(params['id'])
+          return this.blogService.getOne(params['id']);
         }
-        return of(null)
+        return of(null);
       })
     ).subscribe(res => {
       if (res) {
-        this.form.patchValue({
-          ...res
-        })
+        this.item = res; // Update item here
+        this.form.patchValue({ ...res });
       }
-    })
+    });
+  }
+
+  goBack(): void {
+    this.router.navigate(['./']);
   }
 
 

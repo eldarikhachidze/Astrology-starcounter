@@ -8,9 +8,10 @@ import {Blog, PaginatedResponse} from "../interface/blog";
 })
 export class BlogService extends BaseService {
 
-  etAllBlogs(): Observable<PaginatedResponse> {
+  getAllBlogs(): Observable<PaginatedResponse> {
     return this.get<PaginatedResponse>('blog/get-all-blogs');
   }
+
 
   getOne(id: string): Observable<Blog> {
     return this.get(`blog/get-blog/${id}`)

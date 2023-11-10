@@ -27,7 +27,7 @@ export class BlogsComponent implements OnInit, OnDestroy{
   }
 
   getAllBlogs() {
-    this.blogService.etAllBlogs()
+    this.blogService.getAllBlogs()
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
         this.blogs = response.data.slice(-2)
