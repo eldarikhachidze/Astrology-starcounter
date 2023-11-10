@@ -39,8 +39,20 @@
       </button>
     </div>
   </div>
-  <div>
-    <app-blogs></app-blogs>
+  <div class="blog-content">
+    <div class="blog-box" *ngFor="let item of blogs">
+      <a [routerLink]="['/blogs/detail', item.id]">
+        <img [src]="" [alt]="item.title" class="blog-img"
+        >
+        <div class="text">
+          <div class="title">
+            <h2>
+              {{item.title}}
+            </h2>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
   <div class="events">
     <div class="event-box" *ngFor="let event of events">

@@ -30,7 +30,7 @@ export class BlogsComponent implements OnInit, OnDestroy{
     this.blogService.getAllBlogs()
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
-        this.blogs = response.data.slice(-2)
+        this.blogs = response.data
         console.log(response.data)
       })
   }

@@ -1,6 +1,9 @@
-import {AfterViewInit, Component, OnInit, } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit,} from '@angular/core';
 import {WeeklyService} from "../../core/services/weekly.service";
 import {EventService} from "../../core/services/event.service";
+import {Blog} from "../../core/interface/blog";
+import {BlogService} from "../../core/services/blog.service";
+import {Subject, Subscription} from "rxjs";
 
 declare var bootstrap: any; // Bootstrap's JS is declared here
 @Component({
@@ -8,13 +11,17 @@ declare var bootstrap: any; // Bootstrap's JS is declared here
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private carousel: any;
+  blogs: Blog[] = []
   weeklies: { name: string; }[] = [];
   events: any[] = [];
+  subscription?: Subscription;
 
+  sub$ = new Subject()
 
   constructor(
+    private blogService: BlogService,
     private weeklyService: WeeklyService,
     private eventService: EventService,
   ) {
@@ -29,9 +36,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
   ngOnInit() {
+    this.getLatestTwo()
     this.weeklies = this.weeklyService.getWeeklies();
     const allEvents = this.eventService.getEvents();
-    this.events = allEvents.slice(-2);
+    this.events = allEvents.slice(Math.max(allEvents.length - 2, 0));
+  }
+
+  getLatestTwo() {
+    this.subscription = this.blogService.getAllBlogs()
+      .subscribe(blogs => {
+        this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+      });
   }
 
   previousSlide() {
@@ -40,5 +55,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   nextSlide() {
     this.carousel.next();
+  }
+
+  ngOnDestroy() {
+    this.sub$.next(this.sub$)
+    this.sub$.complete()
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {of, switchMap} from "rxjs";
 import {BlogService} from "../../../core/services/blog.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
