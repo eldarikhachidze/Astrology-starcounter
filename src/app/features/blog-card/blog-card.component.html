@@ -1,0 +1,10 @@
+<div *ngIf="blog" class="blog-box">
+  <a [routerLink]="['/blogs/detail', blog.id]">
+    <img class="blog-img" [src]="'http://localhost:3000/' + blog.files" [alt]="blog.title">
+    <div class="title">
+      <h2>
+        {{blog.title}}
+      </h2>
+    </div>
+  </a>
+</div>

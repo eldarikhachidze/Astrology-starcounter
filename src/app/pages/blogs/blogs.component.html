@@ -9,17 +9,6 @@
   </div>
 </div>
 <div class="blog-content">
-    <div class="blog-box" *ngFor="let item of blogs">
-      <a [routerLink]="['/blogs/detail', item.id]">
-        <img class="blog-img" [src]="'http://localhost:3000/' + item.files" [alt]="item.title">
-      <div class="text">
-        <div class="title">
-          <h2>
-            {{item.title}}
-          </h2>
-        </div>
-      </div>
-      </a>
-    </div>
+  <app-blog-card  *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
 </div>
 
