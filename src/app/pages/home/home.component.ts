@@ -3,7 +3,7 @@ import {WeeklyService} from "../../core/services/weekly.service";
 import {EventService} from "../../core/services/event.service";
 import {Blog} from "../../core/interface/blog";
 import {BlogService} from "../../core/services/blog.service";
-import {Subject, Subscription} from "rxjs";
+import {interval, Subject, Subscription} from "rxjs";
 
 declare var bootstrap: any; // Bootstrap's JS is declared here
 @Component({
@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
   ngOnInit() {
+    setInterval(() => {
+      this.nextSlide()
+    }, 3000)
     this.getLatestTwo()
     this.weeklies = this.weeklyService.getWeeklies();
     const allEvents = this.eventService.getEvents();
