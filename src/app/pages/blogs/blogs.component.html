@@ -9,11 +9,9 @@
   </div>
 </div>
 <div class="blog-content">
-
     <div class="blog-box" *ngFor="let item of blogs">
       <a [routerLink]="['/blogs/detail', item.id]">
-      <img [src]="" [alt]="item.title" class="blog-img"
-      >
+        <img class="blog-img" [src]="'http://localhost:3000/' + item.files" [alt]="item.title">
       <div class="text">
         <div class="title">
           <h2>
