@@ -1,39 +1,38 @@
 <div class="content">
-  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <form class="form" [formGroup]="form">
     <div class="input-group input-group-lg">
       <label>First Name</label>
-      <input class="login-input" type="text" formControlName="firstName" [readonly]="!isEditMode">
+      <input class="login-input" type="text" formControlName="firstName" [disabled]="!isEditMode">
     </div>
     <div class="input-group input-group-lg">
       <label>Last Name</label>
-      <input class="login-input" type="text" formControlName="lastName" [readonly]="!isEditMode">
+      <input class="login-input" type="text" formControlName="lastName" [disabled]="!isEditMode">
     </div>
     <div class="input-group input-group-lg">
       <label>PLease Enter Your Email Address</label>
-      <input class="login-input" type="email" formControlName="email" [readonly]="!isEditMode">
+      <input class="login-input" type="email" formControlName="email" [disabled]="!isEditMode">
     </div>
     <div class="input-group input-group-lg">
       <label>Birth Date</label>
-      <input class="login-input" formControlName="birthDate" [readonly]="!isEditMode">
+      <input class="login-input" formControlName="birthDate" [disabled]="!isEditMode">
     </div>
     <div class="input-group input-group-lg">
       <label>Time of Birth</label>
-      <input class="login-input" formControlName="timeOfBirth" [readonly]="!isEditMode">
+      <input class="login-input" formControlName="timeOfBirth" [disabled]="!isEditMode">
     </div>
     <div class="input-group input-group-lg">
       <label>Country</label>
-      <input class="login-input" formControlName="country" [readonly]="!isEditMode">
+      <input class="login-input" formControlName="country" [disabled]="!isEditMode">
     </div>
     <div class="input-group input-group-lg">
       <label>City</label>
-      <input class="login-input" formControlName="city" [readonly]="!isEditMode">
+      <input class="login-input" formControlName="city" [disabled]="!isEditMode">
     </div>
     <div class="action-section" >
       <button class="btn btn-primary w-50 py-2 sing_in" (click)="toggleEdit()">
         Edit
       </button>
-      <button [disabled]="form.invalid" class="btn btn-primary w-50 py-2 sing_in" type="submit">Save</button>
+      <button [disabled]="!isEditMode || form.invalid" class="btn btn-primary w-50 py-2 sing_in" (click)="onSubmit()">Save</button>
     </div>
-
   </form>
 </div>

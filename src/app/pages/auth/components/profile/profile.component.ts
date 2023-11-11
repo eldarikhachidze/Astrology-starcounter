@@ -57,10 +57,16 @@ export class ProfileComponent implements OnInit {
 
   toggleEdit() {
     this.isEditMode = !this.isEditMode;
+
+    if (this.isEditMode) {
+      this.form.enable();
+    } else {
+      this.form.disable();
+    }
   }
 
 
-  submit() {
+  onSubmit() {
     if (this.form.invalid) {
       console.log(this.form.value)
       return
@@ -72,11 +78,10 @@ export class ProfileComponent implements OnInit {
         .subscribe(res => {
           console.log(res)
           this.router.navigate([`/auth/profile/` + this.form.value.id])
-            .then(() => {
-             return  this.form.value
-            })
+          this.form.disable();
         })
     }
+
 
   }
 

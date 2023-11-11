@@ -12,10 +12,11 @@
           </div>
           <label>Enter Your Email Here</label>
           <input class="login-input" type="email" formControlName="email">
+
+          <button [disabled]="form.invalid" class="btn" type="submit">
+            Subscribe Now
+          </button>
         </form>
-        <button class="btn" type="submit">
-          subscribe now
-        </button>
       </div>
     </div>
     <div class="footer_bottom">
