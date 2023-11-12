@@ -7,6 +7,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { RecoveryComponent } from './components/recovery/recovery.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 
 
 @NgModule({
@@ -17,11 +18,12 @@ import { ProfileComponent } from './components/profile/profile.component';
     RecoveryComponent,
     ProfileComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        ReactiveFormsModule,
+        GoBackAndTitleComponentModule
+    ]
 })
 export class AuthModule {
 }

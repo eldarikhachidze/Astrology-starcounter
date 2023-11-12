@@ -28,13 +28,16 @@ export class HeaderComponent {
 
   isSidebarOpen = false;
   isScrolled = false;
+  isHeaderVisible = true;
+  scrollTimeout: any;
+
 
   get userIsAuthenticated() {
-    return  this.authService.token
+    return this.authService.token
   }
 
   get user() {
-    return  this.authService.user
+    return this.authService.user
   }
 
   constructor(
@@ -64,15 +67,37 @@ export class HeaderComponent {
   onWindowScroll(event: any) {
     this.closeSidebar();
     let scrollPosition = window.pageYOffset;
-    if (scrollPosition > 0) { // Adjust 50 to the number of pixels at which you want the change to occur
+    if (scrollPosition > 0) {
       this.isScrolled = true;
     } else {
       this.isScrolled = false;
     }
+
+
+    const scrollY = window.scrollY;
+    clearTimeout(this.scrollTimeout);
+
+    this.isHeaderVisible = true;
+
+    if (scrollY === 0) {
+      this.isHeaderVisible = true;
+    }else {
+      this.scrollTimeout = setTimeout(() => {
+        this.isHeaderVisible = false;
+      }, 2500);
+    }
+
+  }
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    this.isHeaderVisible = true;
+
+    clearTimeout(this.scrollTimeout);
   }
 
   toggleSidebar(event: Event) {
-    event.stopPropagation();  // This prevents the click event from being propagated to the document
+    event.stopPropagation();
 
     this.isSidebarOpen = !this.isSidebarOpen;
     const menuButton = document.querySelector('.sidebar');
@@ -83,6 +108,7 @@ export class HeaderComponent {
     }
   }
 
+
   closeSidebar() {
     this.isSidebarOpen = false;
   }
@@ -91,3 +117,4 @@ export class HeaderComponent {
     this.authService.signOut()
   }
 }
+

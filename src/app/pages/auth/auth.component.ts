@@ -8,12 +8,14 @@ import {Router} from "@angular/router";
 })
 export class AuthComponent {
 
+  pageTitle = 'Authorization'
+
   constructor(
     private router: Router,
   ) {
   }
 
-  goBack(): void {
+  onExitClick(): void {
     this.router.navigate(['../']);
   }
 }

@@ -20,7 +20,7 @@ export class RegisterComponent {
     password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl(null, Validators.required),
     birthDate: new FormControl('', Validators.required),
-    timeOfBirth: new FormControl('', Validators.required),
+    timeOfBirth: new FormControl(''),
     country: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
     // phone: new FormControl(null, [Validators.required, Validators.minLength(9)]),

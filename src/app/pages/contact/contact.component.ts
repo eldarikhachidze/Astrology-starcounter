@@ -14,18 +14,22 @@ export class ContactComponent {
     textArea: new FormControl('', Validators.required),
   });
 
+  pageTitle = 'contact';
+
   constructor(
     private router: Router
   ) {
   }
 
-  goBack(): void {
-    this.router.navigate(['../']);
-  }
   submit() {
     this.form.markAllAsTouched();
     if(this.form.invalid) return
     console.log(this.form.value)
     this.router.navigate(['./'])
+  }
+
+
+  onExitClick() {
+    this.router.navigate(['/'])
   }
 }
