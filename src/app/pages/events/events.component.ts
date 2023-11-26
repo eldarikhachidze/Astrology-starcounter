@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class EventsComponent implements OnInit {
   allEvents: any[] = [];
+  pageTitle = 'Events'
 
   constructor(
     private router: Router,
@@ -19,7 +20,7 @@ export class EventsComponent implements OnInit {
     this.allEvents = this.eventService.getEvents();
   }
 
-  goBack(): void {
+  onExitClick(): void {
     this.router.navigate(['../']);
   }
 

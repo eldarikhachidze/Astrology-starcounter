@@ -12,8 +12,8 @@ import {Router} from "@angular/router";
 export class BlogsComponent implements OnInit, OnDestroy{
 
   blogs: Blog[] = []
-
   sub$ = new Subject()
+  pageTitle = 'Blogs'
 
   constructor(
   private blogService: BlogService,
@@ -40,7 +40,7 @@ export class BlogsComponent implements OnInit, OnDestroy{
     this.sub$.complete()
   }
 
-  goBack(): void {
+  onExitClick(): void {
     this.router.navigate(['./']);
   }
 }

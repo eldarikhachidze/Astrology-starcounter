@@ -20,6 +20,7 @@ export class DetailComponent implements OnInit {
   })
 
   item?: Blog
+  pageTitle = 'Blog Detail'
 
 
   constructor(
@@ -44,7 +45,7 @@ export class DetailComponent implements OnInit {
     });
   }
 
-  goBack(): void {
+  onExitClick(): void {
     this.router.navigate(['./']);
   }
 

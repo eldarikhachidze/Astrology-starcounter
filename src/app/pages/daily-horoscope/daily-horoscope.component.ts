@@ -9,6 +9,7 @@ import {WeeklyService} from "../../core/services/weekly.service";
 })
 export class DailyHoroscopeComponent implements OnInit {
   weeklies: { name: string; }[] = [];
+  pageTitle = 'Weekly Horoscope'
 
   constructor(
     private router: Router,
@@ -21,7 +22,7 @@ export class DailyHoroscopeComponent implements OnInit {
   }
 
 
-  goBack(): void {
+  onExitClick(): void {
     this.router.navigate(['../']);
   }
 

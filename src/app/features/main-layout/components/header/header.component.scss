@@ -27,24 +27,12 @@
     }
 
     .header {
+      display: flex;
+      align-items: center;
       width: 100%;
-      padding: 0 0 0 20px;
-      .header_top {
-        padding: 10px 0 0 0;
-        h4 {
-          font-family: 'Inter', sans-serif;
-          font-size: 16px;
-          font-weight: 600;
-          line-height: 1.8;
-          color: #e5f0f5;
-          &:hover {
-            background-color: #ff7010;
-          }
-        }
-      }
+      padding: 0 10px;
       .header_bottom {
         width: 100%;
-        padding: 10px 0;
         display: flex;
         justify-content: space-between;
 
