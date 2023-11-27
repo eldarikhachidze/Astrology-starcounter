@@ -2,7 +2,6 @@ import {Component, HostListener} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {NavigationStart, Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
-import {User} from "../../../../core/interface/user";
 
 
 @Component({
@@ -55,15 +54,14 @@ export class HeaderComponent {
     return this.authService.user?.id;
   }
 
-  @HostListener('document:click', ['$event'])
+  @HostListener('document:click', ['$event-card'])
   onClick(event: Event) {
-    // Check if the sidebar is open and the click occurred outside the sidebar
     if (this.isSidebarOpen && !(event.target as HTMLElement).closest('.sidebar')) {
       this.closeSidebar();
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll', ['$event-card'])
   onWindowScroll(event: any) {
     this.closeSidebar();
     let scrollPosition = window.pageYOffset;
@@ -81,7 +79,7 @@ export class HeaderComponent {
 
     if (scrollY === 0) {
       this.isHeaderVisible = true;
-    }else {
+    } else {
       this.scrollTimeout = setTimeout(() => {
         this.isHeaderVisible = false;
       }, 2500);
@@ -89,7 +87,7 @@ export class HeaderComponent {
 
   }
 
-  @HostListener('touchstart', ['$event'])
+  @HostListener('touchstart', ['$event-card'])
   onTouchStart(event: TouchEvent) {
     this.isHeaderVisible = true;
 

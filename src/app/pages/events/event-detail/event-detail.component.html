@@ -1,6 +1,8 @@
 <div class="detail_BG">
   <app-go-back-and-title [title]="pageTitle" (exitClicked)="onExitClick()"></app-go-back-and-title>
 </div>
-<div class="event-content">
-  <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
+<div class="blog-content">
+  <h3>
+    {{form.get('description')?.value}}
+  </h3>
 </div>

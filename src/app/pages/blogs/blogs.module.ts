@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BlogsRoutingModule } from './blogs-routing.module';
 import { BlogsComponent } from './blogs.component';
-import { DetailComponent } from './detail/detail.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 
@@ -11,7 +11,7 @@ import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go
 @NgModule({
   declarations: [
     BlogsComponent,
-    DetailComponent
+    BlogDetailComponent
   ],
   exports: [
     BlogsComponent

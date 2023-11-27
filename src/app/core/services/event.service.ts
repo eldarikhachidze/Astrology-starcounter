@@ -1,59 +1,19 @@
 import { Injectable } from '@angular/core';
+import {BaseService} from "./base.service";
 import {Event} from "../interface/event";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventService {
-  events: Event[] = [
-    {
-      name: 'კარმული ასტროლოგია',
-      price: '$100',
-      organizedBy: 'ხატია ბედოშვილი',
-      location: 'ხატია ბედოშვილი',
-      date: '7:08 pm - ნოემბერი 21, 2023 8:08 pm'
-    },
-    {
-      name: 'ასტროლოგის საფუძვლები',
-      price: '$100',
-      organizedBy: 'ხატია ბედოშვილი',
-      location: 'ხატია ბედოშვილი',
-      date: '7:08 pm - ოქტომბერი 21, 2023 8:08 pm'
-    },
-    {
-      name: 'კარმული საფუძვლები',
-      price: '$100',
-      organizedBy: 'ხატია ბედოშვილი',
-      location: 'ხატია ბედოშვილი',
-      date: '7:08 pm - ოქტომბერი 21, 2023 8:08 pm'
-    },
-    {
-      name: 'კარმული საფუძვლები',
-      price: '$100',
-      organizedBy: 'ხატია ბედოშვილი',
-      location: 'ხატია ბედოშვილი',
-      date: '7:08 pm - ოქტომბერი 21, 2023 8:08 pm'
-    },
-    {
-      name: 'ასტროლოგის საფუძვლები',
-      price: '$100',
-      organizedBy: 'ხატია ბედოშვილი',
-      location: 'ხატია ბედოშვილი',
-      date: '7:08 pm - ოქტომბერი 21, 2023 8:08 pm'
-    },
-    {
-      name: 'კარმული საფუძვლები',
-      price: '$100',
-      organizedBy: 'ხატია ბედოშვილი',
-      location: 'ხატია ბედოშვილი',
-      date: '7:08 pm - ოქტომბერი 21, 2023 8:08 pm'
-    },
-    // ... other events ...
-  ];
+export class EventService extends BaseService {
 
-  constructor() { }
-
-  getEvents() {
-    return this.events;
+  getAllEvents(): Observable<Event[]> {
+    return this.get<Event[]>('events')
   }
+
+  getOne(id: string): Observable<Event> {
+    return this.get<Event>(`events/${id}`)
+  }
+
 }

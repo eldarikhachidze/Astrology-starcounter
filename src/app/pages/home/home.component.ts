@@ -3,7 +3,8 @@ import {WeeklyService} from "../../core/services/weekly.service";
 import {EventService} from "../../core/services/event.service";
 import {Blog} from "../../core/interface/blog";
 import {BlogService} from "../../core/services/blog.service";
-import {interval, Subject, Subscription} from "rxjs";
+import {Subject, Subscription} from "rxjs";
+import {Event} from "../../core/interface/event";
 
 declare var bootstrap: any; // Bootstrap's JS is declared here
 @Component({
@@ -15,8 +16,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private carousel: any;
   blogs: Blog[] = []
   weeklies: { name: string; }[] = [];
-  events: any[] = [];
-  subscription?: Subscription;
+  events: Event[] = [];
+  subscriptionBlogs?: Subscription;
+  subscriptionEvents?: Subscription;
 
   sub$ = new Subject()
 
@@ -35,21 +37,30 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     });
   }
+
   ngOnInit() {
     setInterval(() => {
       this.nextSlide()
     }, 3000)
-    this.getLatestTwo()
+    this.getLatestTwoBlogs()
+    this.getLatestTwoEvents()
     this.weeklies = this.weeklyService.getWeeklies();
-    const allEvents = this.eventService.getEvents();
-    this.events = allEvents.slice(Math.max(allEvents.length - 2, 0));
   }
 
-  getLatestTwo() {
-    this.subscription = this.blogService.getAllBlogs()
+  getLatestTwoBlogs() {
+    console.log('this.blogs', this.blogs);
+    this.subscriptionBlogs = this.blogService.getAllBlogs()
       .subscribe(blogs => {
+        console.log('this.subscriptionBlogs', this.subscriptionBlogs);
         this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
       });
+  }
+
+  getLatestTwoEvents() {
+    this.subscriptionEvents = this.eventService.getAllEvents()
+      .subscribe(events => {
+        this.events = events.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+      })
   }
 
   previousSlide() {

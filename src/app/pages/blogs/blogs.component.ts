@@ -23,15 +23,14 @@ export class BlogsComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    this.getAllBlogs()
+    this.getBlogs()
   }
 
-  getAllBlogs() {
+  getBlogs() {
     this.blogService.getAllBlogs()
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
         this.blogs = response.data
-        console.log(response.data)
       })
   }
 

@@ -6,17 +6,15 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Blog} from "../../../core/interface/blog";
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-event-blog-detail',
+  templateUrl: './blog-detail.component.html',
+  styleUrls: ['./blog-detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class BlogDetailComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
-    title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
-    files: new FormControl('', Validators.required),
   })
 
   item?: Blog
@@ -39,7 +37,7 @@ export class DetailComponent implements OnInit {
       })
     ).subscribe(res => {
       if (res) {
-        this.item = res; // Update item here
+        this.item = res;
         this.form.patchValue({ ...res });
       }
     });
@@ -48,7 +46,5 @@ export class DetailComponent implements OnInit {
   onExitClick(): void {
     this.router.navigate(['./']);
   }
-
-
 
 }

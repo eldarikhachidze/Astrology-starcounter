@@ -7,21 +7,23 @@ import {DailyHoroscopeModule} from "../daily-horoscope/daily-horoscope.module";
 import {BlogsModule} from "../blogs/blogs.module";
 import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {ContactModule} from "../contact/contact.module";
+import {EventCardModule} from "../../features/event-card/event-card.module";
 
 
 @NgModule({
   declarations: [
     HomeComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    EventsModule,
-    DailyHoroscopeModule,
-    BlogsModule,
-    BlogCardModule,
-    ContactModule,
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        EventsModule,
+        DailyHoroscopeModule,
+        BlogsModule,
+        BlogCardModule,
+        ContactModule,
+        EventCardModule,
+    ]
 })
 export class HomeModule {
 }
