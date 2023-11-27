@@ -48,10 +48,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getLatestTwoBlogs() {
-    console.log('this.blogs', this.blogs);
     this.subscriptionBlogs = this.blogService.getAllBlogs()
       .subscribe(blogs => {
-        console.log('this.subscriptionBlogs', this.subscriptionBlogs);
         this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
       });
   }
