@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "./base.service";
 import {Login, LoginResponse, Register} from "../interface/auth";
 import {Observable, tap} from "rxjs";
@@ -14,20 +14,15 @@ export class AuthService extends BaseService {
     return localStorage.getItem('token')
   }
 
-  // get user(): string | null {
-  //   const user = localStorage.getItem('user')
-  //   return user ? JSON.parse(user): null
-  // }
-
   get user(): User | null {
     const user = localStorage.getItem('user');
-    return user ? JSON.parse(user): null
+    return user ? JSON.parse(user) : null
   }
 
   login(payload: Login): Observable<LoginResponse> {
     return this.post<LoginResponse>('auth/sign-in', payload)
       .pipe(
-        tap((response:LoginResponse) => {
+        tap((response: LoginResponse) => {
           this.setToken(response.token.accessToken)
           this.setUser(response.user)
         })
@@ -38,7 +33,7 @@ export class AuthService extends BaseService {
     return this.post<User>('auth/register', payload)
   }
 
-  getUser():Observable<User> {
+  getUser(): Observable<User> {
     return this.get<User>('users/me/');
   }
 
@@ -46,11 +41,15 @@ export class AuthService extends BaseService {
     return this.put<User>(`users/update/${id}`, data);
   }
 
-  recovery(email: string ): Observable<string> {
+  ChangePassword(data: any): Observable<User> {
+    return this.put<User>('users/update-password/', data);
+  }
+
+  recovery(email: string): Observable<string> {
     return this.post<string>('auth/recovery', email)
   }
 
-  setToken(token:string) {
+  setToken(token: string) {
     localStorage.setItem('token', token)
   }
 

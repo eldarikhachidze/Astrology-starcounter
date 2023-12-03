@@ -18,7 +18,8 @@ export class EventsComponent implements OnInit {
   constructor(
     private router: Router,
     private eventService: EventService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getEvents()
@@ -28,7 +29,7 @@ export class EventsComponent implements OnInit {
     this.eventService.getAllEvents()
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
-        this.events = response
+        this.events = response.data
       })
   }
 

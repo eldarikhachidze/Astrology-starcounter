@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   getLatestTwoEvents() {
     this.subscriptionEvents = this.eventService.getAllEvents()
       .subscribe(events => {
-        this.events = events.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+        this.events = events.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
       })
   }
 

@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
     timeOfBirth: new FormControl(''),
     country: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
-    // phone: new FormControl(null, [Validators.required, Validators.minLength(9)]),
+    phoneNumber: new FormControl(null, [Validators.required, Validators.minLength(9)]),
   })
 
   users: User[] = []
@@ -81,10 +81,7 @@ export class ProfileComponent implements OnInit {
           this.form.disable();
         })
     }
-
-
   }
-
 
 
 }

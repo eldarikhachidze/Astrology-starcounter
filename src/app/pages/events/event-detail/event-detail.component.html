@@ -5,4 +5,10 @@
   <h3>
     {{form.get('description')?.value}}
   </h3>
+  <button [disabled]="form.invalid" (click)="openConfirmModal()" class="btn btn-primary w-50 py-2 sing_in"
+          type="submit">Register
+  </button>
 </div>
+
+
+<app-modal *ngIf="showModal" (confirmEvent)="onModalConfirm($event)"></app-modal>

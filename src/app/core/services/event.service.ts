@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "./base.service";
-import {Event} from "../interface/event";
+import {Event, EventsResponse} from "../interface/event";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -8,12 +8,16 @@ import {Observable} from "rxjs";
 })
 export class EventService extends BaseService {
 
-  getAllEvents(): Observable<Event[]> {
-    return this.get<Event[]>('events')
+  getAllEvents(): Observable<EventsResponse> {
+    return this.get<EventsResponse>('events')
   }
 
   getOne(id: string): Observable<Event> {
     return this.get<Event>(`events/${id}`)
+  }
+
+  eventSubscribe(eventId: any): Observable<Event> {
+    return this.post<Event>('events-subscription', {eventId: eventId})
   }
 
 }

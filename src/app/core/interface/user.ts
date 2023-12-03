@@ -12,7 +12,9 @@ export interface User {
   roles: string;
   password: string;
   email: string;
+  phoneNumber: string;
 }
+
 export interface Token {
   expiresIn: number;
   accessToken: string;

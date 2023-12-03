@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {EventService} from "../../../core/services/event.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {of, switchMap} from "rxjs";
-import {Blog} from "../../../core/interface/blog";
 import {Event} from "../../../core/interface/event";
 
 @Component({
@@ -16,6 +15,8 @@ export class EventDetailComponent implements OnInit {
     id: new FormControl(null),
     description: new FormControl('', Validators.required),
   })
+
+  showModal = false;
 
   pageTitle = 'Event Detail'
   item?: Event
@@ -38,9 +39,32 @@ export class EventDetailComponent implements OnInit {
     ).subscribe(res => {
       if (res) {
         this.item = res
-        this.form.patchValue({ ...res });
+        this.form.patchValue({...res});
       }
     })
+  }
+
+  openConfirmModal() {
+    console.log('Open modal called', this.showModal);
+    this.showModal = true;
+  }
+
+  onModalConfirm(response: boolean) {
+    this.showModal = false;
+
+    const urlPath = window.location.pathname;
+    const match = urlPath.match(/\/events\/detail\/(\d+)/);
+    console.log('match', match && match[1])
+
+    this.eventService.eventSubscribe(match && +match[1])
+      .subscribe(res => {
+        console.log(res)
+        if (res) {
+          this.router.navigate(['./'])
+        } else {
+          this.router.navigate(['./'])
+        }
+      })
   }
 
   onExitClick(): void {

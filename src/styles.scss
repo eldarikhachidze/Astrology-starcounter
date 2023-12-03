@@ -17,8 +17,9 @@ h1, h2, h3, h4, h5, h6, p, a, label, {
 li {
   list-style: none;
 }
+
 .btn_radius {
-  width: 50px!important;
+  width: 50px !important;
   height: 50px;
   border-radius: 50%;
   background-color: #17384e;
@@ -47,6 +48,15 @@ li {
   display: flex;
   flex-wrap: wrap;
 
+  h2 {
+    padding: 50px 0 80px;
+    margin: 0 auto;
+  }
+
+  p {
+    padding: 10px 15px;
+  }
+
   .login-input {
     width: 345px;
     padding: 10px;
@@ -59,21 +69,22 @@ li {
       border: 1px solid red;
     }
   }
+}
 
-  .sing_in {
-    min-width: 170px;
-    font-size: 16px;
-    font-weight: 500;
-    background: #ff7010 !important;
-    min-height: 50px;
-    border: none;
-    border-radius: 0 !important;
-    line-height: 50px;
-    padding: 0 20px;
-    text-align: center;
-    overflow: hidden;
-    text-transform: uppercase;
-  }
+
+.sing_in {
+  min-width: 170px;
+  font-size: 16px;
+  font-weight: 500;
+  background: #ff7010 !important;
+  min-height: 50px;
+  border: none;
+  border-radius: 0 !important;
+  line-height: 50px;
+  padding: 0 20px;
+  text-align: center;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
 .error-divider {
@@ -106,29 +117,28 @@ li {
   gap: 25px;
 }
 
-  .blog-box {
-    width: 385px;
-    height: 385px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #07273c;
-    border: 1px solid rgb(255 255 255 / 8%);
-    margin-bottom: 80px;
+.blog-box {
+  width: 385px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #07273c;
+  border: 1px solid rgb(255 255 255 / 8%);
+  margin-bottom: 80px;
 
-    .blog-img {
-      background-size: cover;
-      background-position: center center;
-      width: 385px;
-      height: 300px;
-      position: relative;
-      transition: all 0.5s ease-in-out;
-    }
-    .title {
-      h2 {
-        padding: 25px;
-      }
+  .blog-img {
+    background-size: cover;
+    background-position: center center;
+    width: 385px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .title {
+    h2 {
+      padding: 25px;
     }
   }
+}
 
 
