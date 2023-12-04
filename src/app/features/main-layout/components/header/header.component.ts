@@ -54,7 +54,7 @@ export class HeaderComponent {
     return this.authService.user?.id;
   }
 
-  @HostListener('document:click', ['$event-card'])
+  @HostListener('document:click', ['$event'])
   onClick(event: Event) {
     if (this.isSidebarOpen && !(event.target as HTMLElement).closest('.sidebar')) {
       this.closeSidebar();

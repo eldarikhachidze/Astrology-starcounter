@@ -24,7 +24,7 @@ export class RegisterComponent {
     timeOfBirth: new FormControl(''),
     country: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
-    phoneNumber: new FormControl(null, [Validators.required, Validators.minLength(9)]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.minLength(9)]),
   }, {validators: this.validatorService.ConfirmedValidator('password', 'confirmPassword')})
 
   constructor(
@@ -42,9 +42,11 @@ export class RegisterComponent {
     this.form.markAllAsTouched();
     if (this.form.invalid) return
 
-    console.log(this.form.value)
+    const formData = { ...this.form.value, phoneNumber: String(this.form.value.phoneNumber) };
 
-    this.authService.register(this.form.value).subscribe(res => {
+    console.log('formData', formData)
+
+    this.authService.register(formData).subscribe(res => {
       this.router.navigate(['/auth/login'])
     })
   }
