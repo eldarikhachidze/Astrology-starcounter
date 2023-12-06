@@ -4,7 +4,7 @@ import {AuthComponent} from "./auth.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {RecoveryComponent} from "./components/recovery/recovery.component";
-import {ProfileComponent} from "./components/profile/profile.component";
+import {MyProfileComponent} from "../profile/my-profile/my-profile.component";
 import {ChangePasswordComponent} from "./components/change-password/change-password.component";
 
 const routes: Routes = [
@@ -34,8 +34,8 @@ const routes: Routes = [
         component: ChangePasswordComponent
       },
       {
-        path: 'profile/:id',
-        component: ProfileComponent
+        path: 'my-profile/:id',
+        component: MyProfileComponent
       }
     ]
   }

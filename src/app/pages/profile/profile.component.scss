@@ -1,0 +1,36 @@
+.action-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+}
+.profile {
+  background-color: #07273c;
+  .profile-content {
+    header {
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: unset;
+        margin: unset;
+        li {
+          a {
+            h3 {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.active-link {
+  color: #ff7010 !important;
+  background-color: #17384e
+}
+.slider {
+  position: relative;
+}

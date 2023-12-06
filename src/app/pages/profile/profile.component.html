@@ -1,0 +1,33 @@
+<div class="profile">
+  <div class="profile-content">
+    <header>
+      <ul>
+        <li>
+          <a [routerLink]="['/profile/my-profile/', userId]" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
+             class="nav-link text-white">
+
+              პროფილი
+
+          </a>
+        </li>
+        <li>
+          <a routerLink="/profile/my-lectures" routerLinkActive="active-link" class="nav-link text-white">
+
+              ლექციები
+
+          </a>
+        </li>
+        <li>
+          <a routerLink="/blogs" routerLinkActive="active-link" class="nav-link text-white">
+
+              პროგნოზები
+
+          </a>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <div class="slider">
+    <router-outlet></router-outlet>
+  </div>
+</div>

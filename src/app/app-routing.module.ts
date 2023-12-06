@@ -30,6 +30,10 @@ const routes: Routes = [
       {
         path:'events',
         loadChildren: () => import('./pages/events/events.module').then(m => m.EventsModule)
+      },
+      {
+        path:'profile',
+        loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
       }
     ]
   }

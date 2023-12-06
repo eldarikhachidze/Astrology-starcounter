@@ -6,7 +6,6 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RecoveryComponent} from './components/recovery/recovery.component';
-import {ProfileComponent} from './components/profile/profile.component';
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 import {ChangePasswordComponent} from './components/change-password/change-password.component';
 
@@ -17,7 +16,6 @@ import {ChangePasswordComponent} from './components/change-password/change-passw
     LoginComponent,
     RegisterComponent,
     RecoveryComponent,
-    ProfileComponent,
     ChangePasswordComponent
   ],
   imports: [

@@ -62,7 +62,7 @@
         <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
 
           <div class="btn_menu">
-            <a [routerLink]="['/auth/profile', userId]" class="btn_radius">
+            <a [routerLink]="['/profile']" class="btn_radius">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="white" fill="currentColor"
                    class="bi bi-person" viewBox="0 0 16 16">
                 <path
@@ -70,7 +70,6 @@
               </svg>
             </a>
           </div>
-
         </ng-container>
         <ng-template #notAuthenticated>
           <div class="btn_menu">

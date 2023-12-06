@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthService} from "../../../../core/services/auth.service";
+import {AuthService} from "../../../core/services/auth.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {of, Subject, switchMap} from "rxjs";
-import {User} from "../../../../core/interface/user";
+import {User} from "../../../core/interface/user";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-my-profile',
+  templateUrl: './my-profile.component.html',
+  styleUrls: ['./my-profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class MyProfileComponent implements OnInit {
 
   isEditMode = false;
 
