@@ -1,5 +1,5 @@
 <div class="events">
-  <div *ngIf="userData">
+  <div *ngIf="userData; else notUserData">
     <h2>ჩემი ლექციები</h2>
     <div *ngFor="let subscription of userData.eventsSubscription" class="event-box">
       <a [routerLink]="['/events/detail', subscription.event.id]">
@@ -43,5 +43,8 @@
       </a>
     </div>
   </div>
+  <ng-template #notUserData>
+    <p>თქვენ არ გაქვთ მიმდინა ლექციები</p>
+  </ng-template>
 </div>
 
