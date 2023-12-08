@@ -39,9 +39,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    setInterval(() => {
-      this.nextSlide()
-    }, 3000)
     this.getLatestTwoBlogs()
     this.getLatestTwoEvents()
     this.weeklies = this.weeklyService.getWeeklies();
@@ -61,13 +58,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       })
   }
 
-  previousSlide() {
-    this.carousel.prev();
-  }
 
-  nextSlide() {
-    this.carousel.next();
-  }
 
   ngOnDestroy() {
     this.sub$.next(this.sub$)

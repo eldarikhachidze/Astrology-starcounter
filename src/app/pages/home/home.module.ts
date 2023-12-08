@@ -8,6 +8,7 @@ import {BlogsModule} from "../blogs/blogs.module";
 import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {ContactModule} from "../contact/contact.module";
 import {EventCardModule} from "../../features/event-card/event-card.module";
+import {SliderModule} from "../../features/slider/slider.module";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {EventCardModule} from "../../features/event-card/event-card.module";
         BlogCardModule,
         ContactModule,
         EventCardModule,
+        SliderModule,
     ]
 })
 export class HomeModule {
