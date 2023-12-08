@@ -11,6 +11,7 @@ export class MyLecturesComponent implements OnInit {
 
   userId?: number;
   userData: any;
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -20,7 +21,7 @@ export class MyLecturesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.userId = +params['userId']; // Assuming the route parameter is named 'userId'
+      this.userId = +params['userId'];
       this.loadUserData();
     });
   }

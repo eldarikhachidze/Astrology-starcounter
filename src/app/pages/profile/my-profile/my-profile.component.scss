@@ -1,3 +1,9 @@
+.content {
+  padding-top: 40px;
+  h2 {
+    padding: unset;
+  }
+}
 .action-section {
   display: flex;
   flex-direction: row;

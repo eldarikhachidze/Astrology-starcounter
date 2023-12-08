@@ -28,11 +28,13 @@
       <label>City</label>
       <input class="login-input" formControlName="city" [disabled]="!isEditMode">
     </div>
-    <div class="action-section" >
+    <div class="action-section">
       <button class="btn btn-primary w-50 py-2 sing_in" (click)="toggleEdit()">
         Edit
       </button>
-      <button [disabled]="!isEditMode || form.invalid" class="btn btn-primary w-50 py-2 sing_in" (click)="onSubmit()">Save</button>
+      <button [disabled]="!isEditMode || form.invalid" class="btn btn-primary w-50 py-2 sing_in" (click)="onSubmit()">
+        Save
+      </button>
     </div>
   </form>
 </div>
