@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SliderComponent } from './slider.component';
+import {RouterLink} from "@angular/router";
 
 
 
@@ -11,8 +12,9 @@ import { SliderComponent } from './slider.component';
   exports: [
     SliderComponent
   ],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        RouterLink
+    ]
 })
 export class SliderModule { }
