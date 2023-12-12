@@ -26,7 +26,7 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
       const carouselElement = document.getElementById('carouselExampleDark');
       if (carouselElement) {
         this.carousel = new bootstrap.Carousel(carouselElement, {
-          interval: 2000
+          interval: 3000
         });
       }
     }, 2000);
@@ -34,6 +34,9 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.getSliders();
+    setInterval(() => {
+      this.nextSlide()
+    }, 3000)
   }
 
   getSliders() {
