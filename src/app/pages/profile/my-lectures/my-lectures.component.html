@@ -1,6 +1,6 @@
 <div class="events">
   <div *ngIf="userData; else notUserData">
-    <h2>ჩემი ლექციები</h2>
+    <h1>ჩემი ლექციები</h1>
     <div *ngFor="let subscription of userData.eventsSubscription" class="event-box">
       <a [routerLink]="['/events/detail', subscription.event.id]">
         <div class="event-img">

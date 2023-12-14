@@ -1,33 +1,43 @@
 <div class="content">
-  <h2>ჩემი პროფილი</h2>
+  <h1>ჩემი პროფილი</h1>
   <form class="form" [formGroup]="form">
-    <div class="input-group input-group-lg">
-      <label>First Name</label>
-      <input class="login-input" type="text" formControlName="firstName" [disabled]="!isEditMode">
+    <div class="input_row">
+      <div class="input-group-custom input-group-lg">
+        <label>სახელი</label>
+        <input class="short_input" type="text" formControlName="firstName" [disabled]="!isEditMode">
+      </div>
+      <div class="input-group-custom input-group-lg">
+        <label>გვარი</label>
+        <input class="short_input" type="text" formControlName="lastName" [disabled]="!isEditMode">
+      </div>
     </div>
-    <div class="input-group input-group-lg">
-      <label>Last Name</label>
-      <input class="login-input" type="text" formControlName="lastName" [disabled]="!isEditMode">
-    </div>
-    <div class="input-group input-group-lg">
-      <label>PLease Enter Your Email Address</label>
+    <div class="input-group-custom  input-group-lg">
+      <label>გთხოვთ ჩაწეროთ თქვენი მეილი</label>
       <input class="login-input" type="email" formControlName="email" [disabled]="!isEditMode">
     </div>
-    <div class="input-group input-group-lg">
-      <label>Birth Date</label>
-      <input class="login-input" formControlName="birthDate" [disabled]="!isEditMode">
+    <div class="input-group-custom  input-group-lg">
+      <label>მობილურის ნომერი</label>
+      <input class="login-input" type="number" formControlName="phoneNumber" [disabled]="!isEditMode">
     </div>
-    <div class="input-group input-group-lg">
-      <label>Time of Birth</label>
-      <input class="login-input" formControlName="timeOfBirth" [disabled]="!isEditMode">
+    <div class="input_row">
+      <div class="input-group-custom input-group-lg">
+        <label>დაბადების დღე</label>
+        <input class="short_input" formControlName="birthDate" [disabled]="!isEditMode">
+      </div>
+      <div class="input-group-custom input-group-lg">
+        <label>დაბადების საათი</label>
+        <input class="short_input" formControlName="timeOfBirth" [disabled]="!isEditMode">
+      </div>
     </div>
-    <div class="input-group input-group-lg">
-      <label>Country</label>
-      <input class="login-input" formControlName="country" [disabled]="!isEditMode">
-    </div>
-    <div class="input-group input-group-lg">
-      <label>City</label>
-      <input class="login-input" formControlName="city" [disabled]="!isEditMode">
+    <div class="input_row">
+      <div class="input-group-custom input-group-lg">
+        <label>ქვეყანა</label>
+        <input class="short_input" formControlName="country" [disabled]="!isEditMode">
+      </div>
+      <div class="input-group-custom input-group-lg">
+        <label>ქალაქი</label>
+        <input class="short_input" formControlName="city" [disabled]="!isEditMode">
+      </div>
     </div>
     <div class="action-section">
       <button class="btn btn-primary w-50 py-2 sing_in" (click)="toggleEdit()">

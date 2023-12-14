@@ -13,6 +13,7 @@ import {Event} from "../../../core/interface/event";
 export class EventDetailComponent implements OnInit {
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
+    name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   })
 

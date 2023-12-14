@@ -14,6 +14,7 @@ export class BlogDetailComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
+    title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   })
 
@@ -27,6 +28,7 @@ export class BlogDetailComponent implements OnInit {
     private router: Router
   ) {
   }
+
   ngOnInit(): void {
     this.route.params.pipe(
       switchMap((params: any) => {
@@ -38,7 +40,7 @@ export class BlogDetailComponent implements OnInit {
     ).subscribe(res => {
       if (res) {
         this.item = res;
-        this.form.patchValue({ ...res });
+        this.form.patchValue({...res});
       }
     });
   }

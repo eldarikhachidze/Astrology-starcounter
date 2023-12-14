@@ -1,9 +1,11 @@
 <ng-container>
   <app-slider></app-slider>
   <div class="blog-content">
+    <h1>ბლოგი</h1>
     <app-blog-card *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
   </div>
   <div class="events">
+    <h1>ივენთები</h1>
     <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
   </div>
   <div class="daily-content container">

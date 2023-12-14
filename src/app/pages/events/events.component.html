@@ -1,6 +1,7 @@
 <div class="detail_BG">
   <app-go-back-and-title [title]="pageTitle" (exitClicked)="onExitClick()"></app-go-back-and-title>
 </div>
-<div class="event-content">
+<div class="events">
+  <h1>ივენთები</h1>
   <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
 </div>

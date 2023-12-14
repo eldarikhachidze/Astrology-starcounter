@@ -2,6 +2,7 @@
   <app-go-back-and-title [title]="pageTitle" (exitClicked)="onExitClick()"></app-go-back-and-title>
 </div>
 <div class="blog-content">
+  <h1>{{form.get('title')?.value}}</h1>
   <h3>
     {{form.get('description')?.value}}
   </h3>
