@@ -1,6 +1,12 @@
 <ng-container>
-  <app-slider></app-slider>
-  <div class="blog-content">
+  <div class="loading" *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <div class="slider">
+    <app-slider></app-slider>
+  </div>
+
+  <div *ngIf="!isLoading" class="blog-content">
     <h1>ბლოგი</h1>
     <app-blog-card *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
   </div>

@@ -9,7 +9,8 @@ import {Router} from "@angular/router";
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.scss']
 })
-export class BlogsComponent implements OnInit, OnDestroy{
+export class BlogsComponent implements OnInit, OnDestroy {
+  isLoading: boolean = true;
 
   blogs: Blog[] = []
   sub$ = new Subject()
@@ -23,6 +24,10 @@ export class BlogsComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+
     this.getBlogs()
   }
 

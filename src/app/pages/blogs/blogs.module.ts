@@ -6,6 +6,7 @@ import { BlogsComponent } from './blogs.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
+import {LoadingModule} from "../../features/loading/loading.module";
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go
   exports: [
     BlogsComponent
   ],
-  imports: [
-    CommonModule,
-    BlogsRoutingModule,
-    BlogCardModule,
-    GoBackAndTitleComponentModule
-  ]
+    imports: [
+        CommonModule,
+        BlogsRoutingModule,
+        BlogCardModule,
+        GoBackAndTitleComponentModule,
+        LoadingModule
+    ]
 })
 export class BlogsModule { }

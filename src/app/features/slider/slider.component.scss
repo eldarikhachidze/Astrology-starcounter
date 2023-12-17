@@ -1,8 +1,23 @@
 .slide {
-  background-color: #17384e;
   height: 400px;
-  padding: 15px;
 }
+
+
+img {
+  position: relative;
+}
+
 h2 {
-  padding: 10px;
+  position: absolute;
+  font-weight: 500;
+  left: 0;
+  bottom: 0;
+  border-radius: 5px;
+  color: #FFFFFF;
+  padding: 13px 10px;
+  display: inline-block;
+  text-align: center;
+  min-height: auto;
+  min-width: 150px;
+  background-color: rgba(3, 26, 42, 0.5);
 }

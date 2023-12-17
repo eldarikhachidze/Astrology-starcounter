@@ -8,6 +8,7 @@ import {AuthService} from "../../../core/services/auth.service";
   styleUrls: ['./my-lectures.component.scss']
 })
 export class MyLecturesComponent implements OnInit {
+  isLoading: boolean = true;
 
   userId?: number;
   userData: any;
@@ -20,6 +21,9 @@ export class MyLecturesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
     this.route.params.subscribe((params) => {
       this.userId = +params['userId'];
       this.loadUserData();

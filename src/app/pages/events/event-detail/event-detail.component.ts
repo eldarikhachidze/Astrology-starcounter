@@ -17,6 +17,8 @@ export class EventDetailComponent implements OnInit {
     description: new FormControl('', Validators.required),
   })
 
+  isLoading: boolean = true;
+
   showModal = false;
 
   pageTitle = 'Event Detail'
@@ -30,6 +32,9 @@ export class EventDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {

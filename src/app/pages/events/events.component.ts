@@ -14,6 +14,7 @@ export class EventsComponent implements OnInit {
   events: Event[] = []
   pageTitle = 'Events'
   sub$ = new Subject()
+  isLoading: boolean = true;
 
   constructor(
     private router: Router,
@@ -22,6 +23,10 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+
     this.getEvents()
   }
 
