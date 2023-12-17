@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit,} from '@angular/core';
+import {Component, OnDestroy, OnInit,} from '@angular/core';
 import {WeeklyService} from "../../core/services/weekly.service";
 import {EventService} from "../../core/services/event.service";
 import {Blog} from "../../core/interface/blog";
@@ -6,14 +6,13 @@ import {BlogService} from "../../core/services/blog.service";
 import {Subject, Subscription} from "rxjs";
 import {Event} from "../../core/interface/event";
 
-declare var bootstrap: any; // Bootstrap's JS is declared here
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  private carousel: any;
+export class HomeComponent implements OnInit, OnDestroy {
+  isLoading: boolean = true;
   blogs: Blog[] = []
   weeklies: { name: string; }[] = [];
   events: Event[] = [];
@@ -29,16 +28,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      const carouselElement = document.getElementById('carouselExampleDark');
-      this.carousel = new bootstrap.Carousel(carouselElement, {
-        interval: 2000
-      });
-    });
-  }
-
   ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+
     this.getLatestTwoBlogs()
     this.getLatestTwoEvents()
     this.weeklies = this.weeklyService.getWeeklies();

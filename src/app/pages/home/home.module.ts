@@ -9,23 +9,25 @@ import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {ContactModule} from "../contact/contact.module";
 import {EventCardModule} from "../../features/event-card/event-card.module";
 import {SliderModule} from "../../features/slider/slider.module";
+import {LoadingModule} from "../../features/loading/loading.module";
 
 
 @NgModule({
   declarations: [
     HomeComponent
   ],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        EventsModule,
-        DailyHoroscopeModule,
-        BlogsModule,
-        BlogCardModule,
-        ContactModule,
-        EventCardModule,
-        SliderModule,
-    ]
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    EventsModule,
+    DailyHoroscopeModule,
+    BlogsModule,
+    BlogCardModule,
+    ContactModule,
+    EventCardModule,
+    SliderModule,
+    LoadingModule,
+  ]
 })
 export class HomeModule {
 }
