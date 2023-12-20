@@ -13,6 +13,20 @@ export interface User {
   password: string;
   email: string;
   phoneNumber: string;
+  isSubscribe: boolean;
+  zodiacoId: number;
+  eventsSubscription: any[];
+  zodiaco: Zodiaco;
+}
+
+export interface Zodiaco {
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: any;
+  id: number;
+  name: string;
+  startDate: string;
+  endDate: string;
 }
 
 export interface Token {
