@@ -29,14 +29,14 @@ export class SliderComponent implements OnInit, AfterViewInit, OnDestroy {
           interval: 3000
         });
       }
-    }, 2000);
+    }, 3000);
   }
 
   ngOnInit(): void {
     this.getSliders();
     setInterval(() => {
       this.nextSlide()
-    }, 3000)
+    }, 3500)
   }
 
   getSliders() {

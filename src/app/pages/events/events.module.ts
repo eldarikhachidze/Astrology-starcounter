@@ -7,6 +7,7 @@ import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go
 import {EventDetailComponent} from './event-detail/event-detail.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "../../features/modal/modal.module";
+import {LoadingModule} from "../../features/loading/loading.module";
 
 
 @NgModule({
@@ -17,14 +18,15 @@ import {ModalModule} from "../../features/modal/modal.module";
   exports: [
     EventsComponent
   ],
-  imports: [
-    CommonModule,
-    EventsRoutingModule,
-    EventCardModule,
-    GoBackAndTitleComponentModule,
-    ReactiveFormsModule,
-    ModalModule,
-  ]
+    imports: [
+        CommonModule,
+        EventsRoutingModule,
+        EventCardModule,
+        GoBackAndTitleComponentModule,
+        ReactiveFormsModule,
+        ModalModule,
+        LoadingModule,
+    ]
 })
 export class EventsModule {
 }

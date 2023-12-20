@@ -11,6 +11,7 @@ import {User} from "../../../core/interface/user";
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
+  isLoading: boolean = true;
 
   isEditMode = false;
 
@@ -38,6 +39,10 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {

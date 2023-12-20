@@ -18,6 +18,8 @@ export class BlogDetailComponent implements OnInit {
     description: new FormControl('', Validators.required),
   })
 
+  isLoading: boolean = true;
+
   item?: Blog
   pageTitle = 'Blog Detail'
 
@@ -30,6 +32,10 @@ export class BlogDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {

@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     setTimeout(() => {
       this.isLoading = false;
-    }, 1500);
+    }, 1000);
 
     this.getLatestTwoBlogs()
     this.getLatestTwoEvents()
