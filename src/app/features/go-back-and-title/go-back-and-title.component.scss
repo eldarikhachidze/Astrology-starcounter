@@ -10,6 +10,8 @@
     justify-content: space-around;
 
     .go_back {
+      position: absolute;
+      left: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -20,6 +22,10 @@
       border-radius: 100px;
       border: none;
       background-color: rgb(255 255 255 / 10%);
+    }
+
+    h1 {
+      position: relative;
     }
 
   }
