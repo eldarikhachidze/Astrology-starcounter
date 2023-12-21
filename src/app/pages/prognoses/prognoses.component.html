@@ -1,0 +1,12 @@
+<ng-container>
+  <div class="loading" *ngIf="isLoading">
+    <app-loading></app-loading>
+  </div>
+  <div class="detail_BG">
+    <app-go-back-and-title [title]="pageTitle" (exitClicked)="onExitClick()"></app-go-back-and-title>
+  </div>
+  <div class="blog-content">
+    <h1>პროგნოზები</h1>
+    <app-prognoses-card *ngFor="let prognos of prognoses" [prognoses]="prognos"></app-prognoses-card>
+  </div>
+</ng-container>

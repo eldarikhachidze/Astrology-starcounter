@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: () => import('./pages/blogs/blogs.module').then(m => m.BlogsModule)
       },
       {
-        path:'daily-horoscope',
-        loadChildren: () => import('./pages/daily-horoscope/daily-horoscope.module').then(m => m.DailyHoroscopeModule)
+        path:'prognoses',
+        loadChildren: () => import('./pages/prognoses/prognoses.module').then(m => m.PrognosesModule)
       },
       {
         path:'contact',

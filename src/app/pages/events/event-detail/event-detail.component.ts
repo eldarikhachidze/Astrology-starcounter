@@ -32,9 +32,6 @@ export class EventDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
@@ -46,6 +43,7 @@ export class EventDetailComponent implements OnInit {
       if (res) {
         this.item = res
         this.form.patchValue({...res});
+        this.isLoading = false;
       }
     })
   }

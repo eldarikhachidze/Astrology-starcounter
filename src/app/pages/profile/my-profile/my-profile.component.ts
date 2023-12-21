@@ -41,7 +41,7 @@ export class MyProfileComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.isLoading = false;
-    }, 1500);
+    }, 1000);
 
     this.route.params.pipe(
       switchMap((params: any) => {

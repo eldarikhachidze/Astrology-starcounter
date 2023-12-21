@@ -1,32 +1,29 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {of, switchMap} from "rxjs";
-import {BlogService} from "../../../core/services/blog.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Blog} from "../../../core/interface/blog";
+import {PrognosesService} from "../../../core/services/prognoses.service";
+import {Prognoses} from "../../../core/interface/prognoses";
 
 @Component({
-  selector: 'app-event-blog-detail',
-  templateUrl: './blog-detail.component.html',
-  styleUrls: ['./blog-detail.component.scss']
+  selector: 'app-prognoses-detail',
+  templateUrl: './prognoses-detail.component.html',
+  styleUrls: ['./prognoses-detail.component.scss']
 })
-export class BlogDetailComponent implements OnInit {
-
+export class PrognosesDetailComponent implements OnInit {
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
-    title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   })
 
   isLoading: boolean = true;
 
-  item?: Blog
-  pageTitle = 'Blog Detail'
+  item?: Prognoses
 
 
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService,
+    private prognosesService: PrognosesService,
     private router: Router
   ) {
   }
@@ -35,7 +32,8 @@ export class BlogDetailComponent implements OnInit {
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
-          return this.blogService.getOne(params['id']);
+
+          return this.prognosesService.getOne(params['id']);
         }
         return of(null);
       })

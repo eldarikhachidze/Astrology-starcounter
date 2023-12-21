@@ -1,0 +1,25 @@
+.prognoses-box {
+  width: 300px;
+  height: 400px;
+
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    .prognoses-img {
+      width: 100%;
+      height: 100%;
+      background-color: #ff7010;
+      border-radius: 50%;
+    }
+
+    .prognoses-title {
+
+    }
+
+  }
+}

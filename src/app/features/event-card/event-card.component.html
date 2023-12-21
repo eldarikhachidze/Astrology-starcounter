@@ -1,4 +1,4 @@
-<div *ngIf="event" class="event-box">
+ <div *ngIf="event" class="event-box">
   <a [routerLink]="['/events/detail', event.id]">
     <div class="event-img">
       <img class="event-img" [src]="'http://localhost:3000/' + event.files" [alt]="event.name">

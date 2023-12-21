@@ -1,7 +1,9 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {NavigationStart, Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
+import {Subject, takeUntil} from "rxjs";
+
 
 @Component({
   selector: 'app-header',
@@ -22,7 +24,7 @@ import {AuthService} from "../../../../core/services/auth.service";
   ]
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   isSidebarOpen = false;
   isScrolled = false;
@@ -30,6 +32,7 @@ export class HeaderComponent implements OnInit {
   scrollTimeout: any;
   zodiacName: string = '';
   translatedCard: string = '';
+  zodiacSub$ = new Subject();
 
 
   get userIsAuthenticated() {
@@ -43,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -57,11 +60,12 @@ export class HeaderComponent implements OnInit {
   }
 
   getUserZodiac() {
-    this.authService.getUser().subscribe((response) => {
-      this.zodiacName = response.zodiaco.name;
-
-      this.translatedCard = this.convertIdToWord(this.zodiacName);
-    });
+    this.authService.getUser()
+      .pipe(takeUntil(this.zodiacSub$))
+      .subscribe((response) => {
+        this.zodiacName = response.zodiaco.name;
+        this.translatedCard = this.convertIdToWord(this.zodiacName);
+      });
   }
 
   convertIdToWord(zodiacName: string): string {
@@ -159,6 +163,11 @@ export class HeaderComponent implements OnInit {
 
   signOut() {
     this.authService.signOut()
+    window.location.reload();
+  }
+  ngOnDestroy() {
+    this.zodiacSub$.next(this.zodiacSub$);
+    this.zodiacSub$.complete();
   }
 }
 

@@ -33,8 +33,8 @@ export class AuthService extends BaseService {
     return this.post<User>('auth/register', payload)
   }
 
-  getUser(): Observable<User> {
-    return this.get<User>('users/me/');
+   getUser(): Observable<User> {
+    return this.get<User>('users/me');
   }
 
   update(id: string, data: any): Observable<User> {

@@ -1,0 +1,12 @@
+<div class="loading" *ngIf="isLoading">
+  <app-loading></app-loading>
+</div>
+<div class="detail_BG">
+  <app-go-back-and-title (exitClicked)="onExitClick()"></app-go-back-and-title>
+</div>
+<div class="blog-content">
+  <h3>
+    {{form.get('description')?.value}}
+  </h3>
+</div>
+
