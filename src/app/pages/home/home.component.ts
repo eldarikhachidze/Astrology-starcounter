@@ -12,7 +12,7 @@ import {Event} from "../../core/interface/event";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  isLoading: boolean = true;
+  isLoading?: boolean;
   blogs: Blog[] = []
   weeklies: { name: string; }[] = [];
   events: Event[] = [];
@@ -29,13 +29,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
-
+    this.isLoading = true
     this.getLatestTwoBlogs()
     this.getLatestTwoEvents()
     this.weeklies = this.weeklyService.getWeeklies();
+    this.isLoading = false;
   }
 
   getLatestTwoBlogs() {
