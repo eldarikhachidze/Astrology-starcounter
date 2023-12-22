@@ -5,7 +5,6 @@ import {Blog} from "../../core/interface/blog";
 import {BlogService} from "../../core/services/blog.service";
 import {concatMap, finalize, Subject, Subscription, takeUntil} from "rxjs";
 import {Event} from "../../core/interface/event";
-import {AuthService} from "../../core/services/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -26,7 +25,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     private blogService: BlogService,
     private weeklyService: WeeklyService,
     private eventService: EventService,
-    private authService: AuthService
   ) {
   }
 
