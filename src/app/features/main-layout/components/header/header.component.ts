@@ -169,9 +169,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.zodiacSub$.next(this.zodiacSub$);
     this.zodiacSub$.complete();
   }
-  ngOnDestroy() {
-    this.zodiacSub$.next(this.zodiacSub$);
-    this.zodiacSub$.complete();
-  }
 }
 
