@@ -10,6 +10,7 @@ import {ContactModule} from "../contact/contact.module";
 import {EventCardModule} from "../../features/event-card/event-card.module";
 import {SliderModule} from "../../features/slider/slider.module";
 import {LoadingModule} from "../../features/loading/loading.module";
+import {PrognosesCardModule} from "../../features/prognoses-card/prognoses-card.module";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {LoadingModule} from "../../features/loading/loading.module";
     EventCardModule,
     SliderModule,
     LoadingModule,
+    PrognosesCardModule,
   ]
 })
 export class HomeModule {

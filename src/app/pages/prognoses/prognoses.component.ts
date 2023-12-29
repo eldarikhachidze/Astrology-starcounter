@@ -9,20 +9,19 @@ import {PrognosesService} from "../../core/services/prognoses.service";
   templateUrl: './prognoses.component.html',
   styleUrls: ['./prognoses.component.scss']
 })
-export class PrognosesComponent implements OnInit, OnDestroy{
+export class PrognosesComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = true;
 
   prognoses: Prognoses[] = []
   sub$ = new Subject()
-  pageTitle = 'Blogs'
+  pageTitle = 'Prognoses'
 
   constructor(
     private prognosesService: PrognosesService,
     private router: Router
   ) {
   }
-
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -39,6 +38,7 @@ export class PrognosesComponent implements OnInit, OnDestroy{
         this.prognoses = response.data
       })
   }
+
 
   ngOnDestroy() {
     this.sub$.next(this.sub$)

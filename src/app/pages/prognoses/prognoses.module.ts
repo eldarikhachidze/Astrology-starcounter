@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PrognosesRoutingModule } from './prognoses-routing.module';
-import { PrognosesDetailComponent } from './prognoses-detail/prognoses-detail.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {PrognosesRoutingModule} from './prognoses-routing.module';
+import {PrognosesDetailComponent} from './prognoses-detail/prognoses-detail.component';
 import {PrognosesComponent} from "./prognoses.component";
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 import {LoadingModule} from "../../features/loading/loading.module";
@@ -14,6 +14,9 @@ import {PrognosesCardModule} from "../../features/prognoses-card/prognoses-card.
     PrognosesComponent,
     PrognosesDetailComponent
   ],
+  exports: [
+    PrognosesComponent
+  ],
   imports: [
     CommonModule,
     PrognosesRoutingModule,
@@ -23,4 +26,5 @@ import {PrognosesCardModule} from "../../features/prognoses-card/prognoses-card.
     PrognosesCardModule
   ]
 })
-export class PrognosesModule { }
+export class PrognosesModule {
+}

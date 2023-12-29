@@ -335,3 +335,34 @@ li {
   }
 }
 
+/* prognoses */
+
+.prognoses-content {
+  padding: 80px 10px 30px;
+  background-color: #07273c;
+  background-image: url('/assets/images/bg1.jpg');
+  justify-content: center;
+
+  .prognoses-slider {
+    display: flex;
+    gap: 25px;
+    width: 400px;
+    margin: auto;
+    padding: 25px;
+  }
+
+  .prognos-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* slider */
+
+.slide {
+  height: 400px;
+}
+
+
+
