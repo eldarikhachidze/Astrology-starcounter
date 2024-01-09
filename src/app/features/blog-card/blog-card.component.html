@@ -1,6 +1,6 @@
 <div *ngIf="blog" class="blog-box">
   <a [routerLink]="['/blogs/detail', blog.id]">
-    <img class="blog-img" [src]="'http://localhost:3000/' + blog.files" [alt]="blog.title">
+    <img class="blog-img" [src]="'http://207.154.235.181:3000/' + blog.files" [alt]="blog.title">
     <div class="date_box">
       <h2>
         {{blog.createdAt | date: 'yyyy-MM-dd'}}

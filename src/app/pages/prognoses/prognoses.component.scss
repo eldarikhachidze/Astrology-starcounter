@@ -1,0 +1,18 @@
+
+.prognoses-header {
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7010;
+    max-width: 100px;
+    height: 40px;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+}

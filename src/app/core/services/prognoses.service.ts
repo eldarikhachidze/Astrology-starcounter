@@ -12,7 +12,10 @@ export class PrognosesService extends BaseService{
     return this.get<Prognoses>(`articles/${id}`)
   }
 
-  getAllPrognoses(): Observable<PrognosesResponse<Prognoses[]>> {
-    return this.get<PrognosesResponse<Prognoses[]>> ('articles');
+  getAllPrognoses(params: {
+    categoryId?: number,
+    limit: number
+  }): Observable<PrognosesResponse<Prognoses[]>> {
+    return this.get<PrognosesResponse<Prognoses[]>> ('articles', params);
   }
 }

@@ -1,23 +1,25 @@
+import {Category} from "./category";
+
 export interface Zodiaco {
   createdAt: string;
   updatedAt: string;
   deletedAt?: any;
   id: number;
-  files: string[];
   name: string;
   startDate: string;
   endDate: string;
+  files: string[];
 }
 export interface Prognoses {
   createdAt: string;
   updatedAt: string;
   deletedAt?: any;
-  id: string;
+  id: number;
   title: string;
   description: string;
-  zodiacoId: string;
-  categoryId: string;
-  category?: any;
+  zodiacoId: number;
+  categoryId: number;
+  category: Category;
   zodiaco: Zodiaco;
 }
 export interface PrognosesResponse<T> {

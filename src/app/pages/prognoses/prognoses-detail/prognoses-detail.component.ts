@@ -13,12 +13,14 @@ import {Prognoses} from "../../../core/interface/prognoses";
 export class PrognosesDetailComponent implements OnInit {
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
+    title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   })
 
   isLoading: boolean = true;
 
   item?: Prognoses
+  zodiacName?: string
 
 
   constructor(
@@ -39,7 +41,9 @@ export class PrognosesDetailComponent implements OnInit {
       })
     ).subscribe(res => {
       if (res) {
+        console.log(res)
         this.item = res;
+        this.zodiacName = res.zodiaco.name
         this.form.patchValue({...res});
         this.isLoading = false;
       }

@@ -1,10 +1,13 @@
 <div class="prognoses-box">
   <a [routerLink]="['/prognoses/detail', prognoses.id]">
-    <img class="prognoses-img" [src]="'http://localhost:3000/' + prognoses.zodiaco.files">
+    <img class="prognoses-img" [src]="'http://207.154.235.181:3000/' + prognoses.zodiaco.files">
     <div class="prognoses-title">
       <h2>
         {{prognoses.zodiaco.name}}
       </h2>
+      <h4>
+        {{prognoses.zodiaco.startDate | date: 'dd.MM'}} - {{prognoses.zodiaco.endDate | date: 'dd.MM'}}
+      </h4>
     </div>
   </a>
 </div>
