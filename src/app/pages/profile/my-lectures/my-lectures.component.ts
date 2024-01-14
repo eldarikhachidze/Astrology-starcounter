@@ -21,12 +21,10 @@ export class MyLecturesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
     this.route.params.subscribe((params) => {
       this.userId = +params['userId'];
       this.loadUserData();
+      this.isLoading = false;
     });
   }
 

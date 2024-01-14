@@ -3,14 +3,16 @@
   height: 500px;
   background-color: #031a2a;
 }
+
 .daily-content {
-  padding: 80px 10px 30px;
+  padding: 80px 0 30px;
   background-color: #17384e;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
-  max-width: 425px;
+  max-width: 100%;
+  margin: unset;
 
   .weekly-box {
     display: flex;

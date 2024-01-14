@@ -1,0 +1,40 @@
+.footer_top {
+  border-bottom: #17384e solid 0.5px;
+  padding-bottom: 65px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 25px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      gap: 15px;
+    }
+
+    h1 {
+      font-family: 'Philosopher', sans-serif;
+      font-size: 35px;
+      font-weight: 500;
+      text-transform: capitalize;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: #ff7010;
+      padding: 19px 20px;
+      width: 170px;
+      color: #ffffff;
+      font-weight: 400;
+      font-size: 16px;
+      border: none !important;
+      letter-spacing: 1px;
+      border-radius: 0;
+      text-transform: uppercase;
+    }
+  }
+}

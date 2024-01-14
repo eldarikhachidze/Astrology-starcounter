@@ -39,10 +39,6 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
-
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
@@ -54,8 +50,9 @@ export class MyProfileComponent implements OnInit {
       if (res) {
         this.form.patchValue({
           ...res,
-          id: res.id
+          id: res.id,
         })
+        this.isLoading = false;
       }
     })
   }

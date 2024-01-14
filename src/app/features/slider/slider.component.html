@@ -10,7 +10,8 @@
   <div id="carouselExampleDark" class="carousel-inner">
     <div *ngFor="let article of articles; let i = index" class="carousel-item" [class.active]="i === activeSlideIndex">
       <a [href]="[article.url]">
-        <img [src]="'http://localhost:3000/' + article.files" alt="{{ article.description }}" class="d-block w-100">
+        <img [src]="'http://207.154.235.181:3000/' + article.files" alt="{{ article.description }}"
+             class="d-block w-100">
         <h2>{{ article.description }}</h2>
       </a>
     </div>

@@ -3,7 +3,7 @@ import {WeeklyService} from "../../core/services/weekly.service";
 import {EventService} from "../../core/services/event.service";
 import {Blog} from "../../core/interface/blog";
 import {BlogService} from "../../core/services/blog.service";
-import {concatMap, finalize, Subject, Subscription, takeUntil} from "rxjs";
+import {concatMap, finalize, Subject} from "rxjs";
 import {Event} from "../../core/interface/event";
 
 @Component({
@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   blogs: Blog[] = []
   weeklies: { name: string; }[] = [];
   events: Event[] = [];
-  subscriptionBlogs?: Subscription;
-  subscriptionEvents?: Subscription;
+  // subscriptionBlogs?: Subscription;
+  // subscriptionEvents?: Subscription;
 
   sub$ = new Subject()
 
@@ -52,20 +52,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
   }
 
-  getLatestTwoBlogs() {
-    this.subscriptionBlogs = this.blogService.getAllBlogs()
-      .subscribe(blogs => {
-        this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
-      });
-  }
-
-  getLatestTwoEvents() {
-    this.subscriptionEvents = this.eventService.getAllEvents()
-      .subscribe(events => {
-        this.events = events.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
-      })
-  }
-
+  // getLatestTwoBlogs() {
+  //   this.subscriptionBlogs = this.blogService.getAllBlogs()
+  //     .subscribe(blogs => {
+  //       this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+  //     });
+  // }
+  //
+  // getLatestTwoEvents() {
+  //   this.subscriptionEvents = this.eventService.getAllEvents()
+  //     .subscribe(events => {
+  //       this.events = events.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+  //     })
+  // }
 
 
   ngOnDestroy() {

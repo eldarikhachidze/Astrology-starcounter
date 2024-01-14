@@ -15,7 +15,7 @@ export class PrognosesComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = true;
   prognoses: Prognoses[] = []
-  categoryId?: number
+  categoryId?: number = 1
   categories$: Observable<Category[]> = this.categoryService.getAllCategories()
   sub$ = new Subject()
   pageTitle = 'Prognoses'
@@ -31,8 +31,10 @@ export class PrognosesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.categoryId = params['category']
-      console.log('Category ID:', this.categoryId);
-      this.getPrognoses()
+      if (this.categoryId === undefined) {
+        this.categoryId = 1;
+      }
+      this.getPrognoses();
     })
   }
 

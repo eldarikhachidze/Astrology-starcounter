@@ -23,10 +23,6 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
-
     this.getEvents()
   }
 
@@ -35,6 +31,7 @@ export class EventsComponent implements OnInit {
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
         this.events = response.data
+        this.isLoading = false;
       })
   }
 

@@ -15,10 +15,11 @@
     <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
   </div>
   <div class="daily-content container">
-    <div class="prognoses-content">
-      <div class="prognoses-slider" style="height: 600px; overflow-y: auto;">
-<!--        <app-prognoses-card class="prognos-card" *ngFor="let prognos of prognoses$" [prognoses]="prognos"></app-prognoses-card>-->
-      </div>
-    </div>
+    <app-prognoses style="width: 100%"></app-prognoses>
+    <!--    <div class="prognoses-content">-->
+    <!--      <div class="prognoses-slider" style="height: 600px; overflow-y: auto;">-->
+    <!--        <app-prognoses-card class="prognos-card" *ngFor="let prognos of prognoses$" [prognoses]="prognos"></app-prognoses-card>-->
+    <!--      </div>-->
+    <!--    </div>-->
   </div>
 </ng-container>

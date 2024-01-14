@@ -1,5 +1,5 @@
 .prognoses-box {
-  width: 100vw;
+  width: 300px;
   height: 400px;
 
   a {
@@ -14,7 +14,7 @@
     .prognoses-img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+      border-radius: 20%;
       box-shadow: 0 0 30px #6a6a7f;
     }
 
@@ -22,6 +22,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
       h4 {
         font-size: 14px;
       }

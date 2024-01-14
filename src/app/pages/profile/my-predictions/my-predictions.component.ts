@@ -5,13 +5,11 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './my-predictions.component.html',
   styleUrls: ['./my-predictions.component.scss']
 })
-export class MyPredictionsComponent implements OnInit{
+export class MyPredictionsComponent implements OnInit {
   isLoading: boolean = true;
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 500);
+    this.isLoading = false;
   }
 
 

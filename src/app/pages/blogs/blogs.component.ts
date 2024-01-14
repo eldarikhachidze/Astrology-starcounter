@@ -17,17 +17,13 @@ export class BlogsComponent implements OnInit, OnDestroy {
   pageTitle = 'Blogs'
 
   constructor(
-  private blogService: BlogService,
-  private router: Router
+    private blogService: BlogService,
+    private router: Router
   ) {
   }
 
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
-
     this.getBlogs()
   }
 
@@ -36,6 +32,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
         this.blogs = response.data
+        this.isLoading = false;
       })
   }
 
