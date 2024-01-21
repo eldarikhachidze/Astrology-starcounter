@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.value).subscribe(async res => {
       console.log('res', res)
       if (res) {
-        window.location.reload();
         await this.router.navigate(['./'])
       }
     })

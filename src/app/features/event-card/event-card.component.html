@@ -1,7 +1,7 @@
  <div *ngIf="event" class="event-box">
   <a [routerLink]="['/events/detail', event.id]">
     <div class="event-img">
-      <img class="event-img" [src]="'http://207.154.235.181:3000/' + event.files" [alt]="event.name">
+      <img class="event-img" [src]="'https://api-starcounter.com/' + event.files" [alt]="event.name">
     </div>
     <div class="text">
       <div class="title">
