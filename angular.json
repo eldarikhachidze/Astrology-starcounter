@@ -39,6 +39,7 @@
           },
           "configurations": {
             "production": {
+              "allowedHosts": ["www.star-counter.com", "star-counter.com", "localhost:4200"],
               "budgets": [
                 {
                   "type": "initial",
@@ -69,11 +70,12 @@
           "options": {
             "browserTarget": "ang-app:build",
             "host": "0.0.0.0",
-            "port": 4200
+            "port": 4200,
+            "allowedHosts": ["www.star-counter.com", "star-counter.com", "localhost:4200"]
           },
           "configurations": {
             "production": {
-              "browserTarget": "Astrology-starcounter:build:production"
+              "browserTarget": "Astrology-starcounter:build:production",
             },
             "development": {
               "browserTarget": "Astrology-starcounter:build:development"
