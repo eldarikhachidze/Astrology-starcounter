@@ -35,7 +35,8 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            ],
+            "defaultConfiguration": "production"
           },
           "configurations": {
             "production": {
@@ -68,20 +69,17 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ang-app:build",
-            "host": "0.0.0.0",
-            "port": 4200,
-            "allowedHosts": ["www.star-counter.com", "star-counter.com", "localhost:4200"]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "Astrology-starcounter:build:production",
+            "allowedHosts": ["www.star-counter.com", "star-counter.com", "localhost:4200"],
+            "configurations": {
+              "production": {
+                "browserTarget": "Astrology-starcounter:build:production"
+              },
+              "development": {
+                "browserTarget": "Astrology-starcounter:build:development"
+              }
             },
-            "development": {
-              "browserTarget": "Astrology-starcounter:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
+            "defaultConfiguration": "development"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
