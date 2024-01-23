@@ -30,11 +30,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/all.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -66,11 +66,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ang-app:build",
-            "host": "0.0.0.0",
-            "port": 4200
-          },
           "configurations": {
             "production": {
               "browserTarget": "Astrology-starcounter:build:production"
