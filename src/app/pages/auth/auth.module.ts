@@ -4,10 +4,11 @@ import {AuthRoutingModule} from './auth-routing.module';
 import {AuthComponent} from './auth.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RecoveryComponent} from './components/recovery/recovery.component';
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 import {ChangePasswordComponent} from './components/change-password/change-password.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {ChangePasswordComponent} from './components/change-password/change-passw
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    GoBackAndTitleComponentModule
+    GoBackAndTitleComponentModule,
+    FormsModule,
   ]
 })
 export class AuthModule {
