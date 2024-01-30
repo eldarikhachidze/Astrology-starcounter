@@ -7,6 +7,7 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptor/auth.interceptor";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import {AuthInterceptor} from "./core/interceptor/auth.interceptor";
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgbModule,
     ],
     providers: [
         {

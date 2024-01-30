@@ -8,7 +8,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RecoveryComponent} from './components/recovery/recovery.component';
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 import {ChangePasswordComponent} from './components/change-password/change-password.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgbInputDatepicker} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ReactiveFormsModule,
     GoBackAndTitleComponentModule,
     FormsModule,
+    NgbInputDatepicker,
   ]
 })
 export class AuthModule {

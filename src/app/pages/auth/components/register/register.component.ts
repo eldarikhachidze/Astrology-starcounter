@@ -7,7 +7,7 @@ import {
 import {Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
 import {ValidatorService} from "../../../../core/services/validator.service";
-import {NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-register',
@@ -29,7 +29,7 @@ export class RegisterComponent {
   }, {validators: this.validatorService.ConfirmedValidator('password', 'confirmPassword')})
 
 
-  model: NgbDateStruct;
+  model?: NgbDateStruct;
   constructor(
     private router: Router,
     private authService: AuthService,
