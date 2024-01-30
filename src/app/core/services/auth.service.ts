@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {BaseService} from "./base.service";
 import {Login, LoginResponse, Register} from "../interface/auth";
-import {Observable, tap} from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 import {User} from "../interface/user";
-import {HttpHeaders} from "@angular/common/http";
+import {HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,14 @@ export class AuthService extends BaseService {
         tap((response: LoginResponse) => {
           this.setToken(response.token.accessToken)
           this.setUser(response.user)
-        })
+        }),
+        catchError(this.handleError)
       )
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error);
+    return throwError('Something went wrong. Please try again later.');
   }
 
   register(payload: Register): Observable<User> {
@@ -59,6 +65,10 @@ export class AuthService extends BaseService {
 
   signOut() {
     localStorage.clear()
+  }
+
+  getDevicePixelRatio(): number {
+    return window.devicePixelRatio || 1;
   }
 
 }

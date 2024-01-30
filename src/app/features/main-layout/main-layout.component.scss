@@ -1,4 +1,23 @@
-.slider {
-  position: relative;
-  top: 80px;
+.main-layout {
+
+  .slider {
+    position: relative;
+    top: 80px;
+  }
+}
+
+@media (min-width: 600px) {
+  .main-layout {
+    display: none;
+  }
+  .cooming-soon {
+    position: relative; /* or position: absolute; or position: fixed; depending on your layout */
+    z-index: 100000;
+    background-image: url(/assets/images/cooming.webp);
+    background-size: cover;
+    background-position: center;
+    background-color: #07273c;
+    width: 100vw;
+    height: 100vh;
+  }
 }

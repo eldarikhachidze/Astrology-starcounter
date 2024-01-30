@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
+  errorMas!: string
+
   constructor(
     private router: Router,
     private authService: AuthService
@@ -29,11 +31,14 @@ export class LoginComponent implements OnInit {
     this.form.markAllAsTouched();
     if (this.form.invalid) return
 
-    this.authService.login(this.form.value).subscribe(async res => {
+    this.authService.login(this.form.value).subscribe( res => {
       console.log('res', res)
       if (res) {
-        await this.router.navigate(['./'])
+        this.router.navigate(['./'])
       }
+    },
+    (error) => {
+      this.errorMas = error
     })
 
   }

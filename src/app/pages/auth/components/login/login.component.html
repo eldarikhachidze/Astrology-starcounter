@@ -8,6 +8,10 @@
       <div class="error-divider"></div>
       <h4>Error: Password is required</h4>
     </div>
+    <div class="error-massage" *ngIf="errorMas">
+      <div class="error-divider"></div>
+      <h4>მომხმარებელი ან პაროლი არასწორია</h4>
+    </div>
     <h1 class="h3 mb-3 fw-normal">Login</h1>
     <div class="input-group input-group-lg">
       <label>PLease Enter Your Email Address</label>
