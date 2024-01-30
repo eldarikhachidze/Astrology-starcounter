@@ -110,10 +110,11 @@
   z-index: 10001;
   transition: transform 0.3s ease;
 }
-
+.log-out {
+  margin-bottom: 50px;
+}
 .sidebar-open {
   transform: translateX(0);
-  position: -webkit-sticky; /* Safari */
   position: sticky;
 }
 

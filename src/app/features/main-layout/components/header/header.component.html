@@ -35,19 +35,19 @@
     <hr>
 
     <ng-container *ngIf="userIsAuthenticated">
+      <div class="log-out">
+        <li>
+          <a routerLink="/auth/change-password" class="nav-link text-white">
+            Change Password
+          </a>
+        </li>
 
-      <li>
-        <a routerLink="/auth/change-password" class="nav-link text-white">
-          Change Password
-        </a>
-      </li>
-
-      <li>
-        <a (click)="signOut()" routerLink="/" class="nav-link text-white">
-          Sign Out
-        </a>
-      </li>
-
+        <li>
+          <a (click)="signOut()" routerLink="/" class="nav-link text-white">
+            Sign Out
+          </a>
+        </li>
+      </div>
     </ng-container>
   </div>
 </div>
