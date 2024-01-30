@@ -68,14 +68,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ang-app:build"
+            "buildTarget": "ang-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Astrology-starcounter:build:production"
+              "buildTarget": "Astrology-starcounter:build:production"
             },
             "development": {
-              "browserTarget": "Astrology-starcounter:build:development"
+              "buildTarget": "Astrology-starcounter:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Astrology-starcounter:build"
+            "buildTarget": "Astrology-starcounter:build"
           }
         },
         "test": {
