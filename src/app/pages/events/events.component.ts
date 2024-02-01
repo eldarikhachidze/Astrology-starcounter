@@ -13,12 +13,13 @@ export class EventsComponent implements OnInit {
 
   events: Event[] = []
   pageTitle = 'Events'
-  sub$ = new Subject()
   isLoading: boolean = true;
+
+  sub$ = new Subject()
 
   constructor(
     private router: Router,
-    private eventService: EventService
+    private eventService: EventService,
   ) {
   }
 

@@ -27,9 +27,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
-    this.isLoading = true;
-
     this.blogService.getAllBlogs()
       .pipe(
         concatMap(blogs => {
@@ -46,7 +43,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe(weeklies => {
-        // You can do additional processing if needed
       });
   }
 

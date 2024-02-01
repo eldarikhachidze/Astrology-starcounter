@@ -4,6 +4,7 @@ import {EventService} from "../../../core/services/event.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {of, switchMap} from "rxjs";
 import {Event} from "../../../core/interface/event";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-event-blog-detail',
@@ -20,14 +21,16 @@ export class EventDetailComponent implements OnInit {
   isLoading: boolean = true;
 
   showModal = false;
-
   pageTitle = 'Event Detail'
+
+  userData?: any
   item?: Event
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private eventService: EventService
+    private eventService: EventService,
+    private authService: AuthService,
   ) {
   }
 
@@ -43,11 +46,17 @@ export class EventDetailComponent implements OnInit {
       if (res) {
         this.item = res
         this.form.patchValue({...res});
+        this.loadUserData()
         this.isLoading = false;
       }
     })
   }
-
+  loadUserData(): void {
+    this.authService.getUser().subscribe((data) => {
+      console.log(data)
+      this.userData = data;
+    });
+  }
   openConfirmModal() {
     console.log('Open modal called', this.showModal);
     this.showModal = true;

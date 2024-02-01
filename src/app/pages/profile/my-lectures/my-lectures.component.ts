@@ -19,7 +19,8 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
   ) {
   }
 
@@ -35,31 +36,14 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
 
   loadUserData(): void {
     this.authService.getUser().subscribe((data) => {
-      console.log('data', data);
       this.userData = data;
       this.extractEventSubscribeId();
-      // Any other code that relies on this.userData should be placed here.
     });
   }
-  // loadUserData(): void {
-  //   this.authService.getUser().subscribe(
-  //     (data) => {
-  //       console.log('API Response:', data);
-  //       this.userData = data;
-  //       console.log('this.userData', this.userData)
-  //       this.extractEventSubscribeId();
-  //     },
-  //     (error) => {
-  //       console.error('API Error:', error);
-  //     }
-  //   );
-  // }
 
   extractEventSubscribeId(): void {
     this.authService.getUser().subscribe((data) => {
-      console.log('data', data)
       this.eventSubscribeId = data.eventsSubscription[0].id;
-      console.log('this.eventSubscribeId', this.eventSubscribeId)
     });
   }
 
