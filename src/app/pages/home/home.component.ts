@@ -16,8 +16,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   blogs: Blog[] = []
   weeklies: { name: string; }[] = [];
   events: Event[] = [];
-  // subscriptionBlogs?: Subscription;
-  // subscriptionEvents?: Subscription;
 
   sub$ = new Subject()
 
@@ -51,20 +49,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         // You can do additional processing if needed
       });
   }
-
-  // getLatestTwoBlogs() {
-  //   this.subscriptionBlogs = this.blogService.getAllBlogs()
-  //     .subscribe(blogs => {
-  //       this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
-  //     });
-  // }
-  //
-  // getLatestTwoEvents() {
-  //   this.subscriptionEvents = this.eventService.getAllEvents()
-  //     .subscribe(events => {
-  //       this.events = events.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
-  //     })
-  // }
 
 
   ngOnDestroy() {

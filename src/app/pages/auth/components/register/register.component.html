@@ -65,22 +65,33 @@
       <label>Confirm Password</label>
       <input class="login-input" type="password" formControlName="confirmPassword">
     </div>
-    <div class="input-group input-group-lg">
-      <label>Birth Date</label>
-      <input
-        class="form-control"
-        placeholder="yyyy-mm-dd"
-        name="dp"
-        [(ngModel)]="model"
-        ngbDatepicker
-        #d="ngbDatepicker"
-      />
-      <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+    <div class="picker">
+      <div class="input-group input-group-lg date-picker-box">
+        <label>Birth Date</label>
+        <div class="date-picker">
+          <button  class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
+            <svg style="color: #ff7010;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+            </svg>
+          </button>
+          <input
+            class="login-input"
+            formControlName="birthDate"
+            placeholder="yyyy-mm-dd"
+            name="dp"
+            [(ngModel)]="model"
+            ngbDatepicker
+            #d="ngbDatepicker"
+          />
+
+        </div>
+      </div>
+      <div class="time-picker input-group input-group-lg">
+        <label>Time of Birth</label>
+        <ngb-timepicker formControlName="timeOfBirth" [(ngModel)]="time"></ngb-timepicker>
+      </div>
     </div>
-    <div class="input-group input-group-lg">
-      <label>Time of Birth</label>
-      <input class="login-input" formControlName="timeOfBirth">
-    </div>
+
     <div class="input-group input-group-lg">
       <label>Country</label>
       <input class="login-input" formControlName="country">

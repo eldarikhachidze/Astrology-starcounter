@@ -33,12 +33,14 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   getUserZodiac() {
-    this.authService.getUser()
-      .pipe(takeUntil(this.zodiacSub$))
-      .subscribe((response) => {
-        this.zodiacName = response.zodiaco.name;
-        this.translatedCard = this.convertIdToWord(this.zodiacName);
-      });
+    if (this.userIsAuthenticated) {
+      this.authService.getUser()
+        .pipe(takeUntil(this.zodiacSub$))
+        .subscribe((response) => {
+          this.zodiacName = response.zodiaco.name;
+          this.translatedCard = this.convertIdToWord(this.zodiacName);
+        });
+    }
   }
 
   convertIdToWord(zodiacName: string): string {
