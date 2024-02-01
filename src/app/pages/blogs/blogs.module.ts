@@ -7,6 +7,7 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 import {LoadingModule} from "../../features/loading/loading.module";
+import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {LoadingModule} from "../../features/loading/loading.module";
         BlogsRoutingModule,
         BlogCardModule,
         GoBackAndTitleComponentModule,
-        LoadingModule
+        LoadingModule,
+        NgbPagination
     ]
 })
 export class BlogsModule { }
