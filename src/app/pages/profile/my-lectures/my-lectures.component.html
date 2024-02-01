@@ -2,7 +2,7 @@
   <app-loading></app-loading>
 </div>
 <div class="events">
-  <div *ngIf="userData; else notUserData">
+  <div *ngIf="eventSubscribeId; else notUserData">
     <h1>ჩემი ლექციები</h1>
     <div *ngFor="let subscription of userData.eventsSubscription" class="event-box">
       <a [routerLink]="['/events/detail', subscription.event.id]">
