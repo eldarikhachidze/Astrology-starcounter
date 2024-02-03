@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "./base.service";
 import {Observable} from "rxjs";
 import {Blog, PaginatedResponse} from "../interface/blog";
@@ -8,8 +8,8 @@ import {Blog, PaginatedResponse} from "../interface/blog";
 })
 export class BlogService extends BaseService {
 
-  getAllBlogs(): Observable<PaginatedResponse> {
-    return this.get<PaginatedResponse>('blog/get-all-blogs');
+  getAllBlogs(params = {}): Observable<PaginatedResponse> {
+    return this.get<PaginatedResponse>('blog/get-all-blogs', params);
   }
 
 

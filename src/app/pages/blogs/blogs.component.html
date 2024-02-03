@@ -7,15 +7,19 @@
 <div class="blog-content">
   <h1>ბლოგები</h1>
   <div *ngFor="let blog of pagedBlogs">
-    <!-- Your existing blog card component -->
+
     <app-blog-card [blog]="blog"></app-blog-card>
   </div>
   <div class="pagination-bot">
     <ngb-pagination
+      [collectionSize]="totalBlogs"
       [(page)]="currentPage"
       [pageSize]="pageSize"
-      [collectionSize]="totalBlogs"
-      (pageChange)="pageChanged()"
+      [maxSize]="5"
+      [rotate]="true"
+      [ellipses]="false"
+      [boundaryLinks]="true"
+      (pageChange)="getBlogs()"
     ></ngb-pagination>
 
     <hr />
