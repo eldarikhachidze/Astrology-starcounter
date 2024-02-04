@@ -8,8 +8,8 @@ import {Observable} from "rxjs";
 })
 export class EventService extends BaseService {
 
-  getAllEvents(): Observable<EventsResponse> {
-    return this.get<EventsResponse>('events')
+  getAllEvents(params = {}): Observable<EventsResponse> {
+    return this.get<EventsResponse>('events', params)
   }
 
   getOne(id: string): Observable<Event> {

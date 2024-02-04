@@ -27,23 +27,23 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.blogService.getAllBlogs()
-    //   .pipe(
-    //     concatMap(blogs => {
-    //       this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
-    //       return this.eventService.getAllEvents();
-    //     }),
-    //     concatMap(events => {
-    //       this.events = events.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
-    //       this.weeklies = this.weeklyService.getWeeklies();
-    //       return this.weeklyService.getWeeklies();
-    //     }),
-    //     finalize(() => {
-    //       this.isLoading = false;
-    //     })
-    //   )
-    //   .subscribe(weeklies => {
-    //   });
+    this.blogService.getAllBlogs()
+      .pipe(
+        concatMap(blogs => {
+          this.blogs = blogs.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+          return this.eventService.getAllEvents();
+        }),
+        concatMap(events => {
+          this.events = events.data.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 2);
+          this.weeklies = this.weeklyService.getWeeklies();
+          return this.weeklyService.getWeeklies();
+        }),
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe(weeklies => {
+      });
   }
 
 

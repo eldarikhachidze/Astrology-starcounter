@@ -8,6 +8,7 @@ import {EventDetailComponent} from './event-detail/event-detail.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "../../features/modal/modal.module";
 import {LoadingModule} from "../../features/loading/loading.module";
+import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -18,15 +19,16 @@ import {LoadingModule} from "../../features/loading/loading.module";
   exports: [
     EventsComponent
   ],
-    imports: [
-        CommonModule,
-        EventsRoutingModule,
-        EventCardModule,
-        GoBackAndTitleComponentModule,
-        ReactiveFormsModule,
-        ModalModule,
-        LoadingModule,
-    ]
+  imports: [
+    CommonModule,
+    EventsRoutingModule,
+    EventCardModule,
+    GoBackAndTitleComponentModule,
+    ReactiveFormsModule,
+    ModalModule,
+    LoadingModule,
+    NgbPagination,
+  ]
 })
 export class EventsModule {
 }

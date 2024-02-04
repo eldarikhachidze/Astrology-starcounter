@@ -12,14 +12,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class BlogsComponent implements OnInit, OnDestroy {
   isLoading?: boolean;
 
-  pagedBlogs: any[] = [];
   total: number = 0;
   pageSize: number = 5;
   page: number = 1;
 
   blogs: Blog[] = []
   sub$ = new Subject()
-  destroy$ = new Subject()
   pageTitle = 'Blogs'
 
   constructor(
@@ -42,7 +40,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
     };
 
     this.blogService.getAllBlogs(params)
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntil(this.sub$))
       .subscribe(
         (response) => {
           this.blogs = response.data;
@@ -62,11 +60,6 @@ export class BlogsComponent implements OnInit, OnDestroy {
     this.getBlogs();
   }
 
-  pageChange(): void {
-    const startIndex = (this.page - 1) * this.pageSize;
-    this.pagedBlogs = this.blogs.slice(startIndex, startIndex + this.pageSize);
-  }
-
   setQueryParams() {
     this.router
       .navigate([], {
@@ -81,8 +74,8 @@ export class BlogsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroy$.next(this.destroy$);
-    this.destroy$.complete();
+    this.sub$.next(this.sub$);
+    this.sub$.complete();
   }
 
 
