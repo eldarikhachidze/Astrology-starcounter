@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BlogService} from "../../core/services/blog.service";
 import {Subject, takeUntil} from "rxjs";
-import {Blog, PaginatedResponse} from "../../core/interface/blog";
+import {Blog} from "../../core/interface/blog";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -10,12 +10,12 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./blogs.component.scss']
 })
 export class BlogsComponent implements OnInit, OnDestroy {
-  isLoading: boolean = true;
+  isLoading?: boolean;
 
   pagedBlogs: any[] = [];
-  totalBlogs: number = 0;
-  pageSize: number = 10;
-  currentPage: number = 1;
+  total: number = 0;
+  pageSize: number = 5;
+  page: number = 1;
 
   blogs: Blog[] = []
   sub$ = new Subject()
@@ -35,24 +35,35 @@ export class BlogsComponent implements OnInit, OnDestroy {
   }
 
   getBlogs() {
+    this.isLoading = true;
     const params = {
-      page: this.currentPage,
+      page: this.page,
       limit: this.pageSize
-    }
+    };
+
     this.blogService.getAllBlogs(params)
       .pipe(takeUntil(this.destroy$))
-      .subscribe((response) => {
-        this.blogs = response.data;
-        this.totalBlogs = response.total
-        this.currentPage = response.page
-        this.setQueryParams()
-        this.isLoading = false;
-        this.pageChanged()
-      });
+      .subscribe(
+        (response) => {
+          this.blogs = response.data;
+          this.total = response.total;
+          this.page = response.page;
+          this.setQueryParams();
+          this.isLoading = false;
+        },
+        error => {
+          this.isLoading = false;
+        }
+      );
   }
 
-  pageChanged(): void {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
+  pageChangeEvent(event: number) {
+    this.page = event;
+    this.getBlogs();
+  }
+
+  pageChange(): void {
+    const startIndex = (this.page - 1) * this.pageSize;
     this.pagedBlogs = this.blogs.slice(startIndex, startIndex + this.pageSize);
   }
 
@@ -61,7 +72,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
       .navigate([], {
         relativeTo: this.route,
         queryParams: {
-          page: this.currentPage,
+          page: this.page,
           pageSize: this.pageSize,
         },
         queryParamsHandling: 'merge',
@@ -78,4 +89,5 @@ export class BlogsComponent implements OnInit, OnDestroy {
   onExitClick(): void {
     this.router.navigate(['./']);
   }
+
 }

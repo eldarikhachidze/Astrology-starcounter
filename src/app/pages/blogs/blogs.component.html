@@ -6,23 +6,23 @@
 </div>
 <div class="blog-content">
   <h1>ბლოგები</h1>
-  <div *ngFor="let blog of pagedBlogs">
+  <div *ngFor="let blog of blogs">
 
     <app-blog-card [blog]="blog"></app-blog-card>
   </div>
   <div class="pagination-bot">
     <ngb-pagination
-      [collectionSize]="totalBlogs"
-      [(page)]="currentPage"
+      [collectionSize]="total"
+      [(page)]="page"
       [pageSize]="pageSize"
       [maxSize]="5"
       [rotate]="true"
       [ellipses]="false"
       [boundaryLinks]="true"
-      (pageChange)="getBlogs()"
+      (pageChange)="pageChangeEvent($event)"
     ></ngb-pagination>
 
-    <hr />
+    <hr/>
   </div>
 </div>
 
