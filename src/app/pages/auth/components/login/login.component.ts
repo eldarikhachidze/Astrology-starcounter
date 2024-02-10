@@ -27,6 +27,12 @@ export class LoginComponent implements OnInit {
 
   }
 
+  onInputClick() {
+    const inputElement: HTMLInputElement | null = document.getElementById('label') as HTMLInputElement | null;
+
+    return inputElement?.classList.add('custom-label')
+  }
+
   submit() {
     this.form.markAllAsTouched();
     if (this.form.invalid) return

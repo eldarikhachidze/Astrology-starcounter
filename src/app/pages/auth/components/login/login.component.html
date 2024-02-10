@@ -13,13 +13,13 @@
       <h4>მომხმარებელი ან პაროლი არასწორია</h4>
     </div>
     <h1 class="h3 mb-3 fw-normal">Login</h1>
-    <div class="input-group input-group-lg">
-      <label>PLease Enter Your Email Address</label>
-      <input class="login-input" type="text" formControlName="email">
+    <div class="input-custom">
+      <label class="label" id="label" for="username">მეილი</label>
+      <input class="login-input" type="text" formControlName="email" id="username" (click)="onInputClick()">
     </div>
-    <div class="input-group input-group-lg">
-      <label>Password</label>
-      <input class="login-input" type="password" formControlName="password">
+    <div class="input-custom">
+      <label class="label" for="pass">შეიყვანეთ პაროლი</label>
+      <input class="login-input" type="password" formControlName="password" id="pass">
     </div>
     <div class="radio">
       <div class="remember-me">

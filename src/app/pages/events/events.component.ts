@@ -22,8 +22,8 @@ export class EventsComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private eventService: EventService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private eventService: EventService
   ) {
   }
 
