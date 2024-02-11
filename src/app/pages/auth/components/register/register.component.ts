@@ -25,6 +25,8 @@ export class RegisterComponent {
   }, {validators: this.validatorService.ConfirmedValidator('password', 'confirmPassword')})
 
 
+  isInputFocused: { [key: string]: boolean } = {};
+
   model?: NgbDateStruct;
   time?: '00:00:00'
 
@@ -39,6 +41,27 @@ export class RegisterComponent {
 
   get f(): any {
     return this.form.controls;
+  }
+
+  isInputValid(controlName: string): boolean {
+    return !!this.form.get(controlName)?.valid;
+  }
+
+  onInputFocus(controlName: string) {
+    this.isInputFocused[controlName] = true;
+  }
+
+  onInputBlur(controlName: string) {
+    this.isInputFocused[controlName] = false;
+  }
+
+  get isInputFocusedFn(): (key: string) => boolean {
+    return (key: string) => this.isInputFocused[key];
+  }
+
+  isInvalidAndTouched(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return !!control && control.invalid && (control.touched || control.dirty);
   }
 
   formatNgbDateToString(date: { year: number; month: number; day: number }): string {
@@ -57,7 +80,7 @@ export class RegisterComponent {
     if (this.form.invalid) return;
 
     const birthDateFormatted = this.formatNgbDateToString(this.form.value.birthDate);
-    const formattedTime = this.formatNgbTimeToString({ hour: 0, minute: 0 });
+    const formattedTime = this.formatNgbTimeToString({hour: 0, minute: 0});
 
 
     const formData = {

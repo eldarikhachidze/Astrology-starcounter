@@ -1,26 +1,48 @@
 <div class="content">
   <form [formGroup]="form" (ngSubmit)="submit()">
-    <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-      <div class="error-divider"></div>
-      <h4>Error: Username is required</h4>
-    </div>
-    <div class="error-massage" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
-      <div class="error-divider"></div>
-      <h4>Error: Password is required</h4>
-    </div>
-    <div class="error-massage" *ngIf="errorMas">
-      <div class="error-divider"></div>
-      <h4>მომხმარებელი ან პაროლი არასწორია</h4>
-    </div>
+    <!--    <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">-->
+    <!--      <div class="error-divider"></div>-->
+    <!--      <h4>Error: Username is required</h4>-->
+    <!--    </div>-->
+    <!--    <div class="error-massage" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">-->
+    <!--      <div class="error-divider"></div>-->
+    <!--      <h4>Error: Password is required</h4>-->
+    <!--    </div>-->
+    <!--    <div class="error-massage" *ngIf="errorMas">-->
+    <!--      <div class="error-divider"></div>-->
+    <!--      <h4>მომხმარებელი ან პაროლი არასწორია</h4>-->
+    <!--    </div>-->
     <h1 class="h3 mb-3 fw-normal">Login</h1>
-    <div class="input-group input-group-lg">
-      <label>PLease Enter Your Email Address</label>
-      <input class="login-input" type="text" formControlName="email">
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('email') || isInputValid('email'), 'error': isInvalidAndTouched('email')  }"
+      >მეილი
+      </label>
+      <input
+        class="input"
+        type="email"
+        formControlName="email"
+        (focus)="onInputFocus('email')"
+        (blur)="onInputBlur('email')"
+      >
     </div>
-    <div class="input-group input-group-lg">
-      <label>Password</label>
-      <input class="login-input" type="password" formControlName="password">
+
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('password') || isInputValid('password'), 'error': isInvalidAndTouched('password')  }"
+      >პაროლი
+      </label>
+      <input
+        class="input"
+        type="password"
+        formControlName="password"
+        (focus)="onInputFocus('password')"
+        (blur)="onInputBlur('password')">
     </div>
+
+
     <div class="radio">
       <div class="remember-me">
         <a routerLink="/auth/register">

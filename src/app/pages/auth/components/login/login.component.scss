@@ -2,11 +2,10 @@
   .radio {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
+    gap: 10px;
 
     .remember-me {
       label {
-        margin-left: 10px;
       }
     }
   }

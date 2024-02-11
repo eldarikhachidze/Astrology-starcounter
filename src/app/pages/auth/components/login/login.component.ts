@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
+  isInputFocused: { [key: string]: boolean } = {};
   errorMas!: string
 
   constructor(
@@ -27,19 +28,40 @@ export class LoginComponent implements OnInit {
 
   }
 
+  isInputValid(controlName: string): boolean {
+    return !!this.form.get(controlName)?.valid;
+  }
+
+  onInputFocus(controlName: string) {
+    this.isInputFocused[controlName] = true;
+  }
+
+  onInputBlur(controlName: string) {
+    this.isInputFocused[controlName] = false;
+  }
+
+  isInvalidAndTouched(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return !!control && control.invalid && (control.touched || control.dirty);
+  }
+
+  get isInputFocusedFn(): (key: string) => boolean {
+    return (key: string) => this.isInputFocused[key];
+  }
+
   submit() {
     this.form.markAllAsTouched();
     if (this.form.invalid) return
 
-    this.authService.login(this.form.value).subscribe( res => {
-      console.log('res', res)
-      if (res) {
-        this.router.navigate(['./'])
-      }
-    },
-    (error) => {
-      this.errorMas = error
-    })
+    this.authService.login(this.form.value).subscribe(res => {
+        console.log('res', res)
+        if (res) {
+          this.router.navigate(['./'])
+        }
+      },
+      (error) => {
+        this.errorMas = error
+      })
 
   }
 
