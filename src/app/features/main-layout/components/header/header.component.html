@@ -54,27 +54,19 @@
 <div class="container">
   <header class="fixed" *ngIf="isHeaderVisible">
     <a routerLink="/">
-      <div class="logo">
-      </div>
+      <h2>STARCOUNTER</h2>
     </a>
-    <div class="header">
-      <div class="header_bottom">
-
-        <h2>STARCOUNTER</h2>
-
-        <div class="btn_menu">
-          <button
-            class="menu btn_radius"
-            (click)="toggleSidebar($event)"
-            [class.scrolled]="isScrolled"
-            [ngClass]="{'isSidebarOpen': isSidebarOpen}"
-          >
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-            <div class="line line3"></div>
-          </button>
-        </div>
-      </div>
+    <div class="btn_menu">
+      <button
+        class="menu btn"
+        (click)="toggleSidebar($event)"
+        [class.scrolled]="isScrolled"
+        [ngClass]="{'isSidebarOpen': isSidebarOpen}"
+      >
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+      </button>
     </div>
   </header>
 </div>

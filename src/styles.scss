@@ -11,6 +11,7 @@ container {
 h1, h2, h3, h4, h5, h6, p, a, {
   color: #ffffff;
   text-decoration: none;
+  margin: unset;
   font-family: 'Philosopher', sans-serif;
   letter-spacing: 1.5px;
 }
@@ -19,27 +20,34 @@ li {
   list-style: none;
 }
 
-.btn_radius {
-  width: 50px !important;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #17384e;
+.btn {
+  background-color: var(--Background, #011627);
   border: none;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 4px;
   align-items: center;
   cursor: pointer;
 }
 
-.divider {
-  width: 170px;
-  height: 2px;
-  background-color: #ff7010;
-  margin-bottom: 15px;
+//* main content *//
+
+.main-content {
+  min-width: 390px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 49px 0 32px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 84px;
+  background-color: var(--Background, #011627);
 }
 
-.content {
+//* forms styles*//
+
+.forms-content {
   padding: 21px 30px 30px;
   margin: 0 0 45px;
   text-align: left;
@@ -123,15 +131,8 @@ li {
   color: red;
 }
 
-//label.active {
-//  transform: translateY(-120px) scale(0.7);
-//  background-color: #1a1a1a;
-//  padding-inline: 0.3rem;
-//  color: #9e9e9e;
-//}
 
-
-.sing_in {
+.text-btn {
   min-width: 170px;
   font-size: 16px;
   font-weight: 500;
@@ -172,9 +173,9 @@ li {
   gap: 10px;
 }
 
+//* blog content in home page*//
 .blog-content {
   padding: 80px 10px 30px;
-  background-color: #07273c;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -184,46 +185,65 @@ li {
     color: #ff7010;
     font-size: 2rem;
   }
+
+  h3 {
+    width: 325px;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    color: var(--Headings, #FF6E40);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40.8px; /* 255% */
+    letter-spacing: 1.5px;
+  }
 }
 
-.blog-box {
-  width: 385px;
-  display: flex;
+//** blog card**//
+.blog-card {
+  display: inline-flex;
+  padding-bottom: 16px;
   flex-direction: column;
   align-items: center;
-  background-color: #07273c;
-  border: 1px solid rgb(255 255 255 / 8%);
-  margin-bottom: 80px;
+  gap: 21px;
+  border-radius: 8px;
+  background: #1B2B40;
 
   a {
     position: relative;
 
     .blog-img {
-      background-size: cover;
-      background-position: center center;
-      width: 385px;
-      position: relative;
-      transition: all 0.5s ease-in-out;
-      object-fit: cover
+      width: 100%;
+      display: flex;
+      height: 306px;
+      justify-content: flex-end;
+      align-items: center;
+      border-radius: 8px 8px 0 0;
     }
 
     .date_box {
       position: absolute;
-      font-weight: 500;
-      bottom: 105px;
-      right: 15px;
-      background-color: #ff7010;
-      border-radius: 5px;
-      color: #FFFFFF;
-      padding: 13px 10px;
-      display: inline-block;
-      text-align: center;
-      min-height: auto;
-      min-width: 150px;
-      text-transform: uppercase;
+      top: 25px;
+      right: 0;
+      display: flex;
+      padding: 6px 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 13px 0 0 13px;
+      background: rgba(221, 90, 1, 0.70);
 
       h2 {
         margin: unset;
+        color: #F2F0ED;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32.93px; /* 205.813% */
+        letter-spacing: 1.5px;
       }
     }
 
@@ -233,19 +253,36 @@ li {
       flex-direction: column;
       gap: 20px;
 
+      h1 {
+        color: #F2F0ED;
+        font-size: 27.4px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32.93px; /* 120.182% */
+        letter-spacing: 1.5px;
+      }
+
       .al-sm-icon {
-        h4 {
-          font-size: 0.9rem;
-          margin: unset;
-
-          span {
-            color: #ff7010;
-            font-size: 1.1rem;
-          }
-        }
-
         display: flex;
         gap: 10px;
+
+        h4 {
+          color: #F2F0ED;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18.36px; /* 114.75% */
+          letter-spacing: 1.5px;
+
+          span {
+            color: var(--Headings, #FF6E40);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22.44px; /* 140.25% */
+            letter-spacing: 1.5px;
+          }
+        }
 
         svg {
           fill: #ff7010;
@@ -388,13 +425,10 @@ li {
   width: 100%;
   padding: 80px 10px 30px;
   background-color: #07273c;
-  background-image: url('/assets/images/bg1.jpg');
-  justify-content: center;
 
   .prognoses-slider {
     display: flex;
     gap: 25px;
-    width: 400px;
     margin: auto;
     padding: 25px;
   }

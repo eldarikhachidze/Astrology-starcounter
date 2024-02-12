@@ -1,6 +1,5 @@
 .main-layout {
-  background-color: #17384e;
-
+  background-color: var(--Background, #011627);
   .slider {
     position: relative;
     top: 80px;

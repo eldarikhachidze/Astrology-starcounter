@@ -1,4 +1,4 @@
-<div class="content">
+<div class="forms-content">
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
       <div class="error-divider"></div>
@@ -9,6 +9,6 @@
       <label>PLease Enter Your Email Address</label>
       <input class="login-input" type="text" formControlName="email">
     </div>
-    <button class="btn btn-primary w-50 py-2 sing_in" type="submit">Send Email</button>
+    <button class="btn btn-primary w-50 py-2 text-btn" type="submit">Send Email</button>
   </form>
 </div>

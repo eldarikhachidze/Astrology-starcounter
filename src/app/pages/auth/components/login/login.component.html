@@ -1,4 +1,4 @@
-<div class="content">
+<div class="forms-content">
   <form [formGroup]="form" (ngSubmit)="submit()">
     <!--    <div class="error-massage" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">-->
     <!--      <div class="error-divider"></div>-->
@@ -8,11 +8,12 @@
     <!--      <div class="error-divider"></div>-->
     <!--      <h4>Error: Password is required</h4>-->
     <!--    </div>-->
-    <!--    <div class="error-massage" *ngIf="errorMas">-->
-    <!--      <div class="error-divider"></div>-->
-    <!--      <h4>მომხმარებელი ან პაროლი არასწორია</h4>-->
-    <!--    </div>-->
+    <!--        <div class="error-massage" *ngIf="errorMas">-->
+    <!--          <div class="error-divider"></div>-->
+    <!--          <h4>მომხმარებელი ან პაროლი არასწორია</h4>-->
+    <!--        </div>-->
     <h1 class="h3 mb-3 fw-normal">Login</h1>
+
     <div class="custom-input-group">
       <label
         class="label"
@@ -42,7 +43,6 @@
         (blur)="onInputBlur('password')">
     </div>
 
-
     <div class="radio">
       <div class="remember-me">
         <a routerLink="/auth/register">
@@ -59,6 +59,11 @@
         </a>
       </div>
     </div>
-    <button class="btn btn-primary w-50 py-2 sing_in" type="submit">Sign in</button>
+
+    <button
+      class="btn btn-primary w-50 py-2 text-btn"
+      type="submit">Sign in
+    </button>
+
   </form>
 </div>

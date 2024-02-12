@@ -1,7 +1,7 @@
 <div class="loading" *ngIf="isLoading">
   <app-loading></app-loading>
 </div>
-<div class="content">
+<div class="forms-content">
   <h1>ჩემი პროფილი</h1>
   <form class="form" [formGroup]="form">
     <div class="input_row">
@@ -43,10 +43,10 @@
       </div>
     </div>
     <div class="action-section">
-      <button class="btn btn-primary w-50 py-2 sing_in" (click)="toggleEdit()">
+      <button class="btn btn-primary w-50 py-2 text-btn" (click)="toggleEdit()">
         Edit
       </button>
-      <button [disabled]="!isEditMode || form.invalid" class="btn btn-primary w-50 py-2 sing_in" (click)="onSubmit()">
+      <button [disabled]="!isEditMode || form.invalid" class="btn btn-primary w-50 py-2 text-btn" (click)="onSubmit()">
         Save
       </button>
     </div>

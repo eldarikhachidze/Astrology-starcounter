@@ -11,8 +11,10 @@
     <div *ngFor="let article of articles; let i = index" class="carousel-item" [class.active]="i === activeSlideIndex">
       <a [href]="[article.url]">
         <img [src]="'https://api-starcounter.com/' + article.files" alt="{{ article.description }}"
-             class="d-block w-100">
-        <h2>{{ article.description }}</h2>
+             class="d-block">
+        <div class="slider-title">
+          <h2>{{ article.description }}</h2>
+        </div>
       </a>
     </div>
   </div>
