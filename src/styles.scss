@@ -174,11 +174,12 @@ li {
 }
 
 //* blog content in home page*//
+
 .blog-content {
-  padding: 80px 10px 30px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 25px;
 
   h1 {
