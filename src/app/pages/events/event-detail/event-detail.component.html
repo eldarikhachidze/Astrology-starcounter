@@ -9,8 +9,11 @@
   <h3>
     {{form.get('description')?.value}}
   </h3>
-  <button *ngIf="!userData" (click)="openConfirmModal()" class="btn btn-primary w-50 py-2 sing_in"
-          type="submit">Register
+  <button
+    *ngIf="!userData"
+    (click)="openConfirmModal()"
+    class="btn btn-primary w-50 py-2 text-btn"
+    type="submit">Register
   </button>
 </div>
 
