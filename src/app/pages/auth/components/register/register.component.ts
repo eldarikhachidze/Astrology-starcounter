@@ -98,7 +98,7 @@ export class RegisterComponent {
       this.router.navigate(['/auth/login']);
     } catch (error) {
       console.error('Registration failed:', error);
-      // Handle the error, show a message to the user, or perform other actions
+
     }
   }
 

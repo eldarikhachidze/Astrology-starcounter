@@ -3,7 +3,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 container {
-  max-width: 390px;
+  max-width: 350px;
   margin: 0;
   padding: 10px 0;
 }
@@ -340,8 +340,8 @@ li {
       background-position: center center;
       position: relative;
       transition: all 0.5s ease-in-out;
-      width: 385px;
-      max-height: 300px;
+      width: 350px;
+      max-height: 350px;
       object-fit: cover;
     }
 

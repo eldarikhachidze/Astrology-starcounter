@@ -15,7 +15,7 @@ export class PrognosesComponent implements OnInit, OnDestroy {
 
   isLoading: boolean = true;
   prognoses: Prognoses[] = []
-  categoryId?: number = 2
+  categoryId?: number = 5
   categories$: Observable<Category[]> = this.categoryService.getAllCategories()
   sub$ = new Subject()
   pageTitle = 'Prognoses'
@@ -23,19 +23,12 @@ export class PrognosesComponent implements OnInit, OnDestroy {
   constructor(
     private prognosesService: PrognosesService,
     private categoryService: CategoryService,
-    private route: ActivatedRoute,
     private router: Router
   ) {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.categoryId = params['category']
-      if (this.categoryId === undefined) {
-        this.categoryId = 2;
-      }
-      this.getPrognoses();
-    })
+    this.getPrognoses();
   }
 
   getPrognoses() {
@@ -51,6 +44,17 @@ export class PrognosesComponent implements OnInit, OnDestroy {
       })
   }
 
+
+  contentChange(event: MouseEvent) {
+    const categoryId = (event.target as HTMLInputElement).id; // Adjust the type based on your HTML structure
+
+    if (!isNaN(Number(categoryId))) {
+      this.categoryId = Number(categoryId);
+    } else {
+
+    }
+    this.getPrognoses();
+  }
 
   ngOnDestroy() {
     this.sub$.next(this.sub$)

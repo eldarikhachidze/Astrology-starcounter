@@ -6,11 +6,11 @@
     <header>
       <div class="prognoses-header">
         <a *ngFor="let category of categories$ | async"
-           [routerLink]="['/prognoses']"
-           [queryParams]="{category: category.id}"
+           [id]="category.id"
            routerLinkActive="active"
-           class="list-group-item list-group-item-action">
-          {{category.name}}
+           class="list-group-item list-group-item-action"
+           (click)="contentChange($event)"
+        >{{category.name}}
         </a>
       </div>
     </header>
