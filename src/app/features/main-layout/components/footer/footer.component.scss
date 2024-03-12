@@ -2,7 +2,10 @@ footer {
   width: 100%;
 
   .footer {
-    padding: 100px 12px 150px
+    padding: 100px 12px 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .footer_bottom {

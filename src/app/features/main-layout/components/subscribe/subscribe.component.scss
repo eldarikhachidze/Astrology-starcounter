@@ -1,6 +1,11 @@
-.footer_top {
-  border-bottom: #17384e solid 0.5px;
-  padding-bottom: 65px;
+.subscribe-section {
+  background: rgba(27, 43, 64, 1);
+  width: 366px;
+  top: 3419px;
+  left: 12px;
+  padding: 9px 10px 9px 10px;
+  border-radius: 13px;
+  gap: 28px;
 
   div {
     display: flex;
@@ -17,24 +22,32 @@
 
     h1 {
       font-family: 'Philosopher', sans-serif;
-      font-size: 35px;
-      font-weight: 500;
-      text-transform: capitalize;
-      line-height: 1.2;
-      margin-bottom: 15px;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 41px;
+      letter-spacing: 1.5px;
+      text-align: left;
+      color: rgba(255, 110, 64, 1);
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: 1.5px;
+      text-align: left;
+
     }
 
     .btn {
-      background-color: #ff7010;
-      padding: 19px 20px;
-      width: 170px;
-      color: #ffffff;
-      font-weight: 400;
-      font-size: 16px;
-      border: none !important;
-      letter-spacing: 1px;
-      border-radius: 0;
-      text-transform: uppercase;
+      right: 0;
+      color: #FFFFFF;
+      width: 146px;
+      height: 32px;
+      padding: 2px 10px 2px 10px;
+      border-radius: 13px;
+      gap: 10px;
+      background: rgba(255, 110, 64, 1);
     }
   }
 }

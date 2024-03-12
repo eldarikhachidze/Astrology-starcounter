@@ -149,19 +149,12 @@ li {
 
 .error-divider {
   display: flex;
-  width: 2px;
-  background-color: #ff7010;
-  height: 50px;
+  color: red;
 }
 
 .error-massage {
-  height: 50px;
   display: flex;
-  gap: 25px;
   justify-content: flex-start;
-  align-items: center;
-  padding: 0 0 40px 0;
-  margin: 10px 0;
 }
 
 
@@ -186,6 +179,20 @@ li {
   h1 {
     color: #ff7010;
     font-size: 2rem;
+  }
+
+  h3 {
+    width: 325px;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    color: var(--Headings, #FF6E40);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40.8px; /* 255% */
+    letter-spacing: 1.5px;
   }
 }
 
@@ -315,12 +322,14 @@ li {
 
 .event-box {
   width: 350px;
+  height: 519.53px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #07273c;
   border: 1px solid rgb(255 255 255 / 8%);
   border-radius: 13px;
+  margin-bottom: 80px;
 
   a {
     .event-img {
@@ -330,7 +339,6 @@ li {
       transition: all 0.5s ease-in-out;
       width: 350px;
       max-height: 287.53px;
-      border-radius: 13px 13px 0 0;
       object-fit: cover;
     }
 
@@ -339,12 +347,6 @@ li {
 
       .title {
         width: 100%;
-        font-size: 27px;
-        font-weight: 400;
-        line-height: 33px;
-        letter-spacing: 1.5px;
-        text-align: left;
-        margin-bottom: 15px;
 
         h2 {
           margin-top: 0;
@@ -357,20 +359,21 @@ li {
           display: flex;
 
           h3 {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 18px;
-            letter-spacing: 1.5px;
-            text-align: left;
-
+            line-height: 25px;
+            font-size: 13px !important;
+            font-weight: bold;
+            margin-top: 15px;
 
             span {
-              width: 56px;
-              height: 35px;
-              padding: 1px 6px 1px 6px;
-              border-radius: 13px;
-              gap: 10px;
-              background: rgba(221, 90, 1, 0.7);
+              width: auto;
+              height: auto;
+              background: #031a2a;
+              color: #ff7010;
+              padding: 5px 20px;
+              border-radius: 50px;
+              margin-left: 5px;
+              font-weight: 600;
+              font-size: 18px;
             }
           }
         }
@@ -387,9 +390,7 @@ li {
 
           div {
             i {
-              width: 24px;
-              height: 24px;
-              color: rgba(3, 155, 229, 1);
+              color: #ff7010;
             }
           }
 
@@ -399,23 +400,15 @@ li {
             gap: 10px;
 
             h5 {
-              font-size: 16px;
               font-weight: 400;
-              line-height: 22px;
-              letter-spacing: 1.5px;
-              text-align: left;
-              color: rgba(3, 155, 229, 1);
-
+              line-height: 24px;
+              font-size: 12px !important;
             }
 
-            h4 {
-              font-size: 16px;
+            h6 {
               font-weight: 400;
-              line-height: 18px;
-              letter-spacing: 1.5px;
-              text-align: left;
-              color: rgba(242, 240, 237, 1);
-            ;
+              line-height: 24px;
+              font-size: 13px !important;
             }
           }
         }
@@ -423,23 +416,6 @@ li {
     }
   }
 }
-//* go to a tag *//
-
-
-.go-to {
-  width: 325px;
-  display: flex;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: var(--Headings, #FF6E40);
-  text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40.8px; /* 255% */
-  letter-spacing: 1.5px;
-}
-
 
 /* prognoses */
 
