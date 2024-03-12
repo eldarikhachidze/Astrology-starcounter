@@ -4,15 +4,51 @@
 <div class="detail_BG">
   <app-go-back-and-title [title]="pageTitle" (exitClicked)="onExitClick()"></app-go-back-and-title>
 </div>
-<div class="blog-content">
-  <h1>{{form.get('name')?.value}}</h1>
+<div class="blog-detail">
+
+  <div class="text">
+    <div class="title">
+      <div>
+        <h3>ფასი:
+          <span>{{form.get('price')?.value}}</span>
+        </h3>
+      </div>
+    </div>
+    <ul>
+      <li>
+        <div><i class="far fa-list-alt"></i></div>
+        <div class="organize">
+          <h5>ორგანიზატორი: </h5>
+          <h4>{{form.get('organizedBy')?.value}}</h4>
+        </div>
+      </li>
+      <li class="mep_list_location_name">
+        <div class="evl-ico"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="organize">
+          <h5>მისამართ: </h5>
+          <h4>{{form.get('location')?.value}}</h4>
+        </div>
+      </li>
+      <li class="mep_list_event_date">
+        <div class="evl-ico"><i class="fa fa-calendar"></i></div>
+        <div class="organize">
+          <h4>{{form.get('startDate')?.value | date: 'yyyy-MM-dd'}}</h4>
+          <p>-</p>
+          <h4>{{form.get('endDate')?.value | date: 'yyyy-MM-dd'}}</h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <h1>
+    {{form.get('name')?.value}}
+  </h1>
   <h3>
     {{form.get('description')?.value}}
   </h3>
   <button
     *ngIf="!userData"
     (click)="openConfirmModal()"
-    class="btn btn-primary w-50 py-2 text-btn"
+    class="btn-detail btn-primary text-btn"
     type="submit">Register
   </button>
 </div>

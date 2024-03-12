@@ -16,6 +16,11 @@ export class EventDetailComponent implements OnInit {
     id: new FormControl(null),
     name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
+    price: new FormControl(null),
+    organizedBy: new FormControl('', Validators.required),
+    location: new FormControl('', Validators.required),
+    startDate: new FormControl(null),
+    endDate: new FormControl('', Validators.required),
   })
 
   isLoading: boolean = true;
@@ -35,6 +40,7 @@ export class EventDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadUserData()
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
@@ -46,7 +52,6 @@ export class EventDetailComponent implements OnInit {
       if (res) {
         this.item = res
         this.form.patchValue({...res});
-        this.loadUserData()
         this.isLoading = false;
       }
     })
