@@ -29,6 +29,8 @@ export class EventDetailComponent implements OnInit {
   pageTitle = 'Event Detail'
 
   userData?: any
+
+  userToken: string | null = null;
   item?: Event
 
   constructor(
@@ -40,7 +42,6 @@ export class EventDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadUserData()
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
@@ -53,14 +54,22 @@ export class EventDetailComponent implements OnInit {
         this.item = res
         this.form.patchValue({...res});
         this.isLoading = false;
+        this.loadUserData()
       }
     })
   }
   loadUserData(): void {
     this.authService.getUser().subscribe((data) => {
       console.log(data)
-      this.userData = data;
+      this.userData = data.eventsSubscription;
     });
+  }
+
+  isUserSubscribedToEvent(): boolean {
+    if (!this.userData || !this.item) {
+
+    }
+    return this.userData.some((event: any) => event.id === this.item?.id);
   }
   openConfirmModal() {
     console.log('Open modal called', this.showModal);
