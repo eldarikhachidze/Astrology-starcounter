@@ -121,19 +121,11 @@
 
     <div class="picker">
       <div class="date-picker-box">
-        <label
-          class="birth-date-label"
-          [ngClass]="{ 'active': isInputFocusedFn('birthDate') || isInputValid('birthDate'), 'error': isInvalidAndTouched('birthDate') }"
-        >დაბადების დღე
-        </label>
-        <div class="date-picker">
-          <button class="btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
-            <svg style="color: #ff7010;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                 class="bi bi-calendar" viewBox="0 0 16 16">
-              <path
-                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-            </svg>
-          </button>
+          <label
+            class="label"
+            [ngClass]="{ 'active': isInputFocusedFn('birthDate') || isInputValid('birthDate'), 'error': isInvalidAndTouched('birthDate') }"
+          >დაბადების დღე
+          </label>
           <input
             class="input"
             formControlName="birthDate"
@@ -144,14 +136,21 @@
             (focus)="onInputFocus('birthDate')"
             (blur)="onInputBlur('birthDate')"
           />
-        </div>
       </div>
+      <button class="btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
+        <svg style="color: #ff7010;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+             class="bi bi-calendar" viewBox="0 0 16 16">
+          <path
+            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+        </svg>
+      </button>
     </div>
 
     <div class="time-picker custom-input-group">
       <ngb-timepicker
         formControlName="timeOfBirth"
-        [(ngModel)]="time"></ngb-timepicker
+        [(ngModel)]="time">
+      </ngb-timepicker
       >
     </div>
 
@@ -197,7 +196,7 @@
 
     <button
       [disabled]="form.invalid"
-      class="btn btn-primary w-50 py-2 text-btn"
+      class="btn"
       type="submit">Register
     </button>
   </form>

@@ -53,6 +53,4 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
-  protected readonly event = event;
 }

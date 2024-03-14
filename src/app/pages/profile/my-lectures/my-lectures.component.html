@@ -4,7 +4,10 @@
 <div>
   <div  class="events" *ngIf="eventSubscribeId; else notUserData">
     <h1>ჩემი ლექციები</h1>
-    <app-event-card *ngFor="let subscription of userData" [event]="subscription" ></app-event-card>
+    <app-event-card
+      *ngFor="let subscription of userData"
+      [event]="subscription">
+    </app-event-card>
   </div>
   <ng-template #notUserData>
     <p>თქვენ არ გაქვთ მიმდინა ლექციები</p>
