@@ -4,43 +4,126 @@
 <div class="forms-content">
   <h1>ჩემი პროფილი</h1>
   <form class="form" [formGroup]="form">
-    <div class="input_row">
-      <div class="input-group-custom input-group-lg">
-        <label>სახელი</label>
-        <input class="short_input" type="text" formControlName="firstName" [disabled]="!isEditMode">
+
+      <div class="custom-input-group">
+        <label
+          class="label"
+          [ngClass]="{ 'active': isInputFocusedFn('firstName') || isInputValid('firstName'), 'error': isInvalidAndTouched('firstName')  }"
+        >სახელი
+        </label>
+        <input
+          class="input"
+          type="text"
+          formControlName="firstName"
+          [disabled]="!isEditMode"
+          (focus)="onInputFocus('firstName')"
+          (blur)="onInputBlur('firstName')"
+        >
       </div>
-      <div class="input-group-custom input-group-lg">
-        <label>გვარი</label>
-        <input class="short_input" type="text" formControlName="lastName" [disabled]="!isEditMode">
-      </div>
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('lastName') || isInputValid('lastName'), 'error': isInvalidAndTouched('lastName')  }"
+      >გვარი
+      </label>
+      <input
+        class="input"
+        type="text"
+        formControlName="firstName"
+        [disabled]="!isEditMode"
+        (focus)="onInputFocus('lastName')"
+        (blur)="onInputBlur('lastName')"
+      >
     </div>
-    <div class="input-group-custom  input-group-lg">
-      <label>გთხოვთ ჩაწეროთ თქვენი მეილი</label>
-      <input class="login-input" type="email" formControlName="email" [disabled]="!isEditMode">
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('email') || isInputValid('email'), 'error': isInvalidAndTouched('email')  }"
+      >მეილი
+      </label>
+      <input
+        class="input"
+        type="email"
+        formControlName="email"
+        [disabled]="!isEditMode"
+        (focus)="onInputFocus('email')"
+        (blur)="onInputBlur('email')"
+      >
     </div>
-    <div class="input-group-custom  input-group-lg">
-      <label>მობილურის ნომერი</label>
-      <input class="login-input" type="number" formControlName="phoneNumber" [disabled]="!isEditMode">
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('phoneNumber') || isInputValid('phoneNumber'), 'error': isInvalidAndTouched('phoneNumber')  }"
+      >ტელეფონის ნომერი
+      </label>
+      <input
+        class="input"
+        type="number"
+        formControlName="phoneNumber"
+        [disabled]="!isEditMode"
+        (focus)="onInputFocus('phoneNumber')"
+        (blur)="onInputBlur('phoneNumber')"
+      >
     </div>
-    <div class="input_row">
-      <div class="input-group-custom input-group-lg">
-        <label>დაბადების დღე</label>
-        <input class="short_input" formControlName="birthDate" [disabled]="!isEditMode">
+      <div class="custom-input-group">
+        <label
+          class="label"
+          [ngClass]="{ 'active': isInputFocusedFn('birthDate') || isInputValid('birthDate'), 'error': isInvalidAndTouched('birthDate')  }"
+        >დაბადების დღე
+        </label>
+        <input
+          class="input"
+          type="number"
+          formControlName="birthDate"
+          [disabled]="!isEditMode"
+          (focus)="onInputFocus('birthDate')"
+          (blur)="onInputBlur('birthDate')"
+        >
       </div>
-      <div class="input-group-custom input-group-lg">
-        <label>დაბადების საათი</label>
-        <input class="short_input" formControlName="timeOfBirth" [disabled]="!isEditMode">
+      <div class="custom-input-group">
+        <label
+          class="label"
+          [ngClass]="{ 'active': isInputFocusedFn('timeOfBirth') || isInputValid('timeOfBirth'), 'error': isInvalidAndTouched('timeOfBirth')  }"
+        >დაბადების საათი
+        </label>
+        <input
+          class="input"
+          type="number"
+          formControlName="timeOfBirth"
+          [disabled]="!isEditMode"
+          (focus)="onInputFocus('timeOfBirth')"
+          (blur)="onInputBlur('timeOfBirth')"
+        >
       </div>
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('country') || isInputValid('country'), 'error': isInvalidAndTouched('country')  }"
+      >დაბადების საათი
+      </label>
+      <input
+        class="input"
+        type="text"
+        formControlName="country"
+        [disabled]="!isEditMode"
+        (focus)="onInputFocus('country')"
+        (blur)="onInputBlur('country')"
+      >
     </div>
-    <div class="input_row">
-      <div class="input-group-custom input-group-lg">
-        <label>ქვეყანა</label>
-        <input class="short_input" formControlName="country" [disabled]="!isEditMode">
-      </div>
-      <div class="input-group-custom input-group-lg">
-        <label>ქალაქი</label>
-        <input class="short_input" formControlName="city" [disabled]="!isEditMode">
-      </div>
+    <div class="custom-input-group">
+      <label
+        class="label"
+        [ngClass]="{ 'active': isInputFocusedFn('city') || isInputValid('city'), 'error': isInvalidAndTouched('city')  }"
+      >დაბადების საათი
+      </label>
+      <input
+        class="input"
+        type="text"
+        formControlName="city"
+        [disabled]="!isEditMode"
+        (focus)="onInputFocus('city')"
+        (blur)="onInputBlur('city')"
+      >
     </div>
     <div class="action-section">
       <button class="btn btn-primary w-50 py-2 text-btn" (click)="toggleEdit()">

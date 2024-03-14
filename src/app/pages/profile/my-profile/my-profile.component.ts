@@ -11,9 +11,7 @@ import {User} from "../../../core/interface/user";
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-  isLoading: boolean = true;
 
-  isEditMode = false;
 
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
@@ -27,6 +25,11 @@ export class MyProfileComponent implements OnInit {
     phoneNumber: new FormControl(null, [Validators.required, Validators.minLength(9)]),
   })
 
+  isInputFocused: { [key: string]: boolean } = {};
+  errorMas!: string
+  isLoading: boolean = true;
+
+  isEditMode = false;
   users: User[] = []
   sub$ = new Subject()
 
@@ -57,6 +60,26 @@ export class MyProfileComponent implements OnInit {
     })
   }
 
+  isInputValid(controlName: string): boolean {
+    return !!this.form.get(controlName)?.valid;
+  }
+
+  onInputFocus(controlName: string) {
+    this.isInputFocused[controlName] = true;
+  }
+
+  onInputBlur(controlName: string) {
+    this.isInputFocused[controlName] = false;
+  }
+
+  isInvalidAndTouched(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return !!control && control.invalid && (control.touched || control.dirty);
+  }
+
+  get isInputFocusedFn(): (key: string) => boolean {
+    return (key: string) => this.isInputFocused[key];
+  }
   toggleEdit() {
     this.isEditMode = !this.isEditMode;
 
