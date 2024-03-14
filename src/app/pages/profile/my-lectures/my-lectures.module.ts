@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MyLecturesRoutingModule } from './my-lectures-routing.module';
 import {MyLecturesComponent} from "./my-lectures.component";
 import {LoadingModule} from "../../../features/loading/loading.module";
+import {EventCardModule} from "../../../features/event-card/event-card.module";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {LoadingModule} from "../../../features/loading/loading.module";
     imports: [
         CommonModule,
         MyLecturesRoutingModule,
-        LoadingModule
+        LoadingModule,
+        EventCardModule
     ]
 })
 export class MyLecturesModule { }

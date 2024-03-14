@@ -1,50 +1,10 @@
 <div class="loading" *ngIf="isLoading">
   <app-loading></app-loading>
 </div>
-<div class="events">
-  <div *ngIf="eventSubscribeId; else notUserData">
+<div>
+  <div  class="events" *ngIf="eventSubscribeId; else notUserData">
     <h1>ჩემი ლექციები</h1>
-    <div *ngFor="let subscription of userData.eventsSubscription" class="event-box">
-      <a [routerLink]="['/events/detail', subscription.event.id]">
-        <div class="event-img">
-          <img class="event-img" [src]="'https://api-starcounter.com/' + subscription.event.files"
-               [alt]="subscription.event.name">
-        </div>
-        <div class="text">
-          <div class="title">
-            <h2>{{subscription.event.name}}</h2>
-            <div>
-              <h3>price:
-                <span>{{subscription.event.price}}</span>
-              </h3>
-            </div>
-          </div>
-          <ul>
-            <li>
-              <div><i class="far fa-list-alt"></i></div>
-              <div class="organize">
-                <h5>Organized By: </h5>
-                <h6>{{subscription.event.organizedBy}}</h6>
-              </div>
-            </li>
-            <li class="mep_list_location_name">
-              <div class="evl-ico"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="organize">
-                <h5>Location:</h5>
-                <h6>{{subscription.event.location}}</h6>
-              </div>
-            </li>
-            <li class="mep_list_event_date">
-              <div class="evl-ico"><i class="fa fa-calendar"></i></div>
-              <div class="organize">
-                <h5>{{ subscription.event.startDate | date: 'yyyy-MM-dd' }}</h5>
-                <h5>{{ subscription.event.endDate | date: 'yyyy-MM-dd'}}</h5>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
+    <app-event-card *ngFor="let subscription of userData" [event]="subscription" ></app-event-card>
   </div>
   <ng-template #notUserData>
     <p>თქვენ არ გაქვთ მიმდინა ლექციები</p>

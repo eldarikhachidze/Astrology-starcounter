@@ -36,7 +36,8 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
 
   loadUserData(): void {
     this.authService.getUser().subscribe((data) => {
-      this.userData = data;
+      this.userData = data.eventsSubscription.map((item: any) => item.event);
+      console.log(this.userData);
       this.extractEventSubscribeId();
     });
   }
@@ -44,6 +45,7 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
   extractEventSubscribeId(): void {
     this.authService.getUser().subscribe((data) => {
       this.eventSubscribeId = data.eventsSubscription[0].id;
+      console.log(this.eventSubscribeId)
     });
   }
 
@@ -52,4 +54,5 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
+  protected readonly event = event;
 }
