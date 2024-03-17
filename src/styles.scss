@@ -483,23 +483,29 @@ my-events {
   }
 }
 
+.active-link {
+  background: rgba(255, 171, 145, 1) !important;
+  color: rgba(1, 22, 39, 1) !important;
+}
+
 .prognoses-content {
   width: 100%;
   padding: 80px 10px 30px;
   background-color: #07273c;
 
-  .prognoses-slider {
-    display: flex;
-    gap: 25px;
-    margin: auto;
-    padding: 25px;
-  }
+}
 
-  .prognos-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.prognoses-slider {
+  display: flex;
+  gap: 25px;
+  margin: auto;
+  padding: 25px;
+}
+
+.prognos-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* slider */

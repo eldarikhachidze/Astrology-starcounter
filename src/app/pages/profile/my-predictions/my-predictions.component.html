@@ -2,7 +2,8 @@
   <div class="loading" *ngIf="isLoading">
     <app-loading></app-loading>
   </div>
-  <div class="prognoses-content">
+  <div class="my-prognoses">
+    <h1>ჩემი პროგნოზები</h1>
     <header>
       <div class="prognoses-header">
         <a *ngFor="let category of categories$ | async"

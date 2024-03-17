@@ -1,4 +1,19 @@
-.active-link {
-  background: rgba(255, 171, 145, 1) !important;
-  color: rgba(1, 22, 39, 1) !important;
+.my-prognoses {
+  width: 100%;
+  padding: 80px 10px 30px;
+  background-color: #07273c;
+  gap: 25px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  background-image: url('/assets/images/bg1.jpg');
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    color: #ff7010;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
 }

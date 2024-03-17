@@ -34,8 +34,12 @@ export class MyPredictionsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.getMyPrognoses()
-    this.getUserZodiac()
+    this.authService.getUser()
+      .pipe(takeUntil(this.zodiacSub$))
+      .subscribe((response) => {
+        this.zodiacId = response.zodiacoId;
+        this.getMyPrognoses()
+      });
   }
 
   getMyPrognoses() {
@@ -43,22 +47,13 @@ export class MyPredictionsComponent implements OnInit, OnDestroy {
       categoryId: this.categoryId,
       zodiacoId: this.zodiacId
     }
-    console.log(this.zodiacId)
+
     this.prognosesService.getMyPrognoses(params)
       .pipe(takeUntil(this.sub$))
       .subscribe((response) => {
         this.prognoses = response.data
         this.isLoading = false;
       })
-  }
-
-  getUserZodiac() {
-    this.authService.getUser()
-      .pipe(takeUntil(this.zodiacSub$))
-      .subscribe((response) => {
-        this.zodiacId = response.zodiacoId;
-        console.log(this.zodiacId)
-      });
   }
 
   contentChange(event: MouseEvent) {
@@ -69,13 +64,12 @@ export class MyPredictionsComponent implements OnInit, OnDestroy {
     } else {
 
     }
-    this.getUserZodiac()
     this.getMyPrognoses();
   }
 
   ngOnDestroy() {
-    // this.sub$.next(this.zodiacSub$)
-    // this.sub$.complete()
+    this.zodiacSub$.next(this.zodiacSub$)
+    this.zodiacSub$.complete()
     this.sub$.next(this.sub$)
     this.sub$.complete()
   }
