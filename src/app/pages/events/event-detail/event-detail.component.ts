@@ -87,7 +87,7 @@ export class EventDetailComponent implements OnInit {
       .subscribe(res => {
         console.log(res)
         if (res) {
-          this.router.navigate(['./'])
+          this.router.navigate(['./profile/my-lectures'])
         } else {
           this.router.navigate(['./'])
         }

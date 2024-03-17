@@ -46,7 +46,6 @@
     {{form.get('description')?.value}}
   </h3>
   <button
-    *ngIf="!userData"
     (click)="openConfirmModal()"
     class="btn-detail"
     type="submit">Register
