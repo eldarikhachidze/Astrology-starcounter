@@ -18,4 +18,11 @@ export class PrognosesService extends BaseService{
   }): Observable<PrognosesResponse<Prognoses[]>> {
     return this.get<PrognosesResponse<Prognoses[]>> ('articles', params);
   }
+
+  getMyPrognoses(params: {
+    categoryId?: number,
+    zodiacId?: number
+  }): Observable<PrognosesResponse<Prognoses[]>> {
+    return this.get<PrognosesResponse<Prognoses[]>> ('articles', params );
+  }
 }

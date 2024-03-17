@@ -46,7 +46,7 @@ export class PrognosesComponent implements OnInit, OnDestroy {
 
 
   contentChange(event: MouseEvent) {
-    const categoryId = (event.target as HTMLInputElement).id; // Adjust the type based on your HTML structure
+    const categoryId = (event.target as HTMLInputElement).id;
 
     if (!isNaN(Number(categoryId))) {
       this.categoryId = Number(categoryId);
