@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SubscribeService} from "../../../../core/services/subscribe.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {MassegModalComponent} from "../../../masseg-modal/masseg-modal.component";
 
 @Component({
   selector: 'app-subscribe',
@@ -18,6 +20,7 @@ export class SubscribeComponent {
 
   constructor(
     private router: Router,
+    private modalService: NgbModal,
     private subscribeService: SubscribeService
   ) {
   }
@@ -45,18 +48,37 @@ export class SubscribeComponent {
 
   submit() {
     this.form.markAllAsTouched();
-    if (this.form.invalid) return
-
-    console.log(this.form.value)
+    if (this.form.invalid) return;
 
     this.subscribeService.create(this.form.value)
-      .pipe()
-      .subscribe(res => {
-        this.router.navigate(['./'])
-          .then(() => {
-            this.form.reset()
-          })
-      })
+      .subscribe(
+        res => {
+          // Success scenario
+          this.showSuccessModal('Operation completed successfully.');
+          this.router.navigate(['./'])
+            .then(() => {
+              this.form.reset();
+            });
+        },
+        error => {
+          // Error scenario
+          this.showErrorModal(error.error.message);
+        }
+      );
+  }
 
+  showSuccessModal(message: string) {
+    this.openMessageModal(true, message);
+  }
+
+  showErrorModal(message: string) {
+    this.openMessageModal(false, message);
+  }
+
+  openMessageModal(isSuccess: boolean, message: string) {
+    const modalRef = this.modalService.open(MassegModalComponent, { centered: true });
+    modalRef.componentInstance.isSuccess = isSuccess;
+    modalRef.componentInstance.message = message;
+    console.log(message)
   }
 }

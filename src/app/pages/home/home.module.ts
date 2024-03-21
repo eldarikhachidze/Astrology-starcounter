@@ -11,25 +11,27 @@ import {SliderModule} from "../../features/slider/slider.module";
 import {LoadingModule} from "../../features/loading/loading.module";
 import {PrognosesCardModule} from "../../features/prognoses-card/prognoses-card.module";
 import {PrognosesModule} from "../prognoses/prognoses.module";
+import {MassegModalComponent} from "../../features/masseg-modal/masseg-modal.component";
 
 
 @NgModule({
   declarations: [
     HomeComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    EventsModule,
-    BlogsModule,
-    BlogCardModule,
-    ContactModule,
-    EventCardModule,
-    SliderModule,
-    LoadingModule,
-    PrognosesCardModule,
-    PrognosesModule,
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        EventsModule,
+        BlogsModule,
+        BlogCardModule,
+        ContactModule,
+        EventCardModule,
+        SliderModule,
+        LoadingModule,
+        PrognosesCardModule,
+        PrognosesModule,
+        MassegModalComponent,
+    ]
 })
 export class HomeModule {
 }

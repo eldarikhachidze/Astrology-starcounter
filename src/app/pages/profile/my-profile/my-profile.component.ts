@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../../core/services/auth.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -10,7 +10,7 @@ import {User} from "../../../core/interface/user";
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
-export class MyProfileComponent implements OnInit {
+export class MyProfileComponent implements OnInit, OnDestroy {
 
 
   form: FormGroup = new FormGroup({
@@ -106,6 +106,11 @@ export class MyProfileComponent implements OnInit {
           this.form.disable();
         })
     }
+  }
+
+  ngOnDestroy() {
+    this.sub$.next(this.sub$)
+    this.sub$.complete()
   }
 
 

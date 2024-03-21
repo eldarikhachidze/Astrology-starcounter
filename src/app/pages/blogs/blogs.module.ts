@@ -7,6 +7,7 @@ import {BlogCardModule} from "../../features/blog-card/blog-card.module";
 import {GoBackAndTitleComponentModule} from "../../features/go-back-and-title/go-back-and-title.component.module";
 import {LoadingModule} from "../../features/loading/loading.module";
 import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
+import {MassegModalComponent} from "../../features/masseg-modal/masseg-modal.component";
 
 
 @NgModule({
@@ -17,14 +18,15 @@ import {NgbPagination} from "@ng-bootstrap/ng-bootstrap";
   exports: [
     BlogsComponent
   ],
-  imports: [
-    CommonModule,
-    BlogsRoutingModule,
-    BlogCardModule,
-    GoBackAndTitleComponentModule,
-    LoadingModule,
-    NgbPagination
-  ]
+    imports: [
+        CommonModule,
+        BlogsRoutingModule,
+        BlogCardModule,
+        GoBackAndTitleComponentModule,
+        LoadingModule,
+        NgbPagination,
+        MassegModalComponent
+    ]
 })
 export class BlogsModule {
 }
