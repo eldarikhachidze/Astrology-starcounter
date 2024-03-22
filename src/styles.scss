@@ -516,5 +516,46 @@ my-events {
 
 
 
+//* message modal*//
+
+.custom-styles {
+  border: none;
+  border-radius: 13px;
+}
+
+
+.modal-dialog {
+  border: none;
+  border-radius: 13px;
+  margin: unset;
+  .modal-content {
+    border: none;
+    border-radius: 13px;
+    .modal-header {
+      padding: 25px;
+      background-color: #031a2a;
+      border: none;
+      border-radius: 13px;
+      .close {
+        width: 34px;
+        height: 34px;
+        border-radius: 50px;
+        border: none;
+        color: #FFFFFF;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 34px;
+        box-sizing: border-box;
+        position: relative;
+        span {
+          position: absolute;
+          top: -12px
+        }
+      }
+    }
+  }
+}
 
 

@@ -9,16 +9,15 @@
       <div class="custom-input-group">
         <label
           class="label"
-          [ngClass]="{ 'active': isInputFocusedFn('email') || isInputValid('email'), 'error': isInvalidAndTouched('email')  }"
-        >მეილი
+          [ngClass]="{ 'active': isInputFocusedFn('email') || isInputValid('email'), 'error': isInvalidAndTouched('email') }"
+        >Email
         </label>
         <input
           class="input"
           type="email"
           formControlName="email"
           (focus)="onInputFocus('email')"
-          (blur)="onInputBlur('email')"
-        >
+          (blur)="onInputBlur('email')">
       </div>
 
       <button

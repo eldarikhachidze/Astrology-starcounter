@@ -13,7 +13,8 @@ import {MassegModalComponent} from "../../../masseg-modal/masseg-modal.component
 export class SubscribeComponent {
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    active: new FormControl(true)
+    active: new FormControl(true),
+    errorMessage: new FormControl('')
   });
 
   isInputFocused: { [key: string]: boolean } = {};
@@ -46,6 +47,31 @@ export class SubscribeComponent {
     return (key: string) => this.isInputFocused[key];
   }
 
+  handleApiError(error: any) {
+    let errorMessage = 'An error occurred.';
+
+    switch (error?.error?.message) {
+      case 'USER_NOT_FOUND':
+        errorMessage = 'მომხმარებლის მეილი არ მოიძებნა.';
+        break;
+      case 'USER_EMAIL_ALREADY_EXISTS':
+        errorMessage = 'თქვენ უკვე გამოწერილი გაქვთ კონტენტი.';
+        break;
+      case 'SUBSCRIPTION_ALREADY_EXISTS':
+        errorMessage = 'Subscription already exists.';
+        break;
+      case 'SUCCESS':
+        // Handle success message if needed
+        break;
+      default:
+        // Handle other errors
+        break;
+    }
+
+    this.form.get('errorMessage')?.setValue(errorMessage);
+    this.showErrorModal(errorMessage);
+  }
+
   submit() {
     this.form.markAllAsTouched();
     if (this.form.invalid) return;
@@ -54,7 +80,7 @@ export class SubscribeComponent {
       .subscribe(
         res => {
           // Success scenario
-          this.showSuccessModal('Operation completed successfully.');
+          this.showSuccessModal('თქვენ წარმატებით გამოიწერეთ კონტენტი');
           this.router.navigate(['./'])
             .then(() => {
               this.form.reset();
@@ -62,17 +88,27 @@ export class SubscribeComponent {
         },
         error => {
           // Error scenario
-          this.showErrorModal(error.error.message);
+          this.handleApiError(error);
         }
       );
   }
 
   showSuccessModal(message: string) {
     this.openMessageModal(true, message);
+    setTimeout(() => {
+      this.closeMessageModal();
+    }, 2000);
   }
 
   showErrorModal(message: string) {
     this.openMessageModal(false, message);
+    // setTimeout(() => {
+    //   this.closeMessageModal();
+    // }, 2000);
+  }
+
+  closeMessageModal() {
+    this.modalService.dismissAll();
   }
 
   openMessageModal(isSuccess: boolean, message: string) {

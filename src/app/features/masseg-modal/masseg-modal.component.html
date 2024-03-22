@@ -1,13 +1,12 @@
-<div class="modal-dialog modal-dialog-centered">
+<div class="modal-dialog-centered modal-dialog">
   <div class="modal-content">
-    <div class="modal-header" [ngClass]="{'bg-success': isSuccess, 'bg-danger': !isSuccess}">
-      <h4 class="modal-title">{{ isSuccess ? 'Success' : 'Error' }}</h4>
-      <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
+    <div class="modal-header">
       <p>{{ message }}</p>
+      <div [ngClass]="{'bg-success': isSuccess, 'close': !isSuccess}">
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
