@@ -37,13 +37,13 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
     this.authService.getUser().subscribe((data) => {
       this.userData = data.eventsSubscription.map((item: any) => item.event);
       this.extractEventSubscribeId();
+      this.isLoading = false
     });
   }
 
   extractEventSubscribeId(): void {
     this.authService.getUser().subscribe((data) => {
       this.eventSubscribeId = data.eventsSubscription[0].id;
-      this.isLoading = false
     });
   }
 

@@ -29,6 +29,7 @@ export class EventDetailComponent implements OnInit {
   pageTitle = 'Event Detail'
 
   userData?: any
+  userId?: number
 
   userToken: string | null = null;
   item?: Event
@@ -41,7 +42,12 @@ export class EventDetailComponent implements OnInit {
   ) {
   }
 
+  get userIsAuthenticated() {
+    return this.authService.token
+  }
+
   ngOnInit(): void {
+    this.userToken = this.authService.token;
     this.route.params.pipe(
       switchMap((params: any) => {
         if (params['id']) {
@@ -55,24 +61,32 @@ export class EventDetailComponent implements OnInit {
         this.form.patchValue({...res});
         this.isLoading = false;
         this.loadUserData()
+        this.isUserSubscribedToEvent()
       }
     })
   }
   loadUserData(): void {
-    this.authService.getUser().subscribe((data) => {
-      console.log(data)
-      this.userData = data.eventsSubscription;
+    this.eventService.getEventSubscribe().subscribe((data) => {
+      console.log(data);
+      this.userData = data.data;
+      console.log('userData:', this.userData);
     });
   }
 
   isUserSubscribedToEvent(): boolean {
-    if (!this.userData || !this.item) {
+    console.log('userData:', this.userData);
+    console.log('item:', this.item);
 
+    if (this.userData && this.item) {
+      console.log('Checking subscription...');
+      const isSubscribed = this.userData.some((eventId: any) => eventId === this.item?.id);
+      console.log('Is subscribed:', isSubscribed);
+      return isSubscribed;
     }
-    return this.userData.some((event: any) => event.id === this.item?.id);
+
+    return false;
   }
   openConfirmModal() {
-    console.log('Open modal called', this.showModal);
     this.showModal = true;
   }
 
@@ -81,11 +95,9 @@ export class EventDetailComponent implements OnInit {
 
     const urlPath = window.location.pathname;
     const match = urlPath.match(/\/events\/detail\/(\d+)/);
-    console.log('match', match && match[1])
 
     this.eventService.eventSubscribe(match && +match[1])
       .subscribe(res => {
-        console.log(res)
         if (res) {
           this.router.navigate(['./profile/my-lectures'])
         } else {

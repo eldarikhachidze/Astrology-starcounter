@@ -45,11 +45,52 @@
   <h3>
     {{form.get('description')?.value}}
   </h3>
-  <button
-    (click)="openConfirmModal()"
-    class="btn-detail"
-    type="submit">Register
-  </button>
+<!--  <ng-container *ngIf="userToken">-->
+<!--    <button-->
+<!--      (click)="openConfirmModal()"-->
+<!--      class="btn-detail"-->
+<!--      type="submit">Register-->
+<!--    </button>-->
+<!--  </ng-container>-->
+<!--  <ng-container *ngIf="!userToken">-->
+<!--    <a routerLink="/auth/login">login</a>-->
+<!--  </ng-container>-->
+<!--  <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">-->
+<!--    <button-->
+<!--      (click)="openConfirmModal()"-->
+<!--      class="btn-detail"-->
+<!--      type="submit">Register-->
+<!--    </button>-->
+
+<!--  </ng-container>-->
+  <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
+    <!-- Check if the user is subscribed to the event -->
+    <ng-container *ngIf="isUserSubscribedToEvent(); else subscribed">
+      <!-- Show the button to register for the event -->
+      <button
+        (click)="openConfirmModal()"
+        class="btn-detail"
+        type="submit">Register
+      </button>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #subscribed>
+    <!-- Show a message if the user is already subscribed -->
+    <p>თქვენ უკვე რეგისტრირებული ხართ.</p>
+    <!-- Provide a button to navigate to my-lectures page -->
+    <button
+      routerLink="/profile/my-lectures"
+      class="btn-detail">ჩემი ივენთები
+    </button>
+  </ng-template>
+  <ng-template #notAuthenticated>
+    <p>რეგისტრაცისთვის გაიარეთ აუტორიზაცია</p>
+    <button
+      routerLink="/auth/login"
+      class="btn-detail">login
+    </button>
+  </ng-template>
 </div>
 
 <app-modal *ngIf="showModal" (confirmEvent)="onModalConfirm($event)"></app-modal>

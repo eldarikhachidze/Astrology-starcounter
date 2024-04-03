@@ -115,6 +115,7 @@ export class SubscribeComponent {
     const modalRef = this.modalService.open(MassegModalComponent, { centered: true });
     modalRef.componentInstance.isSuccess = isSuccess;
     modalRef.componentInstance.message = message;
+    modalRef.componentInstance.modalDialogClass = 'custom-modal';
     console.log(message)
   }
 }

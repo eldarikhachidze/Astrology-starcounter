@@ -522,12 +522,15 @@ my-events {
   border: none;
   border-radius: 13px;
 }
-
+.custom-modal {
+  padding: 25px;
+}
 
 .modal-dialog {
   border: none;
   border-radius: 13px;
   margin: unset;
+  padding: 25px;
   .modal-content {
     border: none;
     border-radius: 13px;
