@@ -46,6 +46,13 @@ export class EventDetailComponent implements OnInit {
     return this.authService.token
   }
 
+  get isUserSubscribedToEvent() {
+    if (this.userData && this.item?.id) {
+      return this.userData.some((eventId: any) => eventId === this.item?.id);
+    }
+    return false;
+  }
+
   ngOnInit(): void {
     this.userToken = this.authService.token;
     this.route.params.pipe(
@@ -61,31 +68,18 @@ export class EventDetailComponent implements OnInit {
         this.form.patchValue({...res});
         this.isLoading = false;
         this.loadUserData()
-        this.isUserSubscribedToEvent()
       }
     })
   }
+
   loadUserData(): void {
-    this.eventService.getEventSubscribe().subscribe((data) => {
+    this.authService.getUser().subscribe((data) => {
       console.log(data);
-      this.userData = data.data;
+      this.userData = data.eventsSubscription.map((item: any) => item.eventId);
       console.log('userData:', this.userData);
     });
   }
 
-  isUserSubscribedToEvent(): boolean {
-    console.log('userData:', this.userData);
-    console.log('item:', this.item);
-
-    if (this.userData && this.item) {
-      console.log('Checking subscription...');
-      const isSubscribed = this.userData.some((eventId: any) => eventId === this.item?.id);
-      console.log('Is subscribed:', isSubscribed);
-      return isSubscribed;
-    }
-
-    return false;
-  }
   openConfirmModal() {
     this.showModal = true;
   }

@@ -6,10 +6,24 @@
   gap: 25px;
   background: rgba(27, 43, 64, 1);
   padding: 40px 15px 75px 15px;
+
   h1 {
     color: rgba(255, 110, 64, 1);
   }
+
+  .detail-bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .btn-up-line {
+      font-size: 10px;
+      color: rgba(255, 110, 64, 1);
+    }
+  }
 }
+
 .btn-detail {
   border: none;
   right: 0;
@@ -17,6 +31,6 @@
   width: 146px;
   height: 32px;
   padding: 2px 10px 2px 10px;
-  border-radius: 13px!important;
+  border-radius: 13px !important;
   background: rgba(255, 110, 64, 1);
 }
