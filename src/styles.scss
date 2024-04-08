@@ -497,12 +497,15 @@ my-events {
 
 .prognoses-slider {
   display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 25px;
   margin: auto;
   padding: 25px;
 }
 
 .prognos-card {
+  scroll-snap-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
