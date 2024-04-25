@@ -95,9 +95,9 @@ li {
 }
 
 .input {
-  width: 100%!important;
+  width: 100% !important;
   height: 31px;
-  font-size: 14px!important;
+  font-size: 14px !important;
   all: unset;
   color: #fefefe;
   padding: 5px;
@@ -443,6 +443,7 @@ my-events {
           text-align: left;
           color: rgba(3, 155, 229, 1);
         }
+
         h4 {
           font-size: 16px;
           font-weight: 400;
@@ -518,13 +519,13 @@ my-events {
 }
 
 
-
 //* message modal*//
 
 .custom-styles {
   border: none;
   border-radius: 13px;
 }
+
 .custom-modal {
   padding: 25px;
 }
@@ -534,15 +535,38 @@ my-events {
   border-radius: 13px;
   margin: unset;
   padding: 25px;
+
   .modal-content {
     border: none;
     border-radius: 13px;
+
     .modal-header {
       padding: 25px;
       background-color: #031a2a;
       border: none;
       border-radius: 13px;
-      .close {
+
+      .success-btn-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 50px;
+        border: none;
+        color: #FFFFFF;
+        background-color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 34px;
+        box-sizing: border-box;
+        position: relative;
+
+        span {
+          position: absolute;
+          top: -12px;
+        }
+      }
+
+      .error-btn-close {
         width: 34px;
         height: 34px;
         border-radius: 50px;
@@ -555,9 +579,10 @@ my-events {
         font-size: 34px;
         box-sizing: border-box;
         position: relative;
+
         span {
           position: absolute;
-          top: -12px
+          top: -12px;
         }
       }
     }

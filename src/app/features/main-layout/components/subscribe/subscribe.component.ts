@@ -48,8 +48,7 @@ export class SubscribeComponent {
   }
 
   handleApiError(error: any) {
-    let errorMessage = 'An error occurred.';
-
+    let errorMessage = 'An error occurred.'
     switch (error?.error?.message) {
       case 'USER_NOT_FOUND':
         errorMessage = 'მომხმარებლის მეილი არ მოიძებნა.';
@@ -79,7 +78,6 @@ export class SubscribeComponent {
     this.subscribeService.create(this.form.value)
       .subscribe(
         res => {
-          // Success scenario
           this.showSuccessModal('თქვენ წარმატებით გამოიწერეთ კონტენტი');
           this.router.navigate(['./'])
             .then(() => {
@@ -87,7 +85,6 @@ export class SubscribeComponent {
             });
         },
         error => {
-          // Error scenario
           this.handleApiError(error);
         }
       );
@@ -102,9 +99,9 @@ export class SubscribeComponent {
 
   showErrorModal(message: string) {
     this.openMessageModal(false, message);
-    // setTimeout(() => {
-    //   this.closeMessageModal();
-    // }, 2000);
+    setTimeout(() => {
+      this.closeMessageModal();
+    }, 2000);
   }
 
   closeMessageModal() {
@@ -112,7 +109,7 @@ export class SubscribeComponent {
   }
 
   openMessageModal(isSuccess: boolean, message: string) {
-    const modalRef = this.modalService.open(MassegModalComponent, { centered: true });
+    const modalRef = this.modalService.open(MassegModalComponent, {centered: true});
     modalRef.componentInstance.isSuccess = isSuccess;
     modalRef.componentInstance.message = message;
     modalRef.componentInstance.modalDialogClass = 'custom-modal';

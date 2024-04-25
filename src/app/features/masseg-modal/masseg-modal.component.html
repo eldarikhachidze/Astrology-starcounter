@@ -2,10 +2,9 @@
   <div class="modal-content">
     <div class="modal-header">
       <p>{{ message }}</p>
-      <div [ngClass]="{'bg-success': isSuccess, 'close': !isSuccess}">
-        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div [ngClass]="{'success-btn-close': isSuccess === true, 'error-btn-close': isSuccess === false}"
+           (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
       </div>
     </div>
   </div>

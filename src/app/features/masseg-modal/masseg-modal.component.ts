@@ -1,5 +1,5 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {Component, Input, OnDestroy} from '@angular/core';
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgClass, NgIf} from "@angular/common";
 
 @Component({
@@ -12,18 +12,13 @@ import {NgClass, NgIf} from "@angular/common";
   templateUrl: './masseg-modal.component.html',
   styleUrl: './masseg-modal.component.scss'
 })
-export class MassegModalComponent implements OnInit, OnDestroy{
+export class MassegModalComponent implements OnDestroy {
 
   @Input() useCustomStyles: boolean = false;
   @Input() isSuccess?: boolean;
   @Input() message?: string;
 
-  constructor(private activeModal: NgbActiveModal) { }
-
-  ngOnInit(): void {
-    if (this.isSuccess) {
-      setTimeout(() => this.closeModal(), 2000); // Close modal after 2 seconds for success message
-    }
+  constructor(private activeModal: NgbActiveModal) {
   }
 
   closeModal() {
