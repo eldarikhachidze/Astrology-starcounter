@@ -74,9 +74,7 @@ export class EventDetailComponent implements OnInit {
 
   loadUserData(): void {
     this.authService.getUser().subscribe((data) => {
-      console.log(data);
       this.userData = data.eventsSubscription.map((item: any) => item.eventId);
-      console.log('userData:', this.userData);
     });
   }
 
@@ -84,13 +82,11 @@ export class EventDetailComponent implements OnInit {
     this.showModal = true;
   }
 
-  onModalConfirm(response: boolean) {
+  onModalConfirm(event: boolean) {
     this.showModal = false;
 
-    const urlPath = window.location.pathname;
-    const match = urlPath.match(/\/events\/detail\/(\d+)/);
 
-    this.eventService.eventSubscribe(match && +match[1])
+    this.eventService.eventSubscribe(this.item?.id)
       .subscribe(res => {
         if (res) {
           this.router.navigate(['./profile/my-lectures'])
