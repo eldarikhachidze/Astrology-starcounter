@@ -12,7 +12,6 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
   isLoading: boolean = true;
   userId?: number;
   userData: any;
-  eventSubscribeId?: number
 
   private unsubscribe$ = new Subject<void>();
 
@@ -35,16 +34,10 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
   loadUserData(): void {
     this.authService.getUser().subscribe((data) => {
       this.userData = data.eventsSubscription.map((item: any) => item.event).reverse();
-      this.extractEventSubscribeId();
       this.isLoading = false
     });
   }
 
-  extractEventSubscribeId(): void {
-    this.authService.getUser().subscribe((data) => {
-      this.eventSubscribeId = data.eventsSubscription[0].id;
-    });
-  }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
