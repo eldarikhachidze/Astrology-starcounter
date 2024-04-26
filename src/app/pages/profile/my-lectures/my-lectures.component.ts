@@ -20,7 +20,6 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService,
     private route: ActivatedRoute,
-
   ) {
   }
 
@@ -28,14 +27,14 @@ export class MyLecturesComponent implements OnInit, OnDestroy {
     this.route.params
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((params) => {
-      this.userId = +params['userId'];
+        this.userId = +params['userId'];
         this.loadUserData();
-    });
+      });
   }
 
   loadUserData(): void {
     this.authService.getUser().subscribe((data) => {
-      this.userData = data.eventsSubscription.map((item: any) => item.event);
+      this.userData = data.eventsSubscription.map((item: any) => item.event).reverse();
       this.extractEventSubscribeId();
       this.isLoading = false
     });
